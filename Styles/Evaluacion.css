@@ -1,0 +1,431 @@
+﻿.DatosEmpleado {    
+    background-color:#8CB0C6;   
+}
+
+.imgAdjunto {
+    Width:35px;
+    Height:40px;
+}
+
+.BlNegrita {
+    
+    color:white;
+    font:bold;    
+}
+
+.LabelBlanco {
+
+    color:white;
+}
+.Principal {
+   
+   margin-left:0%; 
+   margin-right:0%;
+   
+}
+.GridSinBorde {
+    border: 1px solid black;   
+    margin-left:1%;
+    margin-right:1%;
+    margin-top:1%;
+    margin-bottom:1%; 
+    width:98%;     
+  
+}
+
+.GridSencillo {
+    border-style:none;
+    margin-left:1%;
+    margin-right:1%;
+    margin-top:1%;
+    margin-bottom:1%;
+}
+.GridSencillo th{
+    border-style:none;
+    margin-left:1%;
+    margin-right:1%;
+    margin-top:1%;
+    margin-bottom:1%;      
+  
+}
+.GridSencillo td{
+    border-style:none;
+    margin-left:1%;
+    margin-right:1%;
+    margin-top:1%;
+    margin-bottom:1%;      
+  
+}
+
+.DivInicia {
+   
+    margin-bottom:1%;   
+    width:100%; 
+    border-radius: 15PX;
+    border: 2px solid #8CB0C6;       
+    
+}
+
+.DivTitulo {
+     margin-top:1%;
+    margin-bottom:1%;      
+    background-color:#002D56;
+    font:bold;   
+    padding-bottom: 1%; 
+	padding-top: 1%;   
+    padding-left:1%; 
+    color:white;
+    font-weight:bold;
+     border-radius: 8PX;
+}
+
+.DivDescripcion {
+     padding-bottom: 1%; 
+	padding-top: 1%;   
+    padding-left:1%; 
+    padding-right:1%;
+    text-align:justify;
+   letter-spacing:0.8px;
+   font:bold,italic;
+   line-height:25px;
+  background-color:#F1F1F1;
+  font-size:medium;
+}
+
+.DivTituloPregunta {
+     margin-top:1%;
+    margin-bottom:1%;   
+    /*position:static;*/
+    width:100%; 
+    background-color:#454545;   
+    /*padding-bottom: 1%; 
+	padding-top: 1%;   
+    padding-left:1%;*/ 
+    color:white;
+    font-weight:bold;
+    /*display:inline;*/    
+    /*border:1px solid black;*/
+    border-radius: 3PX;
+    padding-left:1%;
+}
+.DivTituloPreguntaDisabled {
+     margin-top:1%;
+    margin-bottom:1%;   
+    /*position:relative;*/
+    width:100%; 
+    background-color:white;
+   
+    /*padding-bottom: 1%; 
+	padding-top: 1%;   
+    padding-left:1%;*/ 
+    color:white;
+  
+    /*display:inline;*/
+    /*border-right:1px solid black;*/
+}
+
+.DivEnlaceDisabled {
+    color: gray;
+    display:none;
+}
+
+.DivEnlaceActivo {
+    display:inline;
+
+}
+
+.DivDescripcionPregunta {
+     padding-bottom: 1%; 
+	padding-top: 1%;   
+    padding-left:1%; 
+    padding-right:1%;
+    text-align:justify;
+   letter-spacing:0.8px;
+   font-weight:bold;
+   line-height:25px;
+  background-color:#E6E7E8;
+  font-size:medium; 
+}
+
+.HeaderGridMalla
+{
+    background-color:#002D56;
+    font-weight:bold;
+    Color:White;
+    border:Solid;
+    
+    
+ }
+
+.DivRespuesta {
+    padding-bottom: 1%;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    text-align: justify;
+    letter-spacing: 0.8px;
+   color:black;
+    line-height: 25px;
+    background-color: white;
+    font-size:small;
+    background-color:#F9FCFE;
+    /*filter: alpha(opacity=20);*/ 
+
+}
+
+.DivDatosFuncionarioMalla1 {
+    background-color:#B6B48C;   
+    font-weight:bold;
+    border-radius: 15PX;
+    padding-left:1%;
+
+}
+
+/*#autentica {
+    background-image: url(/Images/Fondo3.jpg);
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    margin-left: auto;
+    margin-right: auto;
+}*/
+#autentica {
+    margin-top:1%;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(../Images/Fondo1.jpg) center center no-repeat ;
+    /*opacity: .4;
+    filter: alpha(opacity=40);*/
+    width: 100%;
+    height: 100%;
+    /*-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";*/
+   
+
+}
+
+#divContenedorMalla {
+    padding-left:1%;
+    padding-top:1%;
+    padding-right:1%;
+    padding-bottom:1%;
+}
+.tablaFondo {
+    margin-top:1%;
+    position: relative;
+    z-index:5; 
+    background-color: #ffffff; 
+    opacity: 0.8; filter: alpha(opacity=80); 
+    font-weight: bold;
+    text-align:left;
+    border-radius: 8PX;
+    border: 2px solid #8CB0C6;       
+    padding-left:1%;
+    padding-right:1%;
+    padding-top:1.5%;
+    padding-bottom:1.5%;
+}
+
+.txtCredenciales {
+    background-color:#E9E9E9; font-weight: bold; border: 1px solid black; width:90%;
+}
+.BotonEnviar {
+    background-color:black; font-weight: bold; color:white;
+}
+
+/*Master Page*/
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+    .body-content {
+        padding: 0;
+    }
+}
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 55px;
+    padding-bottom: 10px;
+}
+
+.DivDatosFuncionarioMalla {   
+font-weight:bold;
+    border-radius: 15PX;
+    padding-left:1%;
+
+
+  /* Color alternativo para versiones que no soporten degradados */  
+  background-color:#8B9DAB;   
+  
+  /* Safari 4+ y Chrome 1+ */  
+  background-image:-o-linear-gradient(top, #8B9DAB, #77BCE6);   
+  
+ /* Safari 5.1+ y Chrome 10+ */  
+  /* Firefox 3.6+ */  
+  /* Opera 11.10+ */
+}  
+
+
+/*Para los menús*/
+
+/* el menú en si mismo */
+  .mi-menu  {
+    border-radius: 5px;
+    list-style-type: none;
+    /*margin: 0 auto;  si queremos centrarlo */
+    padding: 0;
+    /* la altura y su ancho dependerán de los textos */
+    height: 40px; 
+   
+    /* el color de fondo */
+    background: #002D56;/*#555;*/
+    background: -moz-linear-gradient(#002D56,#2B5580);/*#555,#222*/
+    background: -webkit-linear-gradient(#002D56,#2B5580);/*#555,#222*/
+    background: -o-linear-gradient(#002D56,#2B5580);/*#555,#222*/
+    background: -ms-linear-gradient(#002D56,#2B5580);/*#555,#222*/
+    background: linear-gradient(#002D56,#2B5580);/*#555,#222*/
+    padding-left:0px;
+    margin-left:0px;
+  }
+
+  /* si es necesario, evitamos que Blogger de problemas con los saltos de línea cuando escribimos el HTML */
+  .mi-menu  br { display:none; }
+
+  /* cada item del menu */
+  .mi-menu  li {
+    display: block;
+    float: left; /* la lista se ve horizontal */
+    height: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  .mi-menu li a {
+    border-left: 1px solid #000;
+    border-right: 1px solid #666;
+    color: #EEE;
+    display: block;
+    font-family: Tahoma;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 28px;
+    padding: 0 14px;
+    margin: 6px 0;
+    text-decoration: none;
+    /* animamos el cambio de color de los textos */
+    -webkit-transition: color .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out;
+    -o-transition: color .2s ease-in-out;
+    -ms-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+  }
+  /* eliminamos los bordes del primer y el último */
+  .mi-menu li:first-child a { border-left: none; }
+  .mi-menu li:last-child a{ border-right: none; }
+  /* efecto hover cambia el color */
+  .mi-menu li:hover > a { color:white; }
+
+  /* los submenús */
+  .mi-menu ul {
+    border-radius: 0 0 5px 5px;
+    left: 0;
+    margin: 0;
+    opacity: 0; /* no son visibles */
+    position: absolute;
+    top: 40px; /* se ubican debajo del enlace principal */
+    /* el color de fondo */
+    background: #2B5580;/*#222;*/
+    background: -moz-linear-gradient(#2B5580,#002D56);/*#222,#555*/
+    background: -webkit-linear-gradient(#2B5580,#002D56);/*#222,#555*/
+    background: -o-linear-gradient(#2B5580,#002D56);/*#222,#555*/
+    background: -ms-linear-gradient(#2B5580,#002D56);/*#222,#555*/
+    background: linear-gradient(#2B5580,#002D56);/*#222,#555*/
+    /* animamos su visibildiad */
+    -moz-transition: opacity .25s ease .1s;
+    -webkit-transition: opacity .25s ease .1s;
+    -o-transition: opacity .25s ease .1s;
+    -ms-transition: opacity .25s ease .1s;
+    transition: opacity .25s ease .1s;
+  }
+  /* son visibes al poner el cursor encima */
+  .mi-menu li:hover > ul { opacity: 1; filter: alpha(opacity=80); }
+
+   /* cada un ode los items de los submenús */
+  .mi-menu ul li {
+    height: 0; /* no son visibles */
+    overflow: hidden;
+    padding: 0;
+    /* animamos su visibildiad */
+    -moz-transition: height .25s ease .1s;
+    -webkit-transition: height .25s ease .1s;
+    -o-transition: height .25s ease .1s;
+    -ms-transition: height .25s ease .1s;
+    transition: height .25s ease .1s;
+  }
+  .mi-menu li:hover > ul li {
+    height: 36px; /* los mostramos */
+    /*width:auto;*/
+    overflow: visible;
+    padding: 0;
+  }
+  .mi-menu ul li a {
+    border: none;
+    border-bottom: 1px solid #111;
+    margin: 0;
+    /* el ancho dependerá de los textos a utilizar */
+    /*padding: 5px 5px;*/
+    /*width: 250px;*/
+  }
+  /* el último n otiene un borde */
+  .mi-menu ul li:last-child a { border: none; }
+
+  /**********************Tamaño del Control por defecto Modificado*/
+.ajax__tab_xp .ajax__tab_header .ajax__tab_tab {
+    height: 24px !important;
+}
+
+/**************************************************************************/
+/*                   Validator CalloutExtender                            */
+/**************************************************************************/
+.validatorCalloutHighlight, .CalloutExtender div, .CalloutExtender td {
+    background-color: #F0F8FF;
+}
+
+.CalloutExtender div, .CalloutExtender td {
+    border: solid 1px #7AA9DD;
+}
+
+td.ajax__validatorcallout_error_message_cell {
+    text-align: left;
+}
+
+.valDiag
+{
+    /*LemonChiffon;*/
+    color: inherit; /*border: 1px solid red;*/
+    float: left;
+    font-family: Verdana;
+    font-size: 10px;
+    width: 126px;
+    position: absolute;
+    min-height: 33px !important;
+    text-align: left !important;
+    z-index: 1000;
+}
+
+.watermarked {
+    background-color: aliceblue;
+    color: darkgray;
+}
+
+.perso table  label {
+    margin-left: 10px !important;
+}
