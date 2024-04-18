@@ -13,7 +13,7 @@
     <script type="text/javascript" src="Content/sweetalert2.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/bootstrap.css" />
     <link rel="stylesheet" href="Styles/Evaluaciones2.css" />
 
     <script src="../Scripts/jquery-3.0.0.min.js"></script>
@@ -78,7 +78,7 @@
             </div>
             <form action="">
                 <div style="right: 20px; position: absolute; padding: 20px 50px;">
-                    <button type="button" class="btn btn-outline-primary" >
+                    <button type="button" class="btn btn-outline-primary">
                         Guardar Cambios
                     </button>
                 </div>
@@ -88,7 +88,10 @@
                         <div class="input-group-prepend col-2">
                             <span class="span-title">
 
-                                Enfoque</span>
+                                Enfoque <br><button type="button" class="btn btn-outline-success"
+                                    style="font-size: 10px;">
+                                    Generar </button>
+                            </span>
 
                         </div>
 
@@ -99,7 +102,6 @@
 
                         </div>
                     </div>
-
 
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
@@ -152,12 +154,12 @@
                                     <thead style="background-color: #cacaca; align-items: center; color: #3d3d3dc9;">
                                         <tr>
                                             <th scope="col" style="text-align: center;">Number</th>
-                                            <th scope="col" style="text-align: center;">Nombre</th>
+                                            <th scope="col" style="text-align: center; width: 1000px;">Nombre</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="" style="height: 20px;">
+                                        <tr class="">
                                             <td scope="row" style="cursor: pointer;">Asignar Items <i
                                                     class="fa fa-plus-square" aria-hidden="true"
                                                     style="color: darkgreen;"></i> </td>
@@ -165,8 +167,8 @@
 
 
                                         </tr>
-                                        <tr class="" style="height: 40px;">
-                                            <td scope="row"></td>
+                                        <tr class="" style="height: 40px; width: 1000px;">
+                                            <td></td>
                                             <td></td>
 
                                         </tr>
@@ -271,7 +273,7 @@
                             </tfoot>
                         </table>
                     </div>
-                    <div class="tabs">
+                    <!-- <div class="tabs">
                         <div class="tab-container">
                             <div id="tab8" class="tab">
                                 <a href="#tab8" style="color: inherit; text-decoration: none;">Asignaturas</a>
@@ -348,7 +350,7 @@
                             </div>
                         </div>
                     </div>
-
+                -->
                 </div>
         </div>
         </form>
