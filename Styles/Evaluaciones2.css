@@ -153,6 +153,7 @@ nav {
 
 
 /* fin nav */
+/*INICIO HEADER*/
 .welcome {
     display: contents;
     position: absolute;
@@ -165,7 +166,9 @@ nav {
     padding: 10px 0px 10px 5px;
     color: #ffffff;
 }
+/*FIN HEADER*/
 
+/*COMPONENTES INGRESAR TEXTO*/
 .input-group-text {
     display: block;
     width: 100%;
@@ -175,16 +178,10 @@ nav {
     color: #030303;
 
 }
-
-
-
 .input-group {
     width: 100%;
     padding: 7px 0px 0px 0px;
-
-
 }
-
 textarea {
     width: 998px;
     height: 150px;
@@ -208,19 +205,15 @@ textarea {
     -webkit-transition: all .2s;
     -ms-transition: all .2s;
 }
-
 textarea:-moz-placeholder {
     color: #020202;
 }
-
 textarea:-ms-input-placeholder {
     color: #000000;
 }
-
 textarea:-webkit-input-placeholder {
     color: #000000;
 }
-
 input:focus {
     outline: none;
     -moz-box-shadow:
@@ -233,8 +226,6 @@ input:focus {
         0 2px 3px 0 rgba(0, 0, 0, .1) inset,
         0 2px 7px 0 rgba(0, 0, 0, .2);
 }
-
-
 input {
     width: 998px;
     height: 35px;
@@ -258,7 +249,6 @@ input {
     -webkit-transition: all .2s;
     -ms-transition: all .2s;
 }
-
 input:-moz-placeholder {
     color: #020202;
 }
@@ -270,7 +260,6 @@ input:-ms-input-placeholder {
 input::-webkit-input-placeholder {
     color: #000000;
 }
-
 input:focus {
     outline: none;
     -moz-box-shadow:
@@ -283,8 +272,10 @@ input:focus {
         0 2px 3px 0 rgba(0, 0, 0, .1) inset,
         0 2px 7px 0 rgba(0, 0, 0, .2);
 }
+/*FIN INGRESO DE TEXTO*/
 
 
+/*TITULO DE ETIQUETAS*/
 .span-title {
     width: 100%;
     padding: 8px 0px 0px 0px;
@@ -312,20 +303,21 @@ input:focus {
     -ms-transition: all .2s;
 }
 
+/*FIN TITULO DE ETIQUETAS*/
+
+/*----TABS----*/
+
 .tab-content {
     display: none;    
 }
-
 .tab:target .tab-content,
 .tab:last-of-type .tab-content {
     display: block;
     color: #153d64 ;
 }
-
 .tab:target~.tab:last-of-type .tab-content {
     display: none;
 }
-
 :root {
     --tabs-border-color: #153d64;
     --tabs-border-size: 3px;
@@ -335,7 +327,6 @@ input:focus {
     --tabs-width: 150px;
     --tabs-height: 70px;
 }
-
 /* aspecto básico */
 
 
@@ -438,6 +429,10 @@ input:focus {
     
 }
 
+/*---FIN DE TABS-----*/
+
+
+/*TITULOS*/
 h2 {
     font-size: 20px;
     text-transform: uppercase;
@@ -460,6 +455,8 @@ h1{
         margin-bottom: 2px;
     
 }
+
+/*FIN TITULOS*/
 
 .LoadingFondo {
     left: 0px;
