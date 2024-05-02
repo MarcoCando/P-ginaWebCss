@@ -358,6 +358,9 @@ input:focus {
 #iframeContenedor {
     display: none; /* Por defecto, ocultar el iframe */
   }
+  #iframeContenedor2 {
+    display: none; /* Por defecto, ocultar el iframe */
+  }
 
 
 /*FIN INGRESO DE TEXTO*/

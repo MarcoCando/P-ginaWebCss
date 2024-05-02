@@ -100,10 +100,10 @@
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend col-9">
-                        <button id="toggleIframe">Planificación</button>
+                        <button id="toggleIframe2">Planificación</button>
                     </div>
                     <div class="input-group-prepend col-9">
-                        <div id="iframeContenedor">
+                        <div id="iframeContenedor2">
                             <iframe id="miIframe" src="https://www.ejemplo.com"></iframe>
                         </div>
                     </div>
@@ -137,6 +137,8 @@
         // Obtener referencias a los elementos del DOM
         const botonToggleIframe = document.getElementById('toggleIframe');
         const iframeContenedor = document.getElementById('iframeContenedor');
+        const botonToggleIframe2 = document.getElementById('toggleIframe2');
+        const iframeContenedor2 = document.getElementById('iframeContenedor2');
 
         // Agregar un evento de clic al botón para mostrar u ocultar el iframe
         botonToggleIframe.addEventListener('click', function () {
@@ -145,6 +147,14 @@
                 iframeContenedor.style.display = 'block';
             } else {
                 iframeContenedor.style.display = 'none';
+            }
+        });
+        botonToggleIframe2.addEventListener('click', function () {
+            // Si el iframe está oculto, mostrarlo; de lo contrario, ocultarlo
+            if (iframeContenedor2.style.display === 'none') {
+                iframeContenedor2.style.display = 'block';
+            } else {
+                iframeContenedor2.style.display = 'none';
             }
         });
     </script>
