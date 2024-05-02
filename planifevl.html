@@ -61,17 +61,17 @@
         <div class="card m-2" style="background-color: #f5f5f5;">
             <div class="card-header">
                 <div class="welcome-2">
-                    <h2>Definición de Parametros - Modelo GPT <i class="fa fa-info-circle"></i></h2>
+                    <h2>Planificación y Evalución - GPT <i class="fa fa-info-circle"></i></h2>
                 </div>
             </div>
             <form action="">
-                <div style="right: 20px; position: absolute; padding: 20px 50px;">
+                <div style="right: 20px; position: absolute; padding: 20px 0px;">
                     <a href="defparametro.html" type="button" class="btn btn-outline-success"
                         style="border-radius: 10px 40px 40px 10px; border: solid 1px;">
                         Siguiente
                     </a>
                 </div>
-                <div style="right: 130px; position: absolute; padding: 20px 50px;">
+                <div style="right: 130px; position: absolute; padding: 20px 0px;">
                     <a href="parametro.html" type="button" class="btn btn-outline-success"
                         style="border-radius: 40px 10px 10px 40px; border: solid 1px;">
                         Regresar
@@ -83,299 +83,36 @@
                     </button>
                 </div>
                 <br>
-                <div class="p-5">
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Origen</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <input type="text" class="input100">
-                        </div>
+
+            </form>
+            <div class="p-5">
+                <div class="input-group">
+                    <div class="input-group-prepend col-9">
+                        <button id="toggleIframe">Planificación</button>
+
                     </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Programa</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <input type="text" class="input100">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Asignatura</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <input type="text" class="input100">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Código de Asignatura</span>
-                        </div>
-                        <div class="input-group-prepend col-1">
-                            <input type="number" class="input100">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Naturaleza de la Asignatura</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <select id="Dropdown" class="Dropdowns">
-                                <option value="opcion1">Teórico</option>
-                                <option value="opcion2">Opción 2</option>
-                                <option value="opcion3">Opción 3</option>
-                                <option value="opcion4">Opción 4</option>
-                            </select>
-
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Tipo de Asignatura</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <select id="Dropdown" class="Dropdowns">
-                                <option value="opcion1">Sincrónico</option>
-                                <option value="opcion2">Opción 2</option>
-                                <option value="opcion3">Opción 3</option>
-                                <option value="opcion4">Opción 4</option>
-                            </select>
-
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Créditos</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <input type="number" class="input100" placeholder="0">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Tipo</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <select id="Dropdown" class="Dropdowns">
-                                <option value="opcion1">Modular</option>
-                                <option value="opcion2">Opción 2</option>
-                                <option value="opcion3">Opción 3</option>
-                                <option value="opcion4">Opción 4</option>
-                            </select>
-
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Número de Semanas</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <input type="text" class="input100">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="input-group">
-                        <div class="col-2" style="padding: 0px 0px 0px 50px;">
-                            <a href="#" type="button" class="btn btn-outline-success"
-                                style="border-radius: 5px; border: solid 1px;">
-                                RDA De Carrera
-                            </a>
-
-                        </div>
-                        <div class="col-3">
-                            <a href="#" type="button" class="btn btn-outline-success"
-                                style="border-radius: 5px; border: solid 1px;">
-                                Área de Formación
-                            </a>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="table-responsive">
-                        <table class="table  table-hover  table-bordered  align-middle" style="font-size: 12px;">
-
-                            <thead style="background-color: #cacaca; align-items: center; color: #3d3d3dc9;">
-
-                                <tr>
-                                    <th>Rdas Carrera</th>
-
-                                </tr>
-                            </thead>
-                            <tbody class="table-group-divider">
-                                <tr class="">
-                                    <td scope="row" style="color: rgb(145, 145, 145);">Agregar Línea</td>
-
-                                </tr>
-                                <tr>
-                                    <td scope="row">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-                                        maiores veniam autem neque quasi, sed repellendus consectetur enim sint fuga
-                                        dolorem laborum atque, cupiditate ut eaque id voluptatum qui dolores?</td>
-
-                                </tr>
-                                <tr>
-                                    <td scope="row">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-                                        possimus odit repudiandae quas accusantium error fugiat, quaerat facilis dicta,
-                                        tempore provident. Voluptatum beatae dolor itaque fugiat pariatur,
-                                        necessitatibus ipsum quasi?</td>
-
-                                </tr>
-                            </tbody>
-                            <tfoot class="table-secondary">
-
-
-                            </tfoot>
-                        </table>
-                    </div>
-                    <hr style="height:1px;" />
-
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Resultado de Aprendizaje de la Asignatura</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <textarea name="" id="" cols="5" rows="1"></textarea>
-                        </div>
-                        <div class="input-group-prepend col-1">
-                            <button type="button" class="btn btn-info"
-                                style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Objetivo General</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-
-                            <textarea name="" id="" cols="110" rows="10"></textarea>
-
-                        </div>
-                        <div class="input-group-prepend col-1">
-                            <button type="button" class="btn btn-info"
-                                style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Definición del Curso</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-
-                            <textarea name="" id="" cols="110" rows="10"></textarea>
-
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Descripción del Curso</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <textarea name="" id="" cols="110" rows="10"></textarea>
-                        </div>
-                        <div class="input-group-prepend col-1">
-                            <button type="button" class="btn btn-info"
-                                style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
+                    <div class="input-group-prepend col-9">
+                        <div id="iframeContenedor">
+                            <iframe id="miIframe" src="https://www.ejemplo.com"></iframe>
                         </div>
                     </div>
 
-
-
-
-
-                    <!-- <div class="tabs">
-                        <div class="tab-container">
-                            <div id="tab8" class="tab">
-                                <a href="#tab8" style="color: inherit; text-decoration: none;">Asignaturas</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 8</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt,
-                                        mollitia sapiente reprehenderit exercitationem nostrum pariatur sunt.
-                                        Blanditiis, quae eligendi magnam placeat eius magni unde illo eaque
-                                        voluptate exercitationem amet quo.</p>
-                                </div>
-                            </div>
-                            <div id="tab7" class="tab">
-                                <a href="#tab7" style="color: inherit; text-decoration: none;">Malla</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 7</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque officia
-                                        ex nisi earum. Unde odio minima minus tempore voluptates enim temporibus
-                                        animi dolorum. Pariatur officia tenetur autem aperiam? Laboriosam,
-                                        magni.</p>
-                                </div>
-                            </div>
-                            <div id="tab6" class="tab">
-                                <a href="#tab6" style="color: inherit; text-decoration: none;">Diseño Curricular
-                                    Pre</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 6</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, modi.
-                                        Molestiae quasi corrupti fugit voluptates, ex perferendis quas
-                                        veritatis, dolore ab, eligendi repellat velit nesciunt eos beatae vel
-                                        illo facilis.</p>
-                                </div>
-                            </div>
-                            <div id="tab5" class="tab">
-                                <a href="#tab5" style="color: inherit; text-decoration: none;">Diseño
-                                    Curricular</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 5</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam magni
-                                        voluptatum, quasi quas impedit natus excepturi, consectetur quisquam
-                                        reiciendis modi obcaecati possimus beatae officia autem non quibusdam id
-                                        enim quidem.</p>
-                                </div>
-                            </div>
-                            <div id="tab4" class="tab">
-                                <a href="#tab4" style="color: inherit; text-decoration: none;">RDAS Inst</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 4</h2>
-                                    <p>Lorem ipsum ...</p>
-                                </div>
-                            </div>
-                            <div id="tab3" class="tab">
-                                <a href="#tab3" style="color: inherit; text-decoration: none;">RDAS</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 3</h2>
-                                    <p>Lorem ipsum ...</p>
-                                </div>
-                            </div>
-                            <div id="tab2" class="tab">
-                                <a href="#tab2" style="color: inherit; text-decoration: none;">Perfil</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 2</h2>
-                                    <p>Lorem ipsum ...</p>
-                                </div>
-                            </div>
-                            <div id="tab1" class="tab">
-                                <a href="#tab1" style="color: inherit; text-decoration: none;">Send</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 1</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus facere
-                                        odio sequi tempore commodi esse reprehenderit, illo nostrum quisquam
-                                        pariatur voluptatem nobis adipisci officiis molestiae at aliquid animi
-                                        amet maxime?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                -->
                 </div>
-        </div>
-        </form>
+                <div class="input-group">
+                    <div class="input-group-prepend col-9">
+                        <button id="toggleIframe">Planificación</button>
+                    </div>
+                    <div class="input-group-prepend col-9">
+                        <div id="iframeContenedor">
+                            <iframe id="miIframe" src="https://www.ejemplo.com"></iframe>
+                        </div>
+                    </div>
 
+                </div>
+
+
+            </div>
+        </div>
     </section>
 
     <!-- <iframe src="index.html" height="400" width="800" name="demo">
@@ -396,6 +133,21 @@
 
         </div>
     </footer>
+    <script>
+        // Obtener referencias a los elementos del DOM
+        const botonToggleIframe = document.getElementById('toggleIframe');
+        const iframeContenedor = document.getElementById('iframeContenedor');
+
+        // Agregar un evento de clic al botón para mostrar u ocultar el iframe
+        botonToggleIframe.addEventListener('click', function () {
+            // Si el iframe está oculto, mostrarlo; de lo contrario, ocultarlo
+            if (iframeContenedor.style.display === 'none') {
+                iframeContenedor.style.display = 'block';
+            } else {
+                iframeContenedor.style.display = 'none';
+            }
+        });
+    </script>
     <script src="Styles/script.js"></script>
 </body>
 

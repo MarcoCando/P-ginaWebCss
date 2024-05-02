@@ -10,6 +10,14 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
+  <style>
+    /* Estilos opcionales para el iframe */
+    #iframeContenedor {
+      display: none;
+      /* Por defecto, ocultar el iframe */
+    }
+  </style>
+
 </head>
 
 <body>
@@ -38,13 +46,36 @@
   <h2>HOLA</h2>
   <div class="card m-2" style="background-color: #f5f5f5;">
     <div class="card-header">
-        <div class="welcome-2">
-            <h2>Definition of Parameters <i class="fa fa-info-circle"></i></h2>
-            <h2>Definition of Parameters <i class="fa fa-info-circle"></i></h2>
-            <h2>Definition of Parameters <i class="fa fa-info-circle"></i></h2>
-            <h2>Definition of Parameters <i class="fa fa-info-circle"></i></h2>
-        </div>
+      <div class="welcome-2">
+        <h2>Definition of Parameters <i class="fa fa-info-circle"></i></h2>
+        <h2>Definition of Parameters <i class="fa fa-info-circle"></i></h2>
+        <h2>Definition of Parameters <i class="fa fa-info-circle"></i></h2>
+        <h2>Definition of Parameters <i class="fa fa-info-circle"></i></h2>
+      </div>
     </div>
+    <!-- Botón para mostrar y ocultar el iframe -->
+    <button id="toggleIframe">Mostrar/ocultar iframe</button>
+
+    <!-- Contenedor del iframe -->
+    <div id="iframeContenedor">
+      <iframe id="miIframe" src="https://www.ejemplo.com"></iframe>
+    </div>
+
+    <script>
+      // Obtener referencias a los elementos del DOM
+      const botonToggleIframe = document.getElementById('toggleIframe');
+      const iframeContenedor = document.getElementById('iframeContenedor');
+
+      // Agregar un evento de clic al botón para mostrar u ocultar el iframe
+      botonToggleIframe.addEventListener('click', function () {
+        // Si el iframe está oculto, mostrarlo; de lo contrario, ocultarlo
+        if (iframeContenedor.style.display === 'none') {
+          iframeContenedor.style.display = 'block';
+        } else {
+          iframeContenedor.style.display = 'none';
+        }
+      });
+    </script>
 
 </body>
 

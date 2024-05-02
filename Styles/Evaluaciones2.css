@@ -355,6 +355,11 @@ input:focus {
         0 2px 7px 0 rgba(0, 0, 0, .2);
 }
 
+#iframeContenedor {
+    display: none; /* Por defecto, ocultar el iframe */
+  }
+
+
 /*FIN INGRESO DE TEXTO*/
 
 
