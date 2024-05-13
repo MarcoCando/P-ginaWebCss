@@ -414,7 +414,8 @@ input:focus {
 .tab {
     flex: 1;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
+    border-radius: 10px;
     text-align: center;
     cursor: pointer;
 }
@@ -423,6 +424,7 @@ input:focus {
     display: none;
     padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
 
