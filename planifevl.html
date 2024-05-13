@@ -66,13 +66,13 @@
             </div>
             <form action="">
                 <div style="right: 20px; position: absolute; padding: 20px 0px;">
-                    <a href="defparametro.html" type="button" class="btn btn-outline-success"
+                    <a href="#" type="button" class="btn btn-outline-success"
                         style="border-radius: 10px 40px 40px 10px; border: solid 1px;">
                         Siguiente
                     </a>
                 </div>
                 <div style="right: 130px; position: absolute; padding: 20px 0px;">
-                    <a href="parametro.html" type="button" class="btn btn-outline-success"
+                    <a href="defparametro.html" type="button" class="btn btn-outline-success"
                         style="border-radius: 40px 10px 10px 40px; border: solid 1px;">
                         Regresar
                     </a>
@@ -85,32 +85,90 @@
                 <br>
 
             </form>
-            <div class="p-5">
-                <div class="input-group">
-                    <div class="input-group-prepend col-9">
-                        <button id="toggleIframe">Planificación</button>
+            <br>
+            <div class="p-4">
 
-                    </div>
-                    <div class="input-group-prepend col-9">
-                        <div id="iframeContenedor">
-                            <iframe id="miIframe" src="https://www.ejemplo.com"></iframe>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend col-9">
-                        <button id="toggleIframe2">Planificación</button>
-                    </div>
-                    <div class="input-group-prepend col-9">
-                        <div id="iframeContenedor2">
-                            <iframe id="miIframe" src="https://www.ejemplo.com"></iframe>
-                        </div>
-                    </div>
-
+                <div class="tabs-container">
+                    <div class="tab" onclick="mostrarContenido(1)">Planificación</div>
+                    <div class="tab" onclick="mostrarContenido(2)">Metodología</div>
+                    <div class="tab" onclick="mostrarContenido(3)">Mecanismos de Evaluación</div>
                 </div>
 
+                <div class="content" id="contenido1">
+                    <div class="input-group">
+                        <div class="input-group-prepend col-2">
+                            <span class="span-title">
+                                Origen</span>
+                        </div>
+                        <div style="border-left: 1px solid #ddd;"></div>
 
+                        <div class="input-group-prepend col-9">
+                            <input type="text" class="input100" placeholder="Modular">
+                        </div>
+
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend col-2">
+                            <span class="span-title">
+                                Tipo de Asignatura</span>
+                        </div>
+                        <div style="border-left: 1px solid #ddd;"></div>
+
+                        <div class="input-group-prepend col-9">
+                            <input type="text" class="input100" placeholder="Sincrónico">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="content" id="contenido2">Contenido de la pestaña 2.</div>
+                <div class="content" id="contenido3">Contenido de la pestaña 3.</div>
+
+            </div>
+            <!--SEGUNDO TAB-->
+            <div class="p-4">
+                <div class="tabs-container">
+                    <div class="tab" onclick="mostrarContenido2(1)">Temas</div>
+                    <div class="tab" onclick="mostrarContenido2(2)">Planificación</div>
+                    <div class="tab" onclick="mostrarContenido2(3)">Actividades</div>
+                    <div class="tab" onclick="mostrarContenido2(4)">Entregas de Aprendizaje</div>
+                    <div class="tab" onclick="mostrarContenido2(5)">Evaluación</div>
+                    <div class="tab" onclick="mostrarContenido2(6)">Rubricas</div>
+                </div>
+
+                <div class="content" id="contenidos1">
+                    <div class="input-group">
+                        <div class="input-group-prepend col-2">
+                            <span class="span-title">
+                                Temas</span>
+                        </div>
+                        <div style="border-left: 1px solid #ddd;"></div>
+
+                        <div class="input-group-prepend col-1">
+                            <button type="button" class="btn btn-info"
+                                style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
+                        </div>
+
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend col-2">
+                            <span class="span-title">
+                                Bibliografía</span>
+                        </div>
+                        <div style="border-left: 1px solid #ddd;"></div>
+
+                        <div class="input-group-prepend col-1">
+                            <button type="button" class="btn btn-info"
+                                style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="content" id="contenidos2">Contenido de la pestaña 2.</div>
+                <div class="content" id="contenidos3">Contenido de la pestaña 3.</div>
+                <div class="content" id="contenidos4">Contenido de la pestaña 4.</div>
+                <div class="content" id="contenidos5">Contenido de la pestaña 5.</div>
+                <div class="content" id="contenidos6">Contenido de la pestaña 6.</div>
+                
             </div>
         </div>
     </section>
@@ -134,29 +192,16 @@
         </div>
     </footer>
     <script>
-        // Obtener referencias a los elementos del DOM
-        const botonToggleIframe = document.getElementById('toggleIframe');
-        const iframeContenedor = document.getElementById('iframeContenedor');
-        const botonToggleIframe2 = document.getElementById('toggleIframe2');
-        const iframeContenedor2 = document.getElementById('iframeContenedor2');
-
-        // Agregar un evento de clic al botón para mostrar u ocultar el iframe
-        botonToggleIframe.addEventListener('click', function () {
-            // Si el iframe está oculto, mostrarlo; de lo contrario, ocultarlo
-            if (iframeContenedor.style.display === 'none') {
-                iframeContenedor.style.display = 'block';
-            } else {
-                iframeContenedor.style.display = 'none';
-            }
-        });
-        botonToggleIframe2.addEventListener('click', function () {
-            // Si el iframe está oculto, mostrarlo; de lo contrario, ocultarlo
-            if (iframeContenedor2.style.display === 'none') {
-                iframeContenedor2.style.display = 'block';
-            } else {
-                iframeContenedor2.style.display = 'none';
-            }
-        });
+        function mostrarContenido(num) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => (content.style.display = 'none'));
+            document.getElementById(`contenido${num}`).style.display = 'block';
+        }
+        function mostrarContenido2(num) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => (content.style.display = 'none'));
+            document.getElementById(`contenidos${num}`).style.display = 'block';
+        }
     </script>
     <script src="Styles/script.js"></script>
 </body>
