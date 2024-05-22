@@ -26,7 +26,7 @@
 
 </head>
 
-<body>    
+<body>
     <section>
         <nav style="background-color: #153d64;">
             <div class="logo">
@@ -144,6 +144,7 @@
                         </div>
                     </div>
                     <hr>
+
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
                             <span class="span-title"
@@ -151,11 +152,22 @@
                                 Resultados de Aprendizajes</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <textarea name="" id="resultado" cols="110" rows="10" style="overflow: hidden;"></textarea>
+                            <textarea id="textareaContent" cols="110" rows="10" style="overflow: hidden"
+                                readonly></textarea>
+                            <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+                                <div class="spinner">
+                                    <div class="double-bounce1"></div>
+                                    <div class="double-bounce2"></div>
+                                </div>
+                            </div>
+
                         </div>
+
                         <div class="input-group-prepend col-1">
-                            <button type="button" id="consultar" class="btn btn-info"
-                                style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
+                            <button onclick="handleButtonClick()" id="generar" type="button" class="btn btn-info"
+                                style="font-size: 12px; border-radius: 50px; height: 40px;">
+                                Generar
+                            </button>
                         </div>
                     </div>
                     <div class="input-group">
@@ -238,6 +250,7 @@
         </div>
         </form>
     </section>
+
     <br>
     <footer class="container-fluid text-white py-4  float-right" style="background-color: #153d64;">
         <div class="d-flex">
@@ -252,47 +265,69 @@
         </div>
     </footer>
     <script>
-        document.getElementById('consultar').addEventListener('click', fetchDataAndFormatRDA);
+        /*RESULTADOS DE APRENDIZAJE*/
         async function fetchDataAndFormatRDA() {
             const rda = "comunicacion";
             const creditos = 3;
             const name = "MARKETING CON INTELIGENCIA ARTIFICIAL";
-            const textarea = document.getElementById('resultado');
-
             try {
-                const url = `http://172.191.10.174/api/rda/programa?rda=${rda}&creditos=${creditos}&name=${encodeURIComponent(name)}`;
+                const url = `http://172.191.10.174/api/rda/programa?rda=${rda}&creditos=${creditos}&name=${name}`;
                 const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
                 const formatted = formatTextRDA(data.name);
-                textarea.value = formatted;
-                adjustTextareaHeight(textarea);
+                document.getElementById("textareaContent").value = formatted;
+                adjustTextareaHeight();
+                document.getElementById("loadingOverlay").style.display = "none";
             } catch (error) {
                 console.error("Error al obtener datos:", error);
-                textarea.value = `Error al obtener datos: ${error.message}`;
-                adjustTextareaHeight(textarea);
+                document.getElementById("textareaContent").value = `Error al obtener datos: ${error.message}`;
+                adjustTextareaHeight();
+                document.getElementById("loadingOverlay").style.display = "none";
             }
         }
 
+        function adjustTextareaHeight() {
+            const textarea = document.getElementById("textareaContent");
+            textarea.style.height = "110px";
+            textarea.style.height = `${textarea.scrollHeight}px`;
+        }
+
         function formatTextRDA(text) {
-            // Reemplazar los caracteres de escape con saltos de línea reales
             let formatted = text.replace(/\\n/g, "\n");
             if (formatted.includes("\n")) {
                 formatted += "\n";
             }
-
-            // Agregar sangría para mejorar la legibilidad
-            // formatted = formatted.replace(/^(?!\s*$)/gm, "    "); // Agrega cuatro espacios al inicio de cada línea
-
             return formatted;
         }
 
-        function adjustTextareaHeight(textarea) {
-            textarea.style.height = "110px";
-            textarea.style.height = `${textarea.scrollHeight}px`;
+        async function SpinnerRDA() {
+            document.getElementById("loadingOverlay").style.display = "flex";
+            document.getElementById('generar').textContent = 'Cargando...';
+            document.getElementById('textareaContent').value = 'Cargando Contenido ...';
+
+            try {
+                await new Promise((resolve) => setTimeout(resolve, 1200));
+            } catch (error) {
+                console.error("Error al realizar la solicitud:", error);
+            } finally {
+                document.getElementById("loadingOverlay").style.display = "none";
+                document.getElementById('generar').textContent = 'Generar';
+
+            }
         }
+
+
+        function handleButtonClick() {
+            SpinnerRDA();
+            fetchDataAndFormatRDA();
+        }
+        /*FIN DE RESULTADO DE APRENDIZAJE*/
+        /*PERFIL DE EGRESO*/
+
+        /*FIN DE PERFIL DE EGRESO*/
     </script>
     <script src="Styles/script.js"></script>
 </body>
