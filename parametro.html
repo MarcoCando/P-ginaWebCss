@@ -26,14 +26,13 @@
 
 </head>
 
-<body>
+<body>    
     <section>
         <nav style="background-color: #153d64;">
             <div class="logo">
                 <img src="assets/Logo64x64.png" />
                 <h1>Sistema Académico</h1>
             </div>
-
             <div class="hamburger">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -44,7 +43,6 @@
             <ul>
                 <li>
                     <i class="fa-solid fa-arrow-right"></i><a href="#">Inicio <i class="fa-solid fa-house"></i></a>
-
                 </li>
                 <li>
                     <i class="fa-solid fa-arrow-right"></i><a href="#">Lenguaje <i
@@ -86,11 +84,7 @@
                         </div>
                         <div class="input-group-prepend col-9">
                             <input type="text" class="input100">
-
                         </div>
-
-
-
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
@@ -101,37 +95,27 @@
                         <div class="input-group-prepend col-9">
                             <input type="text" class="input100">
                         </div>
-
                     </div>
-
-
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
                             <span class="span-title">
-
                                 País</span>
                         </div>
                         <div class="input-group-prepend col-2">
                             <input type="text" class="input100">
-
                         </div>
-
                         <div class="input-group-prepend col-2">
                             <span class="span-title">
-
                                 Creditos</span>
                         </div>
                         <div class="input-group-prepend col-2">
                             <input type="number" class="input100" placeholder="0">
-
                         </div>
                     </div>
-
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
                             <span class="span-title"
                                 style="top: 0; right: 0;left: 0; display: flex; justify-content: center; align-items: center;">
-
                                 Resultados de A. Ins</span>
                         </div>
                         <div class="input-group-prepend col-9">
@@ -141,7 +125,6 @@
                                         <tr>
                                             <th scope="col" style="text-align: center;">Number</th>
                                             <th scope="col" style="text-align: center; width: 1000px;">Nombre</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -150,38 +133,28 @@
                                                     class="fa fa-plus-square" aria-hidden="true"
                                                     style="color: darkgreen;"></i> </td>
                                             <td></td>
-
-
                                         </tr>
                                         <tr class="" style="height: 60px; width: 1000px;">
                                             <td></td>
                                             <td></td>
-
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-
-
-
                         </div>
-
                     </div>
                     <hr>
-
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
                             <span class="span-title"
                                 style="top: 0; right: 0;left: 0; display: flex; justify-content: center; align-items: center;">
-
                                 Resultados de Aprendizajes</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <textarea name="" id="" cols="110" rows="10"></textarea>
-
+                            <textarea name="" id="resultado" cols="110" rows="10" style="overflow: hidden;"></textarea>
                         </div>
                         <div class="input-group-prepend col-1">
-                            <button type="button" class="btn btn-info"
+                            <button type="button" id="consultar" class="btn btn-info"
                                 style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
                         </div>
                     </div>
@@ -193,13 +166,9 @@
                                 Perfil de Egreso</span>
                         </div>
                         <div class="input-group-prepend col-9">
-
                             <textarea name="" id="" cols="110" rows="10"></textarea>
-
                         </div>
                         <div class="input-group-prepend col-1">
-
-
                             <button type="button" class="btn btn-info"
                                 style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
                         </div>
@@ -215,9 +184,7 @@
                             <div class="table-responsive">
                                 <table class="table table-light table-striped table-hover  table-bordered  align-middle"
                                     style="font-size: 12px;">
-
                                     <thead style="background-color: #cacaca; align-items: center; color: #3d3d3dc9;">
-
                                         <tr>
                                             <th>Number</th>
                                             <th>Nombre Asignatura</th>
@@ -256,107 +223,21 @@
                                         <td></td>
                                         <td>0</td>
                                         <td></td>
-
                                     </tfoot>
                                 </table>
                             </div>
                         </div>
                         <div class="input-group-prepend col-1">
-
-
                             <button type="button" class="btn btn-info"
                                 style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
                         </div>
                     </div>
                     <hr>
                     <br>
-
-                    <!-- <div class="tabs">
-                        <div class="tab-container">
-                            <div id="tab8" class="tab">
-                                <a href="#tab8" style="color: inherit; text-decoration: none;">Asignaturas</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 8</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt,
-                                        mollitia sapiente reprehenderit exercitationem nostrum pariatur sunt.
-                                        Blanditiis, quae eligendi magnam placeat eius magni unde illo eaque
-                                        voluptate exercitationem amet quo.</p>
-                                </div>
-                            </div>
-                            <div id="tab7" class="tab">
-                                <a href="#tab7" style="color: inherit; text-decoration: none;">Malla</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 7</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque officia
-                                        ex nisi earum. Unde odio minima minus tempore voluptates enim temporibus
-                                        animi dolorum. Pariatur officia tenetur autem aperiam? Laboriosam,
-                                        magni.</p>
-                                </div>
-                            </div>
-                            <div id="tab6" class="tab">
-                                <a href="#tab6" style="color: inherit; text-decoration: none;">Diseño Curricular
-                                    Pre</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 6</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, modi.
-                                        Molestiae quasi corrupti fugit voluptates, ex perferendis quas
-                                        veritatis, dolore ab, eligendi repellat velit nesciunt eos beatae vel
-                                        illo facilis.</p>
-                                </div>
-                            </div>
-                            <div id="tab5" class="tab">
-                                <a href="#tab5" style="color: inherit; text-decoration: none;">Diseño
-                                    Curricular</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 5</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam magni
-                                        voluptatum, quasi quas impedit natus excepturi, consectetur quisquam
-                                        reiciendis modi obcaecati possimus beatae officia autem non quibusdam id
-                                        enim quidem.</p>
-                                </div>
-                            </div>
-                            <div id="tab4" class="tab">
-                                <a href="#tab4" style="color: inherit; text-decoration: none;">RDAS Inst</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 4</h2>
-                                    <p>Lorem ipsum ...</p>
-                                </div>
-                            </div>
-                            <div id="tab3" class="tab">
-                                <a href="#tab3" style="color: inherit; text-decoration: none;">RDAS</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 3</h2>
-                                    <p>Lorem ipsum ...</p>
-                                </div>
-                            </div>
-                            <div id="tab2" class="tab">
-                                <a href="#tab2" style="color: inherit; text-decoration: none;">Perfil</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 2</h2>
-                                    <p>Lorem ipsum ...</p>
-                                </div>
-                            </div>
-                            <div id="tab1" class="tab">
-                                <a href="#tab1" style="color: inherit; text-decoration: none;">Send</a>
-                                <div class="tab-content">
-                                    <h2>Titulo 1</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus facere
-                                        odio sequi tempore commodi esse reprehenderit, illo nostrum quisquam
-                                        pariatur voluptatem nobis adipisci officiis molestiae at aliquid animi
-                                        amet maxime?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                -->
                 </div>
         </div>
         </form>
-
     </section>
-
-
-
     <br>
     <footer class="container-fluid text-white py-4  float-right" style="background-color: #153d64;">
         <div class="d-flex">
@@ -368,9 +249,51 @@
                 <span>Av. Amazonas y Unión de Periodistas
                 </span>
             </div>
-
         </div>
     </footer>
+    <script>
+        document.getElementById('consultar').addEventListener('click', fetchDataAndFormatRDA);
+        async function fetchDataAndFormatRDA() {
+            const rda = "comunicacion";
+            const creditos = 3;
+            const name = "MARKETING CON INTELIGENCIA ARTIFICIAL";
+            const textarea = document.getElementById('resultado');
+
+            try {
+                const url = `http://172.191.10.174/api/rda/programa?rda=${rda}&creditos=${creditos}&name=${encodeURIComponent(name)}`;
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                const formatted = formatTextRDA(data.name);
+                textarea.value = formatted;
+                adjustTextareaHeight(textarea);
+            } catch (error) {
+                console.error("Error al obtener datos:", error);
+                textarea.value = `Error al obtener datos: ${error.message}`;
+                adjustTextareaHeight(textarea);
+            }
+        }
+
+        function formatTextRDA(text) {
+            // Reemplazar los caracteres de escape con saltos de línea reales
+            let formatted = text.replace(/\\n/g, "\n");
+            if (formatted.includes("\n")) {
+                formatted += "\n";
+            }
+
+            // Agregar sangría para mejorar la legibilidad
+            // formatted = formatted.replace(/^(?!\s*$)/gm, "    "); // Agrega cuatro espacios al inicio de cada línea
+
+            return formatted;
+        }
+
+        function adjustTextareaHeight(textarea) {
+            textarea.style.height = "110px";
+            textarea.style.height = `${textarea.scrollHeight}px`;
+        }
+    </script>
     <script src="Styles/script.js"></script>
 </body>
 
