@@ -4,23 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Academics</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" type="text/css" href="Content/sweetalert2.min.css" />
-    <script src="sweetalert2.all.min.js"></script>
-    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Content/sweetalert2.min.css" />
+    <script src="../Content/sweetalert2.all.min.js"></script>
+    <script src="../Content/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="Content/sweetalert2.min.css" />
     <script type="text/javascript" src="Content/sweetalert2.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <link rel="stylesheet" href="Content/bootstrap.css" />
-    <link rel="stylesheet" href="Styles/Evaluaciones2.css" />
+    <link rel="stylesheet" href="../Content/bootstrap.css" />
+    <link rel="stylesheet" href="../Styles/StylesAcademics.css" />
 
     <script src="../Scripts/jquery-3.0.0.min.js"></script>
 
-    <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/bootstrap.bundle.min.js"></script>
-    <script src="Confirmation/js/ConfirmationModal.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Confirmation/js/ConfirmationModal.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/df2ecd1a25.js" crossorigin="anonymous"></script>
 
@@ -197,60 +197,24 @@
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
                             <span class="span-title"
-                                style="top: 0; right: 0;left: 0; display: flex; justify-content: center; align-items: center;">
-
-                                Diseño Curricular</span>
+                                style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
+                                Diseño Curricular
+                            </span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <div class="table-responsive">
-                                <table class="table table-light table-striped table-hover  table-bordered  align-middle"
-                                    style="font-size: 12px;">
-                                    <thead style="background-color: #cacaca; align-items: center; color: #3d3d3dc9;">
-                                        <tr>
-                                            <th>Number</th>
-                                            <th>Nombre Asignatura</th>
-                                            <th>Créditos...</th>
-                                            <th>Number</th>
-                                            <th>Nombre Asignatura</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="table-group-divider">
-                                        <tr class="table-light">
-                                            <td scope="row">1</td>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                            <td>1</td>
-                                            <td>Item</td>
-                                        </tr>
-                                        <tr>
-                                            <td scope="row">2</td>
-                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quasi
-                                                quibusdam esse nobis ab velit placeat, eos maxime a nemo omnis molestiae
-                                                earum quo adipisci consequuntur, aliquid expedita repudiandae
-                                                consectetur.</td>
-                                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium eum
-                                                sint maxime hic. Incidunt voluptatem assumenda eligendi accusamus magnam
-                                                consequatur aut, ipsam porro officiis vero qui deleniti, explicabo fuga
-                                                fugit!</td>
-                                            <td>2</td>
-                                            <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi expedita
-                                                quibusdam pariatur. Modi, sint illum unde eius officiis reprehenderit
-                                                impedit, quia at amet quam molestiae dicta corrupti! Natus, tempora qui.
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot class="table-secondary">
-                                        <td></td>
-                                        <td></td>
-                                        <td>0</td>
-                                        <td></td>
-                                    </tfoot>
-                                </table>
+                            <div id="tableContainer" class="table-responsive"></div>
+                            <div id="loadingOverlayDiseño" class="loading-overlay" style="display: none;">
+                                <div class="spinner">
+                                    <div class="double-bounce1"></div>
+                                    <div class="double-bounce2"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="input-group-prepend col-1">
-                            <button type="button" class="btn btn-info"
-                                style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
+                            <button onclick="handleButtonClickDiseño()" type="button" class="btn btn-info"
+                                style="font-size: 12px; border-radius: 50px; height: 40px;">
+                                Generar
+                            </button>
                         </div>
                     </div>
                     <hr>
@@ -381,6 +345,129 @@
             textarea.style.height = `${textarea.scrollHeight}px`;
         }
         /*FIN DE PERFIL DE EGRESO*/
+        /*DISEÑO CURRICULAR*/
+        let programData = null;
+        let loadingDiseño = false;
+
+        async function fetchData() {
+            try {
+                const url = "http://172.191.10.174/api/diseno/programa";
+                const body = {
+                    rdas: "1. Integra técnicas avanzadas de inteligencia artificial para desarrollar estrategias de marketing innovadoras y efectivas. 2. Evalúa la eficacia de las campañas de marketing personalizadas mediante el uso de algoritmos y análisis de datos para optimizar su rendimiento. 3. Diseña y ejecuta estrategias de marketing basadas en inteligencia artificial para optimizar la adquisición y retención de clientes de manera rentable.",
+                };
+
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(body),
+                });
+
+                if (!response.ok) {
+                    throw new Error("Error al obtener los datos");
+                }
+
+                const data = await response.json();
+                programData = data;
+                renderTable();
+            } catch (error) {
+                console.error("Error al obtener datos:", error);
+                document.getElementById("tableContainer").innerHTML = "Error al obtener los datos";
+            }
+        }
+
+        function renderTable() {
+            if (!programData) return;
+
+            let shouldStopRendering = false;
+            let totalCredits = 0;
+
+            const rows = programData.name
+                .split("\n")
+                .filter(Boolean)
+                .slice(1, -1)
+                .map((item, index) => {
+                    if (shouldStopRendering) return null;
+
+                    if (item === "\\n\\n") {
+                        shouldStopRendering = true;
+                        return null;
+                    }
+
+                    const parts = item.split(" - ");
+                    const number = extractNumber(parts[0]);
+                    const description = extractDescription(parts[0]);
+                    const credits = extractCredits(parts[1]);
+                    if (!isNaN(parseInt(credits))) {
+                        totalCredits += parseInt(credits);
+                    }
+                    return `
+        <tr>
+          <td style="text-align: center;">${number}</td>
+          <td>${description}</td>
+          <td style="text-align: center;">${credits}</td>
+        </tr>
+      `;
+                })
+                .filter(Boolean)
+                .join("");
+
+            const totalRow = `
+    <tr>
+      <td colspan="2" style="text-align: center;">Total Créditos</td>
+      <td style="text-align: center;">${totalCredits}</td>
+    </tr>
+  `;
+
+            const tableHTML = `
+    <table class="table table-hover table-bordered" style="font-size: 12px;">
+      <thead style="background-color: #cacaca; text-align: center; color: #3d3d3dc9;">
+        <tr>
+          <th>Number</th>
+          <th>Nombre Asignatura</th>
+          <th>Créditos</th>
+        </tr>
+      </thead>
+      <tbody>${rows}${totalRow}</tbody>
+    </table>
+  `;
+
+            document.getElementById("tableContainer").innerHTML = tableHTML;
+        }
+
+        function extractNumber(text) {
+            const match = text.match(/\{?\d+\}?/);
+            return match ? match[0] : "";
+        }
+
+        function extractDescription(text) {
+            const description = text.replace(/\{?\d+\}?\.\s*/, "");
+            const index = description.indexOf("\\n\\n");
+            return index !== -1 ? description.substring(0, index) : description;
+        }
+
+        function extractCredits(text) {
+            const match = text && text.match(/\d+/);
+            return match ? match[0] : "";
+        }
+
+        async function SpinnerDiseño() {
+            document.getElementById("loadingOverlayDiseño").style.display = "flex";
+            try {
+                await new Promise((resolve) => setTimeout(resolve, 6000));
+            } catch (error) {
+                console.error("Error al realizar la solicitud:", error);
+            } finally {
+                document.getElementById("loadingOverlayDiseño").style.display = "none";
+            }
+        }
+
+        function handleButtonClickDiseño() {
+            SpinnerDiseño();
+            fetchData();
+        }
+        /*FIN DISEÑO CURRICULAR*/
     </script>
     <script src="Styles/script.js"></script>
 </body>
