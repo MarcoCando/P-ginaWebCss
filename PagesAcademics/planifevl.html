@@ -89,9 +89,9 @@
             <div class="p-4">
 
                 <div class="tabs-container">
-                    <div class="tab" onclick="mostrarContenido(1)">Planificación</div>
-                    <div class="tab" onclick="mostrarContenido(2)">Metodología</div>
-                    <div class="tab" onclick="mostrarContenido(3)">Mecanismos de Evaluación</div>
+                    <div class="tab" onclick="toggleContenido(1)">Planificación</div>
+                    <div class="tab" onclick="toggleContenido(2)">Metodología</div>
+                    <div class="tab" onclick="toggleContenido(3)">Mecanismos de Evaluación</div>
                 </div>
 
                 <div class="content" id="contenido1">
@@ -125,12 +125,12 @@
                 <hr>
 
                 <div class="tabs-container">
-                    <div class="tab" onclick="mostrarContenido2(1)">Temas</div>
-                    <div class="tab" onclick="mostrarContenido2(2)">Planificación</div>
-                    <div class="tab" onclick="mostrarContenido2(3)">Actividades</div>
-                    <div class="tab" onclick="mostrarContenido2(4)">Entregas de Aprendizaje</div>
-                    <div class="tab" onclick="mostrarContenido2(5)">Evaluación</div>
-                    <div class="tab" onclick="mostrarContenido2(6)">Rubricas</div>
+                    <div class="tab" onclick="toggleContenido2(1)">Temas</div>
+                    <div class="tab" onclick="toggleContenido2(2)">Planificación</div>
+                    <div class="tab" onclick="toggleContenido2(3)">Actividades</div>
+                    <div class="tab" onclick="toggleContenido2(4)">Entregas de Aprendizaje</div>
+                    <div class="tab" onclick="toggleContenido2(5)">Evaluación</div>
+                    <div class="tab" onclick="toggleContenido2(6)">Rubricas</div>
                 </div>
 
                 <div class="content" id="contenidos1">
@@ -139,26 +139,26 @@
                             <span class="span-title">
                                 Temas</span>
                         </div>
-                        <div style="border-left: 1px solid #ddd;"></div>
-
+                        <div class="input-group-prepend col-9">
+                            <textarea name="" id="" cols="5" rows="1"></textarea>
+                        </div>
                         <div class="input-group-prepend col-1">
                             <button type="button" class="btn btn-info"
                                 style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
                         </div>
-
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
                             <span class="span-title">
                                 Bibliografía</span>
                         </div>
-                        <div style="border-left: 1px solid #ddd;"></div>
-
+                        <div class="input-group-prepend col-9">
+                            <textarea name="" id="" cols="5" rows="1"></textarea>
+                        </div>
                         <div class="input-group-prepend col-1">
                             <button type="button" class="btn btn-info"
                                 style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
                         </div>
-
                     </div>
                 </div>
                 <div class="content" id="contenidos2">Contenido de la pestaña 2.</div>
@@ -206,19 +206,23 @@
         </div>
     </footer>
     <script>
-        function mostrarContenido(num) {
+        function toggleContenido(num) {
+            const content = document.getElementById(`contenido${num}`);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleContenido2(num) {
+            const content = document.getElementById(`contenidos${num}`);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Inicializar todos los contenidos como no visibles
+        document.addEventListener("DOMContentLoaded", function () {
             const contents = document.querySelectorAll('.content');
             contents.forEach(content => (content.style.display = 'none'));
-            document.getElementById(`contenido${num}`).style.display = 'block';
-        }
-        function mostrarContenido2(num) {
-            const contents = document.querySelectorAll('.content');
-            contents.forEach(content => (content.style.display = 'none'));
-            document.getElementById(`contenidos${num}`).style.display = 'block';
-        }
+        });
     </script>
     <script src="Styles/script.js"></script>
 </body>
-
 
 </html>
