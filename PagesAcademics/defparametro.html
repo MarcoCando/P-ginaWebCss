@@ -201,40 +201,30 @@
                     </div>
                     <hr>
                     <div class="table-responsive">
-                        <table class="table  table-hover  table-bordered  align-middle" style="font-size: 12px;">
-
+                        <table class="table table-hover table-bordered align-middle" style="font-size: 12px;">
                             <thead style="background-color: #cacaca; align-items: center; color: #3d3d3dc9;">
-
                                 <tr>
                                     <th>Rdas Carrera</th>
-
                                 </tr>
                             </thead>
-                            <tbody class="table-group-divider">
-                                <tr class="">
-                                    <td scope="row" style="color: rgb(145, 145, 145);">Agregar Línea</td>
-
+                            <tbody class="table-group-divider" id="tableBody">
+                                <tr>
+                                    <td scope="row"></td>
                                 </tr>
                                 <tr>
-                                    <td scope="row">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-                                        maiores veniam autem neque quasi, sed repellendus consectetur enim sint fuga
-                                        dolorem laborum atque, cupiditate ut eaque id voluptatum qui dolores?</td>
-
-                                </tr>
-                                <tr>
-                                    <td scope="row">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-                                        possimus odit repudiandae quas accusantium error fugiat, quaerat facilis dicta,
-                                        tempore provident. Voluptatum beatae dolor itaque fugiat pariatur,
-                                        necessitatibus ipsum quasi?</td>
-
+                                    <td scope="row"></td>
                                 </tr>
                             </tbody>
-                            <tfoot class="table-secondary">
-
-
-                            </tfoot>
+                            <tfoot class="table-secondary"></tfoot>
                         </table>
+                        <div id="loadingOverlayTable" class="loading-overlay" style="display: none;">
+                            <div class="spinner">
+                                <div class="double-bounce1"></div>
+                                <div class="double-bounce2"></div>
+                            </div>
+                        </div>
                     </div>
+
                     <hr style="height:1px;" />
 
                     <div class="input-group">
@@ -506,12 +496,14 @@
 
                 const formatted = formatTextResultado(result.data);
                 document.getElementById("textareaContentResultado").value = formatted;
+                populateTable(formatted);
             } catch (error) {
                 console.error("Error al obtener datos:", error);
                 document.getElementById("textareaContentResultado").value = `Error al obtener datos: ${error.message}`;
             } finally {
                 adjustTextareaHeightResultado();
                 document.getElementById("loadingOverlayResultado").style.display = "none";
+                document.getElementById("loadingOverlayTable").style.display = "none";
             }
         }
 
@@ -526,8 +518,24 @@
             return formatted;
         }
 
+        function populateTable(text) {
+            const tableBody = document.getElementById("tableBody");
+            tableBody.innerHTML = ""; // Clear existing rows
+
+            const rows = text.split("\n").filter(row => row.trim() !== "");
+            rows.forEach(row => {
+                const tr = document.createElement("tr");
+                const td = document.createElement("td");
+                td.scope = "row";
+                td.textContent = row;
+                tr.appendChild(td);
+                tableBody.appendChild(tr);
+            });
+        }
+
         async function SpinnerResultado() {
             document.getElementById("loadingOverlayResultado").style.display = "flex";
+            document.getElementById("loadingOverlayTable").style.display = "flex";
             document.getElementById('generarResultado').textContent = 'Cargando...';
             document.getElementById('textareaContentResultado').value = 'Cargando Contenido ...';
             try {
@@ -536,6 +544,7 @@
                 console.error("Error al realizar la solicitud:", error);
             } finally {
                 document.getElementById("loadingOverlayResultado").style.display = "none";
+                document.getElementById("loadingOverlayTable").style.display = "none";
                 document.getElementById('generarResultado').textContent = 'Generar';
             }
         }
