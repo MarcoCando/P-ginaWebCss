@@ -484,16 +484,18 @@ input:focus {
 
 .tab {
     flex: 1;
-    padding: 10px;
-    border: 2px solid #ccc;
+    padding: 7px;
+    border: 1px solid #ccc;
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
+    font-size: 12px;
+
 }
 
 .content {
     display: none;
-    padding: 10px;
+    padding: 30px;
     border: 1px solid #ccc;
     border-radius: 8px;
 }
@@ -683,9 +685,14 @@ h1 {
     overflow: visible;
     z-index: 99;
     clear: both;
-    background-color: rgba(0, 0, 0, 0.6) !IMPORTANT;
+    background-color: #153d64 !IMPORTANT;
     box-sizing: border-box;
     display: block;
+    color: white;
+
+
+
+
 }
 
 .text-title {
