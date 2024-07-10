@@ -278,6 +278,7 @@
                             </button>
                         </div>
                     </div>
+
                 </div>
                 <div class="content" id="contenidos6">
                     <div class="input-group">
@@ -620,6 +621,8 @@
         }
         /*FIN ESTRATEGIAS DE APRENDIZAJE*/
         /*EVALUACION*/
+
+
         async function fetchEvaluacionData(part, parteKey) {
             const body = {};
             body[parteKey] = part;
@@ -634,6 +637,9 @@
                     },
                     body: JSON.stringify(body)
                 });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const data = await response.json();
                 console.log(`Data fetched for ${parteKey}:`, data);  // Debugging line
                 return { key: parteKey, data: data[parteKey] };
@@ -682,6 +688,8 @@
             results.forEach(result => {
                 if (result.data) {
                     renderPartialTable(result.data, result.key);
+                } else {
+                    console.error(`No data returned for ${result.key}`);
                 }
             });
 
