@@ -222,7 +222,11 @@ nav ul li a:hover {
     background-color: #f5f5f5;
 }
 
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 768px) {
+    .back-to-top {
+        bottom: 15px;
+    }
+
     .hamburger {
         display: block;
     }
@@ -247,6 +251,31 @@ nav ul li a:hover {
     padding: 10px 0px 10px 5px;
     color: #ffffff;
 }
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    background: #17a2b8;
+    color: #fff;
+    padding: 6px 12px 9px 12px;
+    font-size: 23px;
+    border-radius: 2px;
+    right: 15px;
+    bottom: 15px;
+    transition: background 0.5s;
+}
+
+.back-to-top:focus {
+    background: #A8C915;
+    color: #fff;
+    outline: none;
+}
+
+.back-to-top:hover {
+    background: #A8C915;
+    color: #fff;
+}
+
 
 /*FIN HEADER*/
 
