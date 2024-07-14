@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Academics</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" type="text/css" href="../Content/sweetalert2.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../Content/sweetalert2.min.css"
+    />
     <script src="../Content/sweetalert2.all.min.js"></script>
     <script src="../Content/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="Content/sweetalert2.min.css" />
@@ -21,806 +24,564 @@
     <script src="../Scripts/bootstrap.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../Confirmation/js/ConfirmationModal.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/df2ecd1a25.js" crossorigin="anonymous"></script>
-    <style>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/df2ecd1a25.js"
+      crossorigin="anonymous"
+    ></script>
+    <style></style>
+  </head>
 
-
-
-
-
-    </style>
-</head>
-
-<body>
+  <body>
     <section>
-        <nav style="background-color: #153d64;">
-            <div class="logo">
-                <img src="assets/Logo64x64.png" />
-                <h1>Sistema Académico</h1>
-            </div>
-
-            <div class="hamburger">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </div>
-        </nav>
-        <div class="menubar">
-            <ul>
-                <li>
-                    <i class="fa-solid fa-arrow-right"></i><a href="#">Inicio <i class="fa-solid fa-house"></i></a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-arrow-right"></i><a href="#">Lenguaje <i
-                            class="fa-solid fa-earth-americas"></i></a>
-                    <i class="fa-solid fa-arrow-right"></i><a href="parametro.html">Español <img width="20" height="20"
-                            src="https://img.icons8.com/color/48/spain-circular.png" alt="spain-circular" /></a>
-                    <i class="fa-solid fa-arrow-right"></i><a href="Parametro2.html">Inglés <img width="20" height="20"
-                            src="https://img.icons8.com/color/48/usa-circular.png" alt="usa-circular" /></a>
-                </li>
-            </ul>
+      <nav style="background-color: #153d64">
+        <div class="logo">
+          <img src="assets/Logo64x64.png" />
+          <h1>Sistema Académico</h1>
         </div>
+
+        <div class="hamburger">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+      </nav>
+      <div class="menubar">
+        <ul>
+          <li>
+            <i class="fa-solid fa-arrow-right"></i
+            ><a href="#">Inicio <i class="fa-solid fa-house"></i></a>
+          </li>
+          <li>
+            <i class="fa-solid fa-arrow-right"></i
+            ><a href="#">Lenguaje <i class="fa-solid fa-earth-americas"></i></a>
+            <i class="fa-solid fa-arrow-right"></i
+            ><a href="parametro.html"
+              >Español
+              <img
+                width="20"
+                height="20"
+                src="https://img.icons8.com/color/48/spain-circular.png"
+                alt="spain-circular"
+            /></a>
+            <i class="fa-solid fa-arrow-right"></i
+            ><a href="Parametro2.html"
+              >Inglés
+              <img
+                width="20"
+                height="20"
+                src="https://img.icons8.com/color/48/usa-circular.png"
+                alt="usa-circular"
+            /></a>
+          </li>
+        </ul>
+      </div>
     </section>
     <section class="welcome">
+      <div class="card m-2" style="background-color: #f5f5f5">
+        <div class="card-header">
+          <div class="welcome-2">
+            <h2>
+              Planificación y Evalución - GPT <i class="fa fa-info-circle"></i>
+            </h2>
+          </div>
+        </div>
+        <form action="">
+          <div style="right: 20px; position: absolute; padding: 20px 0px">
+            <a
+              href="#"
+              type="button"
+              class="btn btn-outline-success"
+              style="border-radius: 10px 40px 40px 10px; border: solid 1px"
+            >
+              Siguiente
+            </a>
+          </div>
+          <div style="right: 130px; position: absolute; padding: 20px 0px">
+            <a
+              href="defparametro.html"
+              type="button"
+              class="btn btn-outline-success"
+              style="border-radius: 40px 10px 10px 40px; border: solid 1px"
+            >
+              Regresar
+            </a>
+          </div>
+          <div style="left: -20px; position: absolute; padding: 20px 50px">
+            <button type="button" class="btn btn-outline-info">
+              Guardar Cambios
+            </button>
+          </div>
+          <br />
+        </form>
+        <br />
+        <div class="p-4">
+          <div class="tabs-container">
+            <div class="tab" onclick="toggleContenido(1)">Planificación</div>
+            <div class="tab" onclick="toggleContenido(2)">Metodología</div>
+          </div>
 
-        <div class="card m-2" style="background-color: #f5f5f5;">
-            <div class="card-header">
-                <div class="welcome-2">
-                    <h2>Planificación y Evalución - GPT <i class="fa fa-info-circle"></i></h2>
-                </div>
-            </div>
-            <form action="">
-                <div style="right: 20px; position: absolute; padding: 20px 0px;">
-                    <a href="#" type="button" class="btn btn-outline-success"
-                        style="border-radius: 10px 40px 40px 10px; border: solid 1px;">
-                        Siguiente
-                    </a>
-                </div>
-                <div style="right: 130px; position: absolute; padding: 20px 0px;">
-                    <a href="defparametro.html" type="button" class="btn btn-outline-success"
-                        style="border-radius: 40px 10px 10px 40px; border: solid 1px;">
-                        Regresar
-                    </a>
-                </div>
-                <div style="left: -20px; position: absolute; padding: 20px 50px; ">
-                    <button type="button" class="btn btn-outline-info">
-                        Guardar Cambios
-                    </button>
-                </div>
-                <br>
+          <div class="content" id="contenido1">
+            <div class="input-group">
+              <div class="input-group-prepend col-2">
+                <span class="span-title"> Origen</span>
+              </div>
+              <div style="border-left: 1px solid #ddd"></div>
 
-            </form>
-            <br>
-            <div class="p-4">
-
-                <div class="tabs-container">
-                    <div class="tab" onclick="toggleContenido(1)">Planificación</div>
-                    <div class="tab" onclick="toggleContenido(2)">Metodología</div>
-
-                </div>
-
-                <div class="content" id="contenido1">
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Origen</span>
-                        </div>
-                        <div style="border-left: 1px solid #ddd;"></div>
-
-                        <div class="input-group-prepend col-9">
-                            <input type="text" class="input100" placeholder="Modular">
-                        </div>
-
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Tipo de Asignatura</span>
-                        </div>
-                        <div style="border-left: 1px solid #ddd;"></div>
-
-                        <div class="input-group-prepend col-9">
-                            <input type="text" class="input100" placeholder="Sincrónico">
-                        </div>
-
-                    </div>
-                </div>
-                <div class="content" id="contenido2">
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title"
-                                style="top: 0; right: 0;left: 0; display: flex; justify-content: center; align-items: center;">
-                                Metodología
-                            </span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <textarea id="textareaContentMetodologia" cols="110" rows="10" style="overflow: hidden"
-                                readonly></textarea>
-                            <div id="loadingOverlayMetodologia" class="loading-overlay" style="display: none;">
-                                <div class="spinner">
-                                    <div class="double-bounce1"></div>
-                                    <div class="double-bounce2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group-prepend col-1">
-                            <button onclick="handleButtonClickMetodologia()" id="generarMetodologia" type="button"
-                                class="btn btn-info" style="font-size: 12px; border-radius: 50px; height: 40px;">
-                                Generar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <hr>
-
-                <div class="tabs-container">
-                    <div class="tab" onclick="toggleContenido2(1)">Temas</div>
-                    <div class="tab" onclick="toggleContenido2(2)">Planificación</div>
-                    <div class="tab" onclick="toggleContenido2(3)">Planificación/Semanas</div>
-                    <div class="tab" onclick="toggleContenido2(4)">Actividades</div>
-                    <div class="tab" onclick="toggleContenido2(5)">Actividades/Semanas</div>
-                    <div class="tab" onclick="toggleContenido2(6)">Estrategias de Aprendizaje</div>
-                    <div class="tab" onclick="toggleContenido2(7)">Evaluación</div>
-                    <div class="tab" onclick="toggleContenido2(8)">Rubricas</div>
-                </div>
-
-                <div class="content" id="contenidos1">
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title"
-                                style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
-                                Temas
-                            </span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <textarea id="textareaContentTemas" cols="110" rows="10" style="overflow: hidden"
-                                readonly></textarea>
-                            <div id="loadingOverlayTemas" class="loading-overlay" style="display: none;">
-                                <div class="spinner">
-                                    <div class="double-bounce1"></div>
-                                    <div class="double-bounce2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group-prepend col-1">
-                            <button onclick="handleButtonClickTemas()" id="generarTemas" type="button"
-                                class="btn btn-info" style="font-size: 12px; border-radius: 50px; height: 40px;">
-                                Generar
-                            </button>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title">
-                                Bibliografía</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <textarea name="" id="" cols="5" rows="1"></textarea>
-                        </div>
-                        <div class="input-group-prepend col-1">
-                            <button type="button" class="btn btn-info"
-                                style="font-size: 12px; border-radius: 50px; height: 40px;">Generar</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="content" id="contenidos2">
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title"
-                                style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
-                                Planificación
-                            </span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <textarea id="textareaContentPlanificacion" cols="110" rows="10" style="overflow: hidden"
-                                readonly></textarea>
-                            <div id="loadingOverlayPlanificacion" class="loading-overlay" style="display: none;">
-                                <div class="spinner">
-                                    <div class="double-bounce1"></div>
-                                    <div class="double-bounce2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group-prepend col-1">
-                            <button onclick="handleButtonClickPlanificacion()" id="generarPlanificacion" type="button"
-                                class="btn btn-info" style="font-size: 12px; border-radius: 50px; height: 40px;">
-                                Generar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="content" id="contenidos3">Contenido de la pestaña 3.</div>
-                <div class="content" id="contenidos4">Contenido de la pestaña 4.</div>
-                <div class="content" id="contenidos5">Contenido de la pestaña 5.</div>
-                <div class="content" id="contenidos6">
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title"
-                                style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
-                                Estrategias de Aprendizaje
-                            </span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <textarea id="textareaContentEstrAprend" cols="110" rows="10" style="overflow: hidden"
-                                readonly></textarea>
-                            <div id="loadingOverlayEstrAprend" class="loading-overlay" style="display: none;">
-                                <div class="spinner">
-                                    <div class="double-bounce1"></div>
-                                    <div class="double-bounce2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group-prepend col-1">
-                            <button onclick="handleButtonClickEstrAprend()" id="generarEstrAprend" type="button"
-                                class="btn btn-info" style="font-size: 12px; border-radius: 50px; height: 40px;">
-                                Generar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="content" id="contenidos6">
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title"
-                                style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
-                                Evaluación de Actividades
-                            </span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <textarea id="textareaContentEvaluacion" rows="20" class="form-control"
-                                style="overflow: auto;"></textarea>
-                            <div id="loadingOverlayEvaluacion" class="loading-overlay" style="display: none;">
-                                <div class="spinner"></div>
-                            </div>
-                        </div>
-                        <div class="input-group-prepend col-1">
-                            <button onclick="handleButtonClickEvaluacion()" id="generarEvaluacion" type="button"
-                                class="btn btn-info" style="font-size: 12px; border-radius: 50px; height: 40px;">
-                                Generar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="content" id="contenidos6">
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title"
-                                style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
-                                Rubricas
-                            </span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <div id="tableContentRubricas" style="overflow: auto; font-size: 12px;"></div>
-                            <div id="loadingOverlayRubricas" class="loading-overlay" style="display: none;">
-                                <div class="spinner">
-                                    <div class="double-bounce1"></div>
-                                    <div class="double-bounce2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group-prepend col-1">
-                            <button onclick="handleButtonClickRubricas()" id="generarRubricas" type="button"
-                                class="btn btn-info" style="font-size: 12px; border-radius: 50px; height: 40px;">
-                                Generar
-                            </button>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
+              <div class="input-group-prepend col-9">
+                <input type="text" class="input100" placeholder="Modular" />
+              </div>
             </div>
             <div class="input-group">
-                <div class="col-1" style="padding: 0px 0px 0px 25px;">
-                    <a href="#" type="button" class="btn btn-outline-success"
-                        style="border-radius: 5px; border: solid 1px;">
-                        Enviar
-                    </a>
+              <div class="input-group-prepend col-2">
+                <span class="span-title"> Tipo de Asignatura</span>
+              </div>
+              <div style="border-left: 1px solid #ddd"></div>
 
-                </div>
-                <div class="col-1" style="padding: 0px 0px 0px 1px;">
-                    <a href="#" type="button" class="btn btn-outline-success"
-                        style="border-radius: 5px; border: solid 1px;">
-                        Syllabus
-                    </a>
-                </div>
+              <div class="input-group-prepend col-9">
+                <input type="text" class="input100" placeholder="Sincrónico" />
+              </div>
             </div>
-            <br>
+          </div>
+          <div class="content" id="contenido2">
+            <div class="input-group">
+              <div class="input-group-prepend col-2">
+                <span
+                  class="span-title"
+                  style="
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  Metodología
+                </span>
+              </div>
+              <div class="input-group-prepend col-9">
+                <textarea
+                  id="textareaContentMetodologia"
+                  cols="110"
+                  rows="10"
+                  style="overflow: hidden"
+                  readonly
+                ></textarea>
+                <div
+                  id="loadingOverlayMetodologia"
+                  class="loading-overlay"
+                  style="display: none"
+                >
+                  <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group-prepend col-1">
+                <button
+                  onclick="handleButtonClickMetodologia()"
+                  id="generarMetodologia"
+                  type="button"
+                  class="btn btn-info"
+                  style="font-size: 12px; border-radius: 50px; height: 40px"
+                >
+                  Generar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <div class="tabs-container">
+            <div class="tab" onclick="toggleContenido2(1)">Temas</div>
+            <div class="tab" onclick="toggleContenido2(2)">Planificación</div>
+            <div class="tab" onclick="toggleContenido2(3)">
+              Planificación/Semanas
+            </div>
+            <div class="tab" onclick="toggleContenido2(4)">Actividades</div>
+            <div class="tab" onclick="toggleContenido2(5)">
+              Actividades/Semanas
+            </div>
+            <div class="tab" onclick="toggleContenido2(6)">
+              Estrategias de Aprendizaje
+            </div>
+            <div class="tab" onclick="toggleContenido2(7)">Evaluación</div>
+            <div class="tab" onclick="toggleContenido2(8)">Rubricas</div>
+          </div>
+
+          <div class="content" id="contenidos1">
+            <div class="input-group">
+              <div class="input-group-prepend col-2">
+                <span
+                  class="span-title"
+                  style="
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  Temas
+                </span>
+              </div>
+              <div class="input-group-prepend col-9">
+                <textarea
+                  id="textareaContentTemas"
+                  cols="110"
+                  rows="10"
+                  style="overflow: hidden"
+                  readonly
+                ></textarea>
+                <div
+                  id="loadingOverlayTemas"
+                  class="loading-overlay"
+                  style="display: none"
+                >
+                  <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group-prepend col-1">
+                <button
+                  onclick="handleButtonClickTemas()"
+                  id="generarTemas"
+                  type="button"
+                  class="btn btn-info"
+                  style="font-size: 12px; border-radius: 50px; height: 40px"
+                >
+                  Generar
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="content" id="contenidos2">
+            <div class="input-group">
+              <div class="input-group-prepend col-2">
+                <span
+                  class="span-title"
+                  style="
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  Planificación
+                </span>
+              </div>
+              <div class="input-group-prepend col-9">
+                <textarea
+                  id="textareaContentPlanificacion"
+                  cols="110"
+                  rows="10"
+                  style="overflow: hidden"
+                  readonly
+                ></textarea>
+                <div
+                  id="loadingOverlayPlanificacion"
+                  class="loading-overlay"
+                  style="display: none"
+                >
+                  <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group-prepend col-1">
+                <button
+                  onclick="handleButtonClickPlanificacion()"
+                  id="generarPlanificacion"
+                  type="button"
+                  class="btn btn-info"
+                  style="font-size: 12px; border-radius: 50px; height: 40px"
+                >
+                  Generar
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="content" id="contenidos3">Contenido de la pestaña 3.</div>
+          <div class="content" id="contenidos4">Contenido de la pestaña 4.</div>
+          <div class="content" id="contenidos5">Contenido de la pestaña 5.</div>
+          <div class="content" id="contenidos6">
+            <div class="input-group">
+              <div class="input-group-prepend col-2">
+                <span
+                  class="span-title"
+                  style="
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  Estrategias de Aprendizaje
+                </span>
+              </div>
+              <div class="input-group-prepend col-9">
+                <textarea
+                  id="textareaContentEstrAprend"
+                  cols="110"
+                  rows="10"
+                  style="overflow: hidden"
+                  readonly
+                ></textarea>
+                <div
+                  id="loadingOverlayEstrAprend"
+                  class="loading-overlay"
+                  style="display: none"
+                >
+                  <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group-prepend col-1">
+                <button
+                  onclick="handleButtonClickEstrAprend()"
+                  id="generarEstrAprend"
+                  type="button"
+                  class="btn btn-info"
+                  style="font-size: 12px; border-radius: 50px; height: 40px"
+                >
+                  Generar
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="content" id="contenidos6">
+            <div class="input-group">
+              <div class="input-group-prepend col-2">
+                <span
+                  class="span-title"
+                  style="
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  Evaluación de Actividades
+                </span>
+              </div>
+              <div class="input-group-prepend col-9">
+                <textarea
+                  id="textareaContentEvaluacion"
+                  rows="10"
+                  cols="110"
+                  class="form-control"
+                  style="overflow: auto"
+                ></textarea>
+                <div
+                  id="loadingOverlayEvaluacion"
+                  class="loading-overlay"
+                  style="display: none"
+                >
+                  <div class="spinner"></div>
+                </div>
+              </div>
+              <div class="input-group-prepend col-1">
+                <button
+                  onclick="handleButtonClickEvaluacion()"
+                  id="generarEvaluacion"
+                  type="button"
+                  class="btn btn-info"
+                  style="font-size: 12px; border-radius: 50px; height: 40px"
+                >
+                  Generar
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="content" id="contenidos6">
+            <div class="input-group">
+              <div class="input-group-prepend col-2">
+                <span
+                  class="span-title"
+                  style="
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  Rubricas
+                </span>
+              </div>
+              <div class="input-group-prepend col-9">
+                <div
+                  id="tableContentRubricas"
+                  style="overflow: auto; font-size: 12px"
+                ></div>
+                <div
+                  id="loadingOverlayRubricas"
+                  class="loading-overlay"
+                  style="display: none"
+                >
+                  <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group-prepend col-1">
+                <button
+                  onclick="handleButtonClickRubricas()"
+                  id="generarRubricas"
+                  type="button"
+                  class="btn btn-info"
+                  style="font-size: 12px; border-radius: 50px; height: 40px"
+                >
+                  Generar
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="input-group">
+          <div class="col-1" style="padding: 0px 0px 0px 25px">
+            <a
+              href="#"
+              type="button"
+              class="btn btn-outline-success"
+              style="border-radius: 5px; border: solid 1px"
+            >
+              Enviar
+            </a>
+          </div>
+          <div class="col-1" style="padding: 0px 0px 0px 1px">
+            <a
+              href="#"
+              type="button"
+              class="btn btn-outline-success"
+              style="border-radius: 5px; border: solid 1px"
+            >
+              Syllabus
+            </a>
+          </div>
+        </div>
+        <br />
+      </div>
     </section>
 
     <!-- <iframe src="index.html" height="400" width="800" name="demo">
         <p>Su navegador no es compatible con iframes</p>
     </iframe>-->
 
-    <br>
-    <footer class="container-fluid text-white py-4  float-right" style="background-color: #153d64;">
-        <div class="d-flex">
-            <div class="col-8 d-flex flex-column">
-                <span>Tecnologia Informática - Departamento de Desarrollo de Aplicaciones
-                </span>
-                <span>Improve-IT
-                </span>
-                <span>Av. Amazonas y Unión de Periodistas
-                </span>
-            </div>
-
+    <br />
+    <footer
+      class="container-fluid text-white py-4 float-right"
+      style="background-color: #153d64"
+    >
+      <div class="d-flex">
+        <div class="col-8 d-flex flex-column">
+          <span
+            >Tecnologia Informática - Departamento de Desarrollo de Aplicaciones
+          </span>
+          <span>Improve-IT </span>
+          <span>Av. Amazonas y Unión de Periodistas </span>
         </div>
+      </div>
     </footer>
     <script>
-        /*METODOLOGIA*/
-        async function fetchDataAndFormatMetodologia() {
-            const rdas = "\n1. Diseñar estrategias de marketing que incorporen herramientas de inteligencia artificial para mejorar la segmentación y personalización de mensajes.\n2. Utilizar técnicas de inteligencia artificial para analizar grandes volúmenes de datos y extraer información relevante para la toma de decisiones de marketing.\n3. Implementar soluciones de inteligencia artificial en los procesos de marketing para optimizar la eficiencia operativa y mejorar la experiencia del cliente.";
-            const subject = "Fundamentos de Inteligencia Artificial";
-            const formacion = "TECNOLOGIA";
-            try {
-                const url = `http://172.191.10.174/api/metodologia?rdas=${encodeURIComponent(rdas)}&subject=${encodeURIComponent(subject)}&formacion=${encodeURIComponent(formacion)}`;
-                console.log(`Fetching data from URL: ${url}`);
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const result = await response.json();
-                console.log(`Data received:`, result);
+      /*EVALUACION*/
 
-                if (!result.data) {
-                    throw new Error(`'data' property is undefined in the response data`);
-                }
+      async function fetchAndDisplayEvaluacion() {
+        const url = "http://172.191.10.174/api/activities/evaluacion";
+        const body = {
+          parte1:
+            "Semana 1:\nTema: Introducción a la inteligencia artificial: conceptos básicos y aplicaciones.\nSubtema 1: Definición y fundamentos de la inteligencia artificial (1HR)\n   Actividad: Análisis de textos teóricos sobre la definición y fundamentos de la inteligencia artificial, seguido de una discusión en clase y ejercicios prácticos relacionados.\nSubtema 2: Aplicaciones de la inteligencia artificial en diferentes sectores (1HR)\n   Actividad: Investigación en grupos sobre las aplicaciones de la inteligencia artificial en diferentes sectores, seguido de una presentación en clase y debate.\nSubtema 3: Impacto de la inteligencia artificial en el marketing (1HR)\n   Actividad: Análisis de casos de estudio sobre el impacto de la inteligencia artificial en el marketing, seguido de ejercicios prácticos de aplicación en situaciones reales.\nSemana 2:\nTema: Aprendizaje automático: algoritmos básicos y técnicas de clasificación.\nSubtema 1: Introducción al aprendizaje automático (1HR)\n   Actividad: Lectura y discusión de textos teóricos sobre el aprendizaje automático, seguido de ejercicios prácticos de implementación de algoritmos básicos.\nSubtema 2: Algoritmos de clasificación en el aprendizaje automático (1HR)\n   Actividad: Talleres prácticos de implementación de algoritmos de clasificación en el aprendizaje automático, utilizando conjuntos de datos reales.\nSubtema 3: Técnicas avanzadas de clasificación (1HR)\n   Actividad: Proyecto en grupos para aplicar técnicas avanzadas de clasificación en un problema específico, seguido de una presentación en clase de los resultados obtenidos.\nSemana 3:\nTema: Procesamiento del lenguaje natural: comprensión y generación de lenguaje humano por parte de las máquinas.\nSubtema 1: Introducción al procesamiento del lenguaje natural (1HR)\n   Actividad: Análisis de textos teóricos sobre el procesamiento del lenguaje natural, seguido de ejercicios prácticos de comprensión de lenguaje natural.\nSubtema 2: Técnicas de comprensión de lenguaje natural (1HR)\n   Actividad: Talleres prácticos de implementación de técnicas de comprensión de lenguaje natural, utilizando herramientas y bibliotecas específicas.\nSubtema 3: Técnicas de generación de lenguaje natural (1HR)\n   Actividad: Proyecto individual para desarrollar una aplicación de generación de lenguaje natural, seguido de una presentación en clase y evaluación de los resultados.\nSemana 4:\nTema: Visión por computadora: reconocimiento de imágenes y detección de objetos.\nSubtema 1: Introducción a la visión por computadora (1HR)\n    Actividad: Clase expositiva interactiva sobre los conceptos básicos de la visión por computadora.\nSubtema 2: Técnicas de reconocimiento de imágenes (1HR)\n    Actividad: Desarrollo de proyectos prácticos de implementación de algoritmos de reconocimiento de imágenes.\nSubtema 3: Detección de objetos en imágenes y videos (1HR)\n    Actividad: Presentación y discusión de los proyectos de detección de objetos en clase.\nSemana 5:\nTema: Robótica: aplicación de la inteligencia artificial en sistemas robóticos autónomos.\nSubtema 1: Introducción a la robótica autónoma (1HR)\n    Actividad: Clase expositiva sobre los conceptos básicos de la robótica autónoma.\nSubtema 2: Algoritmos de planificación de movimiento en robótica (1HR)\n    Actividad: Asignación de proyectos de desarrollo de algoritmos de planificación de movimiento en robótica.\nSubtema 3: Aplicaciones de la inteligencia artificial en la robótica (1HR)\n    Actividad: Orientación y retroalimentación individualizada durante el desarrollo de los proyectos de aplicaciones de inteligencia artificial en la robótica.\nSemana 6:\nTema: Segmentación de mercado y personalización: cómo utilizar la inteligencia artificial para identificar grupos de consumidores y adaptar estrategias de marketing.\nSubtema 1: Importancia de la segmentación de mercado en el marketing (1HR)\n    Actividad: Clase expositiva sobre la importancia de la segmentación de mercado en el marketing.\nSubtema 2: Técnicas de segmentación de mercado basadas en inteligencia artificial (1HR)\n    Actividad: Desarrollo de proyectos prácticos de implementación de técnicas de segmentación de mercado basadas en inteligencia artificial.\nSubtema 3: Personalización de estrategias de marketing utilizando inteligencia artificial (1HR)\n    Actividad: Presentación y discusión de los proyectos de personalización de estrategias de marketing en clase.\n",
+          parte2:
+            "Semana 7:\nTema: Investigación de mercados: técnicas de inteligencia artificial para analizar y obtener información relevante sobre el mercado.\n    Subtema 1: Importancia de la investigación de mercados en el marketing (1HR)\n        Actividad: Presentación individual sobre la importancia de la investigación de mercados y su relación con el marketing.\n    Subtema 2: Técnicas de análisis de datos en la investigación de mercados (1HR)\n        Actividad: Ejercicio práctico de análisis de datos utilizando herramientas de inteligencia artificial en la investigación de mercados.\n    Subtema 3: Aplicación de inteligencia artificial en la investigación de mercados (1HR)\n        Actividad: Debate en grupo sobre las ventajas y desafíos de aplicar inteligencia artificial en la investigación de mercados.\nSemana 8:\nTema: Optimización de procesos: uso de algoritmos de inteligencia artificial para mejorar la eficiencia y reducir costos en los procesos de marketing.\n    Subtema 1: Conceptos de optimización de procesos en el marketing (1HR)\n        Actividad: Estudio de caso individual sobre la aplicación de conceptos de optimización de procesos en el marketing.\n    Subtema 2: Algoritmos de optimización basados en inteligencia artificial (1HR)\n        Actividad: Práctica de programación utilizando algoritmos de optimización basados en inteligencia artificial en el contexto del marketing.\n    Subtema 3: Casos de éxito de optimización de procesos en el marketing (1HR)\n        Actividad: Presentación en grupo de casos de éxito de optimización de procesos en el marketing utilizando inteligencia artificial.\n",
+          parte3:
+            "Semana 9:\nTema: Análisis de datos y toma de decisiones: cómo la inteligencia artificial puede ayudar en la interpretación de grandes volúmenes de datos y en la toma de decisiones basadas en ellos.\n    Subtema 1: Importancia del análisis de datos en el marketing (1HR)\n        Actividad: Análisis individual de datos de mercado utilizando herramientas de inteligencia artificial y presentación de hallazgos.\n    Subtema 2: Técnicas de análisis de datos basadas en inteligencia artificial (1HR)\n        Actividad: Taller práctico de análisis de datos utilizando técnicas de inteligencia artificial en el contexto del marketing.\n    Subtema 3: Toma de decisiones basada en análisis de datos con inteligencia artificial (1HR)\n        Actividad: Simulación de toma de decisiones en grupo utilizando análisis de datos con inteligencia artificial en el marketing.\nSemana 10:\nTema: Automatización de tareas y workflows: cómo utilizar la inteligencia artificial para automatizar tareas repetitivas y agilizar los flujos de trabajo en el ámbito del marketing.\n- Subtema 1: Automatización de tareas en el marketing (1HR)\n    Actividad: Utilización de la técnica de aula invertida para que los estudiantes investiguen y apliquen la automatización de tareas en el marketing en actividades prácticas en clase.\n- Subtema 2: Uso de inteligencia artificial en la automatización de flujos de trabajo (1HR)\n    Actividad: Discusión y resolución de dudas en grupos pequeños sobre el uso de inteligencia artificial en la automatización de flujos de trabajo, basado en material teórico previamente asignado.\n- Subtema 3: Beneficios y casos de uso de la automatización en el marketing (1HR)\n    Actividad: Retroalimentación del profesor sobre el trabajo realizado en clase, enfocándose en los beneficios y casos de uso de la automatización en el marketing.\nSemana 11:\nTema: Aplicación de inteligencia artificial en publicidad y creatividad: cómo utilizar la inteligencia artificial para crear anuncios personalizados y generar contenido creativo.\n- Subtema 1: Personalización de anuncios basada en inteligencia artificial (1HR)\n    Actividad: Utilización de la técnica de aula invertida para que los estudiantes investiguen y apliquen la personalización de anuncios basada en inteligencia artificial en actividades prácticas en clase.\n- Subtema 2: Generación de contenido creativo con inteligencia artificial (1HR)\n    Actividad: Discusión y resolución de dudas en grupos pequeños sobre la generación de contenido creativo con inteligencia artificial, basado en material teórico previamente asignado.\n- Subtema 3: Casos de éxito de aplicaciones de inteligencia artificial en publicidad y creatividad (1HR)\n    Actividad: Retroalimentación del profesor sobre el trabajo realizado en clase, enfocándose en los casos de éxito de aplicaciones de inteligencia artificial en publicidad y creatividad.\nSemana 12:\nTema: Implementación y gestión de herramientas de inteligencia artificial: consideraciones para implementar y administrar correctamente herramientas de inteligencia artificial en entornos de marketing.\n- Subtema 1: Consideraciones para la implementación de herramientas de inteligencia artificial (1HR)\n    Actividad: Utilización de la técnica de aula invertida para que los estudiantes investiguen y apliquen las consideraciones para la implementación de herramientas de inteligencia artificial en actividades prácticas en clase.\n- Subtema 2: Gestión y monitoreo de herramientas de inteligencia artificial en el marketing (1HR)\n    Actividad: Discusión y resolución de dudas en grupos pequeños sobre la gestión y monitoreo de herramientas de inteligencia artificial en el marketing, basado en material teórico previamente asignado.\n- Subtema 3: Desafíos y mejores prácticas en la implementación y gestión de herramientas de inteligencia artificial (1HR)\n    Actividad: Retroalimentación del profesor sobre el trabajo realizado en clase, enfocándose en los desafíos y mejores prácticas en la implementación y gestión de herramientas de inteligencia artificial.\n",
+          parte4:
+            "Semana 13:\nTema: Evaluación y medición de resultados de marketing: cómo utilizar algoritmos de inteligencia artificial para evaluar y medir el impacto de las estrategias de marketing.\nSubtema 1: Importancia de la evaluación y medición de resultados en el marketing (1HR)\n    Actividad: Realización de experimentos prácticos para comprobar y aplicar los conceptos teóricos.\nSubtema 2: Técnicas de evaluación y medición de resultados basadas en inteligencia artificial (1HR)\n    Actividad: Talleres prácticos donde los estudiantes puedan poner en práctica los conocimientos teóricos adquiridos.\nSubtema 3: Análisis de resultados y toma de decisiones basada en inteligencia artificial (1HR)\n    Actividad: Estudio de casos prácticos que permitan la aplicación de los conceptos teóricos a situaciones reales.\nSemana 14:\nTema: Ética en la inteligencia artificial aplicada al marketing: consideraciones éticas y legales en el uso de la inteligencia artificial en el ámbito del marketing.\nSubtema 1: Importancia de la ética en el uso de inteligencia artificial en el marketing (1HR)\n    Actividad: Debates y discusiones sobre temas teóricos y su relevancia en la práctica profesional.\nSubtema 2: Consideraciones éticas y legales en el uso de inteligencia artificial en el marketing (1HR)\n    Actividad: Organización de talleres prácticos donde los estudiantes puedan trabajar en la implementación de algoritmos de inteligencia artificial.\nSubtema 3: Casos de estudio de dilemas éticos en el uso de inteligencia artificial en el marketing (1HR)\n    Actividad: Análisis de casos prácticos de aplicación de inteligencia artificial en diferentes industrias y áreas.\nSemana 15:\nTema: Limitaciones y desafíos de la inteligencia artificial en el marketing: discusión sobre las limitaciones y posibles desafíos que enfrenta la inteligencia artificial en el contexto del marketing.\nSubtema 1: Limitaciones actuales de la inteligencia artificial en el marketing (1HR)\n    Actividad: Estudio de casos prácticos que permitan la aplicación de los conceptos teóricos a situaciones reales.\nSubtema 2: Desafíos futuros de la inteligencia artificial en el marketing (1HR)\n    Actividad: Realización de experimentos prácticos para comprobar y aplicar los conceptos teóricos aprendidos.\nSubtema 3: Mitigación de riesgos y superación de desafíos en el uso de inteligencia artificial en el marketing (1HR)\n    Actividad: Debates y discusiones sobre temas teóricos y su relevancia en la práctica profesional.\n",
+        };
 
-                const formatted = formatTextMetodologia(result.data);
-                document.getElementById("textareaContentMetodologia").value = formatted;
-            } catch (error) {
-                console.error("Error al obtener datos:", error);
-                document.getElementById("textareaContentMetodologia").value = `Error al obtener datos: ${error.message}`;
-            } finally {
-                adjustTextareaHeightMetodologia();
-                document.getElementById("loadingOverlayMetodologia").style.display = "none";
-            }
+        document.getElementById("loadingOverlayEvaluacion").style.display =
+          "flex";
+
+        try {
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const result = await response.json();
+          const formattedResult = formatResult(result);
+          document.getElementById("textareaContentEvaluacion").value =
+            formattedResult;
+        } catch (error) {
+          document.getElementById(
+            "textareaContentEvaluacion"
+          ).value = `Error: ${error.message}`;
+        } finally {
+          document.getElementById("loadingOverlayEvaluacion").style.display =
+            "none";
         }
+      }
 
-        function formatTextMetodologia(text) {
-            if (!text) {
-                throw new Error("Invalid text input for formatting");
-            }
-            let formatted = text.replace(/\\n/g, "\n");
-            if (formatted.includes("\n")) {
-                formatted += "\n\n";
-            }
-            return formatted;
+      function formatResult(result) {
+        let output = "";
+        for (const parte in result) {
+          if (result.hasOwnProperty(parte)) {
+            const section = result[parte];
+            output += `Parte ${parte.slice(-1)}:\n`;
+            output += `Name:\n${section.name}\n`;
+            output += `Progreso: ${section.progreso}\n`;
+            output += `Week: ${section.week}\n\n`;
+          }
         }
+        return output;
+      }
 
-        async function SpinnerMetodologia() {
-            document.getElementById("loadingOverlayMetodologia").style.display = "flex";
-            document.getElementById('generarMetodologia').textContent = 'Cargando...';
-            document.getElementById('textareaContentMetodologia').value = 'Cargando Contenido ...';
-            try {
-                await new Promise((resolve) => setTimeout(resolve, 4000));
-            } catch (error) {
-                console.error("Error al realizar la solicitud:", error);
-            } finally {
-                document.getElementById("loadingOverlayMetodologia").style.display = "none";
-                document.getElementById('generarMetodologia').textContent = 'Generar';
-            }
-        }
+      function handleButtonClickEvaluacion() {
+        fetchAndDisplayEvaluacion();
+      }
 
-        function handleButtonClickMetodologia() {
-            SpinnerMetodologia();
-            fetchDataAndFormatMetodologia();
-        }
-
-        function adjustTextareaHeightMetodologia() {
-            const textarea = document.getElementById("textareaContentMetodologia");
-            textarea.style.height = "110px";
-            textarea.style.height = `${textarea.scrollHeight}px`;
-        }
-        /*FIN METODOLOGIA*/
-        /*TEMAS*/
-        async function fetchDataAndFormatTemas() {
-            const subject = "Fundamentos de Inteligencia Artificial";
-            const subjectDescription = "La asignatura de Fundamentos de Inteligencia Artificial es un curso teórico-práctico que se centra en los principios básicos de la IA y su aplicación en el campo del marketing. Los estudiantes explorarán una amplia gama de temas, como algoritmos de aprendizaje automático, redes neuronales y procesamiento del lenguaje natural, así como también tecnologías emergentes como la inteligencia artificial explicativa y ética. A través de casos de estudio de la vida real, los estudiantes aprenderán a utilizar herramientas y enfoques contemporáneos para comprender y aplicar la IA en diversas industrias. Los bloques temáticos abarcan desde la introducción de la IA en el marketing hasta la implementación de soluciones de IA en procesos de marketing, optimización de la eficiencia operativa y mejora de la experiencia del cliente. Se busca formar a los estudiantes en habilidades prácticas y conocimientos teóricos para aplicar la IA de manera efectiva en el campo del marketing.";
-            const rdas = "\n1. Diseñar estrategias de marketing que incorporen herramientas de inteligencia artificial para mejorar la segmentación y personalización de mensajes.\n2. Utilizar técnicas de inteligencia artificial para analizar grandes volúmenes de datos y extraer información relevante para la toma de decisiones de marketing.\n3. Implementar soluciones de inteligencia artificial en los procesos de marketing para optimizar la eficiencia operativa y mejorar la experiencia del cliente.";
-
-            try {
-                const url = `http://172.191.10.174/api/temas?subject=${encodeURIComponent(subject)}&subject_description=${encodeURIComponent(subjectDescription)}&rdas=${encodeURIComponent(rdas)}`;
-                console.log(`Fetching data from URL: ${url}`);
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const result = await response.json();
-                console.log(`Data received:`, result);
-
-                if (!result.data) {
-                    throw new Error(`'data' property is undefined in the response data`);
-                }
-
-                const formatted = formatTextTemas(result.data);
-                document.getElementById("textareaContentTemas").value = formatted;
-            } catch (error) {
-                console.error("Error al obtener datos:", error);
-                document.getElementById("textareaContentTemas").value = `Error al obtener datos: ${error.message}`;
-            } finally {
-                adjustTextareaHeightTemas();
-                document.getElementById("loadingOverlayTemas").style.display = "none";
-            }
-        }
-
-        function formatTextTemas(text) {
-            if (!text) {
-                throw new Error("Invalid text input for formatting");
-            }
-            let formatted = text.replace(/\\n/g, "\n");
-            if (formatted.includes("\n")) {
-                formatted += "\n\n";
-            }
-            return formatted;
-        }
-
-        async function SpinnerTemas() {
-            document.getElementById("loadingOverlayTemas").style.display = "flex";
-            document.getElementById('generarTemas').textContent = 'Cargando...';
-            document.getElementById('textareaContentTemas').value = 'Cargando Contenido ...';
-            try {
-                await new Promise((resolve) => setTimeout(resolve, 4000));
-            } catch (error) {
-                console.error("Error al realizar la solicitud:", error);
-            } finally {
-                document.getElementById("loadingOverlayTemas").style.display = "none";
-                document.getElementById('generarTemas').textContent = 'Generar';
-            }
-        }
-
-        function handleButtonClickTemas() {
-            SpinnerTemas();
-            fetchDataAndFormatTemas();
-        }
-
-        function adjustTextareaHeightTemas() {
-            const textarea = document.getElementById("textareaContentTemas");
-            textarea.style.height = "110px";
-            textarea.style.height = `${textarea.scrollHeight}px`;
-        }
-        /*FIN DE TEMAS*/
-        /*PLANIFICACION*/
-        async function fetchDataAndFormatPlanificacion() {
-            const data = "\n1. Diseñar estrategias de marketing que incorporen herramientas de inteligencia artificial para mejorar la segmentación y personalización de mensajes.\n2. Utilizar técnicas de inteligencia artificial para analizar grandes volúmenes de datos y extraer información relevante para la toma de decisiones de marketing.\n3. Implementar soluciones de inteligencia artificial en los procesos de marketing para optimizar la eficiencia operativa y mejorar la experiencia del cliente.";
-            const subject = "Fundamentos de Inteligencia Artificial";
-            const semanas = 16;
-            const modalidad = false;
-            const tipo = "Periodo Academico";
-            const numero = 3;
-            const description = "La asignatura de Fundamentos de Inteligencia Artificial es un curso teórico-práctico que se centra en los principios básicos de la IA y su aplicación en el campo del marketing. Los estudiantes explorarán una amplia gama de temas, como algoritmos de aprendizaje automático, redes neuronales y procesamiento del lenguaje natural, así como también tecnologías emergentes como la inteligencia artificial explicativa y ética. A través de casos de estudio de la vida real, los estudiantes aprenderán a utilizar herramientas y enfoques contemporáneos para comprender y aplicar la IA en diversas industrias. Los bloques temáticos abarcan desde la introducción de la IA en el marketing hasta la implementación de soluciones de IA en procesos de marketing, optimización de la eficiencia operativa y mejora de la experiencia del cliente. Se busca formar a los estudiantes en habilidades prácticas y conocimientos teóricos para aplicar la IA de manera efectiva en el campo del marketing.";
-            const rdas = "\n1. Diseñar estrategias de marketing que incorporen herramientas de inteligencia artificial para mejorar la segmentación y personalización de mensajes.\n2. Utilizar técnicas de inteligencia artificial para analizar grandes volúmenes de datos y extraer información relevante para la toma de decisiones de marketing.\n3. Implementar soluciones de inteligencia artificial en los procesos de marketing para optimizar la eficiencia operativa y mejorar la experiencia del cliente.";
-            const temas = "1. Introducción a la inteligencia artificial y su aplicación en el marketing.\n2. Fundamentos de algoritmos de aprendizaje automático.\n3. Principios básicos de las redes neuronales.\n4. Introducción al procesamiento del lenguaje natural (PLN) en marketing.\n5. Herramientas y plataformas de IA para análisis de datos en marketing.\n6. Métodos de segmentación de clientes utilizando IA.\n7. Personalización de mensajes de marketing con IA.\n8. Análisis predictivo en marketing.\n9. Aplicación de chatbots en la experiencia del cliente.\n10. Recomendadores inteligentes en el comercio electrónico.\n11. Optimización de campañas publicitarias con IA.\n12. Uso de IA para la detección de tendencias de mercado.\n13. Impacto de la inteligencia artificial en el comportamiento del consumidor.\n14. Inteligencia artificial explicativa en el contexto del marketing.\n15. Ética y privacidad de datos en el marketing digital con IA.\n16. Estrategias para la implementación de la IA en los procesos de marketing.";
-
-            try {
-                const url = `http://172.191.10.174/api/planificacion?data=${encodeURIComponent(data)}&subject=${encodeURIComponent(subject)}&semanas=${encodeURIComponent(semanas)}&modalidad=${encodeURIComponent(modalidad)}&tipo=${encodeURIComponent(tipo)}&numero=${encodeURIComponent(numero)}&description=${encodeURIComponent(description)}&rdas=${encodeURIComponent(rdas)}&temas=${encodeURIComponent(temas)}`;
-                console.log(`Fetching data from URL: ${url}`);
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const result = await response.json();
-                console.log(`Data received:`, result);
-
-                if (!result.planificacion) {
-                    throw new Error(`'planificacion' property is undefined in the response data`);
-                }
-
-                const formatted = formatTextPlanificacion(result.planificacion);
-                document.getElementById("textareaContentPlanificacion").value = formatted;
-            } catch (error) {
-                console.error("Error al obtener datos:", error);
-                document.getElementById("textareaContentPlanificacion").value = `Error al obtener datos: ${error.message}`;
-            } finally {
-                adjustTextareaHeightPlanificacion();
-                document.getElementById("loadingOverlayPlanificacion").style.display = "none";
-            }
-        }
-
-        function formatTextPlanificacion(text) {
-            if (!text) {
-                throw new Error("Invalid text input for formatting");
-            }
-            let formatted = text.replace(/\\n/g, "\n");
-            if (formatted.includes("\n")) {
-                formatted += "\n\n";
-            }
-            return formatted;
-        }
-
-        async function SpinnerPlanificacion() {
-            document.getElementById("loadingOverlayPlanificacion").style.display = "flex";
-            document.getElementById('generarPlanificacion').textContent = 'Cargando...';
-            document.getElementById('textareaContentPlanificacion').value = 'Cargando Contenido ...';
-            try {
-                await new Promise((resolve) => setTimeout(resolve, 4000));
-            } catch (error) {
-                console.error("Error al realizar la solicitud:", error);
-            } finally {
-                document.getElementById("loadingOverlayPlanificacion").style.display = "none";
-                document.getElementById('generarPlanificacion').textContent = 'Generar';
-            }
-        }
-
-        function handleButtonClickPlanificacion() {
-            SpinnerPlanificacion();
-            fetchDataAndFormatPlanificacion();
-        }
-
-        function adjustTextareaHeightPlanificacion() {
-            const textarea = document.getElementById("textareaContentPlanificacion");
-            textarea.style.height = "110px";
-            textarea.style.height = `${textarea.scrollHeight}px`;
-        }
-        /*FIN PLANIFICACION*/
-        /*ESTRATEGIAS DE APRENDIZAJE*/
-        async function fetchDataAndFormatEstrAprend() {
-            const naturaleza = "Teórico-Práctico";
-            const subject = "Fundamentos de Inteligencia Artificial";
-
-            try {
-                const url = `http://172.191.10.174/api/estrategias_aprendizaje?naturaleza=${encodeURIComponent(naturaleza)}&subject=${encodeURIComponent(subject)}`;
-                console.log(`Fetching data from URL: ${url}`);
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const result = await response.json();
-                console.log(`Data received:`, result);
-
-                if (!result.data) {
-                    throw new Error(`'data' property is undefined in the response data`);
-                }
-
-                const formatted = formatTextEstrAprend(result.data);
-                document.getElementById("textareaContentEstrAprend").value = formatted;
-            } catch (error) {
-                console.error("Error al obtener datos:", error);
-                document.getElementById("textareaContentEstrAprend").value = `Error al obtener datos: ${error.message}`;
-            } finally {
-                adjustTextareaHeightEstrAprend();
-                document.getElementById("loadingOverlayEstrAprend").style.display = "none";
-            }
-        }
-
-        function formatTextEstrAprend(text) {
-            if (!text) {
-                throw new Error("Invalid text input for formatting");
-            }
-            let formatted = text.replace(/\\n/g, "\n");
-            if (formatted.includes("\n")) {
-                formatted += "\n\n";
-            }
-            return formatted;
-        }
-
-        async function SpinnerEstrAprend() {
-            document.getElementById("loadingOverlayEstrAprend").style.display = "flex";
-            document.getElementById('generarEstrAprend').textContent = 'Cargando...';
-            document.getElementById('textareaContentEstrAprend').value = 'Cargando Contenido ...';
-            try {
-                await new Promise((resolve) => setTimeout(resolve, 4000));
-            } catch (error) {
-                console.error("Error al realizar la solicitud:", error);
-            } finally {
-                document.getElementById("loadingOverlayEstrAprend").style.display = "none";
-                document.getElementById('generarEstrAprend').textContent = 'Generar';
-            }
-        }
-
-        function handleButtonClickEstrAprend() {
-            SpinnerEstrAprend();
-            fetchDataAndFormatEstrAprend();
-        }
-
-        function adjustTextareaHeightEstrAprend() {
-            const textarea = document.getElementById("textareaContentEstrAprend");
-            textarea.style.height = "110px";
-            textarea.style.height = `${textarea.scrollHeight}px`;
-        }
-        /*FIN ESTRATEGIAS DE APRENDIZAJE*/
-        /*EVALUACION*/
-        async function fetchAndDisplayEvaluacion() {
-            const url = "http://172.191.10.174/api/activities/evaluacion";
-            const body = {
-                "parte1": "Semana 1:\nTema: Introducción a la inteligencia artificial: conceptos básicos y aplicaciones.\nSubtema 1: Definición y fundamentos de la inteligencia artificial (1HR)\n   Actividad: Análisis de textos teóricos sobre la definición y fundamentos de la inteligencia artificial, seguido de una discusión en clase y ejercicios prácticos relacionados.\nSubtema 2: Aplicaciones de la inteligencia artificial en diferentes sectores (1HR)\n   Actividad: Investigación en grupos sobre las aplicaciones de la inteligencia artificial en diferentes sectores, seguido de una presentación en clase y debate.\nSubtema 3: Impacto de la inteligencia artificial en el marketing (1HR)\n   Actividad: Análisis de casos de estudio sobre el impacto de la inteligencia artificial en el marketing, seguido de ejercicios prácticos de aplicación en situaciones reales.\nSemana 2:\nTema: Aprendizaje automático: algoritmos básicos y técnicas de clasificación.\nSubtema 1: Introducción al aprendizaje automático (1HR)\n   Actividad: Lectura y discusión de textos teóricos sobre el aprendizaje automático, seguido de ejercicios prácticos de implementación de algoritmos básicos.\nSubtema 2: Algoritmos de clasificación en el aprendizaje automático (1HR)\n   Actividad: Talleres prácticos de implementación de algoritmos de clasificación en el aprendizaje automático, utilizando conjuntos de datos reales.\nSubtema 3: Técnicas avanzadas de clasificación (1HR)\n   Actividad: Proyecto en grupos para aplicar técnicas avanzadas de clasificación en un problema específico, seguido de una presentación en clase de los resultados obtenidos.\nSemana 3:\nTema: Procesamiento del lenguaje natural: comprensión y generación de lenguaje humano por parte de las máquinas.\nSubtema 1: Introducción al procesamiento del lenguaje natural (1HR)\n   Actividad: Análisis de textos teóricos sobre el procesamiento del lenguaje natural, seguido de ejercicios prácticos de comprensión de lenguaje natural.\nSubtema 2: Técnicas de comprensión de lenguaje natural (1HR)\n   Actividad: Talleres prácticos de implementación de técnicas de comprensión de lenguaje natural, utilizando herramientas y bibliotecas específicas.\nSubtema 3: Técnicas de generación de lenguaje natural (1HR)\n   Actividad: Proyecto individual para desarrollar una aplicación de generación de lenguaje natural, seguido de una presentación en clase y evaluación de los resultados.\nSemana 4:\nTema: Visión por computadora: reconocimiento de imágenes y detección de objetos.\nSubtema 1: Introducción a la visión por computadora (1HR)\n    Actividad: Clase expositiva interactiva sobre los conceptos básicos de la visión por computadora.\nSubtema 2: Técnicas de reconocimiento de imágenes (1HR)\n    Actividad: Desarrollo de proyectos prácticos de implementación de algoritmos de reconocimiento de imágenes.\nSubtema 3: Detección de objetos en imágenes y videos (1HR)\n    Actividad: Presentación y discusión de los proyectos de detección de objetos en clase.\nSemana 5:\nTema: Robótica: aplicación de la inteligencia artificial en sistemas robóticos autónomos.\nSubtema 1: Introducción a la robótica autónoma (1HR)\n    Actividad: Clase expositiva sobre los conceptos básicos de la robótica autónoma.\nSubtema 2: Algoritmos de planificación de movimiento en robótica (1HR)\n    Actividad: Asignación de proyectos de desarrollo de algoritmos de planificación de movimiento en robótica.\nSubtema 3: Aplicaciones de la inteligencia artificial en la robótica (1HR)\n    Actividad: Orientación y retroalimentación individualizada durante el desarrollo de los proyectos de aplicaciones de inteligencia artificial en la robótica.\nSemana 6:\nTema: Segmentación de mercado y personalización: cómo utilizar la inteligencia artificial para identificar grupos de consumidores y adaptar estrategias de marketing.\nSubtema 1: Importancia de la segmentación de mercado en el marketing (1HR)\n    Actividad: Clase expositiva sobre la importancia de la segmentación de mercado en el marketing.\nSubtema 2: Técnicas de segmentación de mercado basadas en inteligencia artificial (1HR)\n    Actividad: Desarrollo de proyectos prácticos de implementación de técnicas de segmentación de mercado basadas en inteligencia artificial.\nSubtema 3: Personalización de estrategias de marketing utilizando inteligencia artificial (1HR)\n    Actividad: Presentación y discusión de los proyectos de personalización de estrategias de marketing en clase.\n",
-                "parte2": "Semana 7:\nTema: Investigación de mercados: técnicas de inteligencia artificial para analizar y obtener información relevante sobre el mercado.\n    Subtema 1: Importancia de la investigación de mercados en el marketing (1HR)\n        Actividad: Presentación individual sobre la importancia de la investigación de mercados y su relación con el marketing.\n    Subtema 2: Técnicas de análisis de datos en la investigación de mercados (1HR)\n        Actividad: Ejercicio práctico de análisis de datos utilizando herramientas de inteligencia artificial en la investigación de mercados.\n    Subtema 3: Aplicación de inteligencia artificial en la investigación de mercados (1HR)\n        Actividad: Debate en grupo sobre las ventajas y desafíos de aplicar inteligencia artificial en la investigación de mercados.\nSemana 8:\nTema: Optimización de procesos: uso de algoritmos de inteligencia artificial para mejorar la eficiencia y reducir costos en los procesos de marketing.\n    Subtema 1: Conceptos de optimización de procesos en el marketing (1HR)\n        Actividad: Estudio de caso individual sobre la aplicación de conceptos de optimización de procesos en el marketing.\n    Subtema 2: Algoritmos de optimización basados en inteligencia artificial (1HR)\n        Actividad: Práctica de programación utilizando algoritmos de optimización basados en inteligencia artificial en el contexto del marketing.\n    Subtema 3: Casos de éxito de optimización de procesos en el marketing (1HR)\n        Actividad: Presentación en grupo de casos de éxito de optimización de procesos en el marketing utilizando inteligencia artificial.\n",
-                "parte3": "Semana 9:\nTema: Análisis de datos y toma de decisiones: cómo la inteligencia artificial puede ayudar en la interpretación de grandes volúmenes de datos y en la toma de decisiones basadas en ellos.\n    Subtema 1: Importancia del análisis de datos en el marketing (1HR)\n        Actividad: Análisis individual de datos de mercado utilizando herramientas de inteligencia artificial y presentación de hallazgos.\n    Subtema 2: Técnicas de análisis de datos basadas en inteligencia artificial (1HR)\n        Actividad: Taller práctico de análisis de datos utilizando técnicas de inteligencia artificial en el contexto del marketing.\n    Subtema 3: Toma de decisiones basada en análisis de datos con inteligencia artificial (1HR)\n        Actividad: Simulación de toma de decisiones en grupo utilizando análisis de datos con inteligencia artificial en el marketing.\nSemana 10:\nTema: Automatización de tareas y workflows: cómo utilizar la inteligencia artificial para automatizar tareas repetitivas y agilizar los flujos de trabajo en el ámbito del marketing.\n- Subtema 1: Automatización de tareas en el marketing (1HR)\n    Actividad: Utilización de la técnica de aula invertida para que los estudiantes investiguen y apliquen la automatización de tareas en el marketing en actividades prácticas en clase.\n- Subtema 2: Uso de inteligencia artificial en la automatización de flujos de trabajo (1HR)\n    Actividad: Discusión y resolución de dudas en grupos pequeños sobre el uso de inteligencia artificial en la automatización de flujos de trabajo, basado en material teórico previamente asignado.\n- Subtema 3: Beneficios y casos de uso de la automatización en el marketing (1HR)\n    Actividad: Retroalimentación del profesor sobre el trabajo realizado en clase, enfocándose en los beneficios y casos de uso de la automatización en el marketing.\nSemana 11:\nTema: Aplicación de inteligencia artificial en publicidad y creatividad: cómo utilizar la inteligencia artificial para crear anuncios personalizados y generar contenido creativo.\n- Subtema 1: Personalización de anuncios basada en inteligencia artificial (1HR)\n    Actividad: Utilización de la técnica de aula invertida para que los estudiantes investiguen y apliquen la personalización de anuncios basada en inteligencia artificial en actividades prácticas en clase.\n- Subtema 2: Generación de contenido creativo con inteligencia artificial (1HR)\n    Actividad: Discusión y resolución de dudas en grupos pequeños sobre la generación de contenido creativo con inteligencia artificial, basado en material teórico previamente asignado.\n- Subtema 3: Casos de éxito de aplicaciones de inteligencia artificial en publicidad y creatividad (1HR)\n    Actividad: Retroalimentación del profesor sobre el trabajo realizado en clase, enfocándose en los casos de éxito de aplicaciones de inteligencia artificial en publicidad y creatividad.\nSemana 12:\nTema: Implementación y gestión de herramientas de inteligencia artificial: consideraciones para implementar y administrar correctamente herramientas de inteligencia artificial en entornos de marketing.\n- Subtema 1: Consideraciones para la implementación de herramientas de inteligencia artificial (1HR)\n    Actividad: Utilización de la técnica de aula invertida para que los estudiantes investiguen y apliquen las consideraciones para la implementación de herramientas de inteligencia artificial en actividades prácticas en clase.\n- Subtema 2: Gestión y monitoreo de herramientas de inteligencia artificial en el marketing (1HR)\n    Actividad: Discusión y resolución de dudas en grupos pequeños sobre la gestión y monitoreo de herramientas de inteligencia artificial en el marketing, basado en material teórico previamente asignado.\n- Subtema 3: Desafíos y mejores prácticas en la implementación y gestión de herramientas de inteligencia artificial (1HR)\n    Actividad: Retroalimentación del profesor sobre el trabajo realizado en clase, enfocándose en los desafíos y mejores prácticas en la implementación y gestión de herramientas de inteligencia artificial.\n",
-                "parte4": "Semana 13:\nTema: Evaluación y medición de resultados de marketing: cómo utilizar algoritmos de inteligencia artificial para evaluar y medir el impacto de las estrategias de marketing.\nSubtema 1: Importancia de la evaluación y medición de resultados en el marketing (1HR)\n    Actividad: Realización de experimentos prácticos para comprobar y aplicar los conceptos teóricos.\nSubtema 2: Técnicas de evaluación y medición de resultados basadas en inteligencia artificial (1HR)\n    Actividad: Talleres prácticos donde los estudiantes puedan poner en práctica los conocimientos teóricos adquiridos.\nSubtema 3: Análisis de resultados y toma de decisiones basada en inteligencia artificial (1HR)\n    Actividad: Estudio de casos prácticos que permitan la aplicación de los conceptos teóricos a situaciones reales.\nSemana 14:\nTema: Ética en la inteligencia artificial aplicada al marketing: consideraciones éticas y legales en el uso de la inteligencia artificial en el ámbito del marketing.\nSubtema 1: Importancia de la ética en el uso de inteligencia artificial en el marketing (1HR)\n    Actividad: Debates y discusiones sobre temas teóricos y su relevancia en la práctica profesional.\nSubtema 2: Consideraciones éticas y legales en el uso de inteligencia artificial en el marketing (1HR)\n    Actividad: Organización de talleres prácticos donde los estudiantes puedan trabajar en la implementación de algoritmos de inteligencia artificial.\nSubtema 3: Casos de estudio de dilemas éticos en el uso de inteligencia artificial en el marketing (1HR)\n    Actividad: Análisis de casos prácticos de aplicación de inteligencia artificial en diferentes industrias y áreas.\nSemana 15:\nTema: Limitaciones y desafíos de la inteligencia artificial en el marketing: discusión sobre las limitaciones y posibles desafíos que enfrenta la inteligencia artificial en el contexto del marketing.\nSubtema 1: Limitaciones actuales de la inteligencia artificial en el marketing (1HR)\n    Actividad: Estudio de casos prácticos que permitan la aplicación de los conceptos teóricos a situaciones reales.\nSubtema 2: Desafíos futuros de la inteligencia artificial en el marketing (1HR)\n    Actividad: Realización de experimentos prácticos para comprobar y aplicar los conceptos teóricos aprendidos.\nSubtema 3: Mitigación de riesgos y superación de desafíos en el uso de inteligencia artificial en el marketing (1HR)\n    Actividad: Debates y discusiones sobre temas teóricos y su relevancia en la práctica profesional.\n"
-            };
-            document.getElementById("loadingOverlayEvaluacion").style.display = "flex";
-            try {
-                const response = await fetch(url, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(body)
-                });
-                const result = await response.json();
-                document.getElementById("textareaContentEvaluacion").value = JSON.stringify(result, null, 2);
-            } catch (error) {
-                document.getElementById("textareaContentEvaluacion").value = `Error: ${error.message}`;
-            } finally {
-                document.getElementById("loadingOverlayEvaluacion").style.display = "none";
-            }
-        }
-        function handleButtonClickEvaluacion() {
-            fetchAndDisplayEvaluacion();
-        }
-
-        async function fetchAndDisplayEvaluacion() {
-            const url = "http://172.191.10.174/api/activities/evaluacion";
-            const body = {
-                parte1: "Semana 1:\nTema: Introducción a la inteligencia artificial: conceptos básicos y aplicaciones.\nSubtema 1: Definición y fundamentos de la inteligencia artificial (1HR)\n   Actividad: Análisis de textos teóricos sobre la definición y fundamentos de la inteligencia artificial, seguido de una discusión en clase y ejercicios prácticos relacionados.\nSubtema 2: Aplicaciones de la inteligencia artificial en diferentes sectores (1HR)\n   Actividad: Investigación en grupos sobre las aplicaciones de la inteligencia artificial en diferentes sectores, seguido de una presentación en clase y debate.\nSubtema 3: Impacto de la inteligencia artificial en el marketing (1HR)\n   Actividad: Análisis de casos de estudio sobre el impacto de la inteligencia artificial en el marketing, seguido de ejercicios prácticos de aplicación en situaciones reales.\nSemana 2:\nTema: Aprendizaje automático: algoritmos básicos y técnicas de clasificación.\nSubtema 1: Introducción al aprendizaje automático (1HR)\n   Actividad: Lectura y discusión de textos teóricos sobre el aprendizaje automático, seguido de ejercicios prácticos de implementación de algoritmos básicos.\nSubtema 2: Algoritmos de clasificación en el aprendizaje automático (1HR)\n   Actividad: Talleres prácticos de implementación de algoritmos de clasificación en el aprendizaje automático, utilizando conjuntos de datos reales.\nSubtema 3: Técnicas avanzadas de clasificación (1HR)\n   Actividad: Proyecto en grupos para aplicar técnicas avanzadas de clasificación en un problema específico, seguido de una presentación en clase de los resultados obtenidos.\nSemana 3:\nTema: Procesamiento del lenguaje natural: comprensión y generación de lenguaje humano por parte de las máquinas.\nSubtema 1: Introducción al procesamiento del lenguaje natural (1HR)\n   Actividad: Análisis de textos teóricos sobre el procesamiento del lenguaje natural, seguido de ejercicios prácticos de comprensión de lenguaje natural.\nSubtema 2: Técnicas de comprensión de lenguaje natural (1HR)\n   Actividad: Talleres prácticos de implementación de técnicas de comprensión de lenguaje natural, utilizando herramientas y bibliotecas específicas.\nSubtema 3: Técnicas de generación de lenguaje natural (1HR)\n   Actividad: Proyecto individual para desarrollar una aplicación de generación de lenguaje natural, seguido de una presentación en clase y evaluación de los resultados.\nSemana 4:\nTema: Visión por computadora: reconocimiento de imágenes y detección de objetos.\nSubtema 1: Introducción a la visión por computadora (1HR)\n    Actividad: Clase expositiva interactiva sobre los conceptos básicos de la visión por computadora.\nSubtema 2: Técnicas de reconocimiento de imágenes (1HR)\n    Actividad: Desarrollo de proyectos prácticos de implementación de algoritmos de reconocimiento de imágenes.\nSubtema 3: Detección de objetos en imágenes y videos (1HR)\n    Actividad: Presentación y discusión de los proyectos de detección de objetos en clase.\nSemana 5:\nTema: Robótica: aplicación de la inteligencia artificial en sistemas robóticos autónomos.\nSubtema 1: Introducción a la robótica autónoma (1HR)\n    Actividad: Clase expositiva sobre los conceptos básicos de la robótica autónoma.\nSubtema 2: Algoritmos de planificación de movimiento en robótica (1HR)\n    Actividad: Asignación de proyectos de desarrollo de algoritmos de planificación de movimiento en robótica.\nSubtema 3: Aplicaciones de la inteligencia artificial en la robótica (1HR)\n    Actividad: Orientación y retroalimentación individualizada durante el desarrollo de los proyectos de aplicaciones de inteligencia artificial en la robótica.\nSemana 6:\nTema: Segmentación de mercado y personalización: cómo utilizar la inteligencia artificial para identificar grupos de consumidores y adaptar estrategias de marketing.\nSubtema 1: Importancia de la segmentación de mercado en el marketing (1HR)\n    Actividad: Clase expositiva sobre la importancia de la segmentación de mercado en el marketing.\nSubtema 2: Técnicas de segmentación de mercado basadas en inteligencia artificial (1HR)\n    Actividad: Desarrollo de proyectos prácticos de implementación de técnicas de segmentación de mercado basadas en inteligencia artificial.\nSubtema 3: Personalización de estrategias de marketing utilizando inteligencia artificial (1HR)\n    Actividad: Presentación y discusión de los proyectos de personalización de estrategias de marketing en clase.\n",
-                parte2: "Semana 7:\nTema: Investigación de mercados: técnicas de inteligencia artificial para analizar y obtener información relevante sobre el mercado.\n    Subtema 1: Importancia de la investigación de mercados en el marketing (1HR)\n        Actividad: Presentación individual sobre la importancia de la investigación de mercados y su relación con el marketing.\n    Subtema 2: Técnicas de análisis de datos en la investigación de mercados (1HR)\n        Actividad: Ejercicio práctico de análisis de datos utilizando herramientas de inteligencia artificial en la investigación de mercados.\n    Subtema 3: Aplicación de inteligencia artificial en la investigación de mercados (1HR)\n        Actividad: Debate en grupo sobre las ventajas y desafíos de aplicar inteligencia artificial en la investigación de mercados.\nSemana 8:\nTema: Optimización de procesos: uso de algoritmos de inteligencia artificial para mejorar la eficiencia y reducir costos en los procesos de marketing.\n    Subtema 1: Conceptos de optimización de procesos en el marketing (1HR)\n        Actividad: Estudio de caso individual sobre la aplicación de conceptos de optimización de procesos en el marketing.\n    Subtema 2: Algoritmos de optimización basados en inteligencia artificial (1HR)\n        Actividad: Práctica de programación utilizando algoritmos de optimización basados en inteligencia artificial en el contexto del marketing.\n    Subtema 3: Casos de éxito de optimización de procesos en el marketing (1HR)\n        Actividad: Presentación en grupo de casos de éxito de optimización de procesos en el marketing utilizando inteligencia artificial.\n",
-                parte3: "Semana 9:\nTema: Análisis de datos y toma de decisiones: cómo la inteligencia artificial puede ayudar en la interpretación de grandes volúmenes de datos y en la toma de decisiones basadas en ellos.\n    Subtema 1: Importancia del análisis de datos en el marketing (1HR)\n        Actividad: Análisis individual de datos de mercado utilizando herramientas de inteligencia artificial y presentación de hallazgos.\n    Subtema 2: Técnicas de análisis de datos basadas en inteligencia artificial (1HR)\n        Actividad: Taller práctico de análisis de datos utilizando técnicas de inteligencia artificial en el contexto del marketing.\n    Subtema 3: Toma de decisiones basada en análisis de datos con inteligencia artificial (1HR)\n        Actividad: Simulación de toma de decisiones en grupo utilizando análisis de datos con inteligencia artificial en el marketing.\nSemana 10:\nTema: Automatización de tareas y workflows: cómo utilizar la inteligencia artificial para automatizar tareas repetitivas y agilizar los flujos de trabajo en el ámbito del marketing.\n- Subtema 1: Automatización de tareas en el marketing (1HR)\n    Actividad: Utilización de la técnica de aula invertida para que los estudiantes investiguen y apliquen la automatización de tareas en el marketing en actividades prácticas en clase.\n- Subtema 2: Uso de inteligencia artificial en la automatización de flujos de trabajo (1HR)\n    Actividad: Discusión y resolución de dudas en grupos pequeños sobre el uso de inteligencia artificial en la automatización de flujos de trabajo, basado en material teórico previamente asignado.\n- Subtema 3: Beneficios y casos de uso de la automatización en el marketing (1HR)\n    Actividad: Retroalimentación del profesor sobre el trabajo realizado en clase, enfocándose en los beneficios y casos de uso de la automatización en el marketing.\nSemana 11:\nTema: Aplicación de inteligencia artificial en publicidad y creatividad: cómo utilizar la inteligencia artificial para crear anuncios personalizados y generar contenido creativo.\n- Subtema 1: Personalización de anuncios basada en inteligencia artificial (1HR)\n    Actividad: Utilización de la técnica de aula invertida para que los estudiantes investiguen y apliquen la personalización de anuncios basada en inteligencia artificial en actividades prácticas en clase.\n- Subtema 2: Generación de contenido creativo con inteligencia artificial (1HR)\n    Actividad: Discusión y resolución de dudas en grupos pequeños sobre la generación de contenido creativo con inteligencia artificial, basado en material teórico previamente asignado.\n- Subtema 3: Casos de éxito de aplicaciones de inteligencia artificial en publicidad y creatividad (1HR)\n    Actividad: Retroalimentación del profesor sobre el trabajo realizado en clase, enfocándose en los casos de éxito de aplicaciones de inteligencia artificial en publicidad y creatividad.\nSemana 12:\nTema: Implementación y gestión de herramientas de inteligencia artificial: consideraciones para implementar y administrar correctamente herramientas de inteligencia artificial en entornos de marketing.\n- Subtema 1: Consideraciones para la implementación de herramientas de inteligencia artificial (1HR)\n    Actividad: Utilización de la técnica de aula invertida para que los estudiantes investiguen y apliquen las consideraciones para la implementación de herramientas de inteligencia artificial en actividades prácticas en clase.\n- Subtema 2: Gestión y monitoreo de herramientas de inteligencia artificial en el marketing (1HR)\n    Actividad: Discusión y resolución de dudas en grupos pequeños sobre la gestión y monitoreo de herramientas de inteligencia artificial en el marketing, basado en material teórico previamente asignado.\n- Subtema 3: Desafíos y mejores prácticas en la implementación y gestión de herramientas de inteligencia artificial (1HR)\n    Actividad: Retroalimentación del profesor sobre el trabajo realizado en clase, enfocándose en los desafíos y mejores prácticas en la implementación y gestión de herramientas de inteligencia artificial.\n",
-                parte4: "Semana 13:\nTema: Evaluación y medición de resultados de marketing: cómo utilizar algoritmos de inteligencia artificial para evaluar y medir el impacto de las estrategias de marketing.\nSubtema 1: Importancia de la evaluación y medición de resultados en el marketing (1HR)\n    Actividad: Realización de experimentos prácticos para comprobar y aplicar los conceptos teóricos.\nSubtema 2: Técnicas de evaluación y medición de resultados basadas en inteligencia artificial (1HR)\n    Actividad: Talleres prácticos donde los estudiantes puedan poner en práctica los conocimientos teóricos adquiridos.\nSubtema 3: Análisis de resultados y toma de decisiones basada en inteligencia artificial (1HR)\n    Actividad: Estudio de casos prácticos que permitan la aplicación de los conceptos teóricos a situaciones reales.\nSemana 14:\nTema: Ética en la inteligencia artificial aplicada al marketing: consideraciones éticas y legales en el uso de la inteligencia artificial en el ámbito del marketing.\nSubtema 1: Importancia de la ética en el uso de inteligencia artificial en el marketing (1HR)\n    Actividad: Debates y discusiones sobre temas teóricos y su relevancia en la práctica profesional.\nSubtema 2: Consideraciones éticas y legales en el uso de inteligencia artificial en el marketing (1HR)\n    Actividad: Organización de talleres prácticos donde los estudiantes puedan trabajar en la implementación de algoritmos de inteligencia artificial.\nSubtema 3: Casos de estudio de dilemas éticos en el uso de inteligencia artificial en el marketing (1HR)\n    Actividad: Análisis de casos prácticos de aplicación de inteligencia artificial en diferentes industrias y áreas.\nSemana 15:\nTema: Limitaciones y desafíos de la inteligencia artificial en el marketing: discusión sobre las limitaciones y posibles desafíos que enfrenta la inteligencia artificial en el contexto del marketing.\nSubtema 1: Limitaciones actuales de la inteligencia artificial en el marketing (1HR)\n    Actividad: Estudio de casos prácticos que permitan la aplicación de los conceptos teóricos a situaciones reales.\nSubtema 2: Desafíos futuros de la inteligencia artificial en el marketing (1HR)\n    Actividad: Realización de experimentos prácticos para comprobar y aplicar los conceptos teóricos aprendidos.\nSubtema 3: Mitigación de riesgos y superación de desafíos en el uso de inteligencia artificial en el marketing (1HR)\n    Actividad: Debates y discusiones sobre temas teóricos y su relevancia en la práctica profesional.\n"
-            };
-
-            document.getElementById("loadingOverlayEvaluacion").style.display = "flex";
-
-            try {
-                const response = await fetch(url, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(body)
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-
-                const result = await response.json();
-                document.getElementById("textareaContentEvaluacion").value = JSON.stringify(result, null, 2);
-            } catch (error) {
-                document.getElementById("textareaContentEvaluacion").value = `Error: ${error.message}`;
-            } finally {
-                document.getElementById("loadingOverlayEvaluacion").style.display = "none";
-            }
-        }
-
-        function handleButtonClickEvaluacion() {
-            fetchAndDisplayEvaluacion();
-        }
-        /*FIN EVALUACION*/
-        /*RUBRICAS*/
-        async function fetchDataAndFormatRubricas() {
-            const mecanismo = "Laboratorio práctico";
-            const porcentaje = "15%";
-            const value = "4"; // Asumiendo que este es el valor que necesitas pasar para el parámetro 'mecanismo'
-
-            try {
-                const url = `http://172.191.10.174/api/actividades/rubrica?mecanismo=|4|Laboratorio práctico|15%|`;
-                console.log(`Fetching data from URL: ${url}`);
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const result = await response.json();
-                console.log(`Data received:`, result);
-
-                if (!result.data) {
-                    throw new Error(`'data' property is undefined in the response data`);
-                }
-
-                const tableHtml = generateTableFromData(result.data);
-                document.getElementById("tableContentRubricas").innerHTML = tableHtml;
-            } catch (error) {
-                console.error("Error al obtener datos:", error);
-                document.getElementById("tableContentRubricas").innerHTML = `Error al obtener datos: ${error.message}`;
-            } finally {
-                document.getElementById("loadingOverlayRubricas").style.display = "none";
-            }
-        }
-
-        function generateTableFromData(data) {
-            const lines = data.split('\n');
-            let tableHtml = '<table class="table table-bordered"><thead><tr>';
-
-            // Procesar encabezados
-            let headers = lines[2].split('|').map(header => header.trim()).filter(header => header);
-            headers.forEach(header => {
-                tableHtml += `<th>${header}</th>`;
-            });
-            tableHtml += '</tr></thead><tbody>';
-
-            // Procesar filas de datos
-            for (let i = 4; i < lines.length; i++) {
-                if (lines[i].trim() === '') continue;
-                const columns = lines[i].split('|').map(column => column.trim()).filter(column => column);
-                tableHtml += '<tr>';
-                columns.forEach(column => {
-                    tableHtml += `<td>${column}</td>`;
-                });
-                tableHtml += '</tr>';
-            }
-            tableHtml += '</tbody></table>';
-            return tableHtml;
-        }
-
-        async function SpinnerRubricas() {
-            document.getElementById("loadingOverlayRubricas").style.display = "flex";
-            document.getElementById('generarRubricas').textContent = 'Cargando...';
-            document.getElementById('tableContentRubricas').innerHTML = 'Cargando Contenido ...';
-            try {
-                await new Promise((resolve) => setTimeout(resolve, 4000));
-            } catch (error) {
-                console.error("Error al realizar la solicitud:", error);
-            } finally {
-                document.getElementById("loadingOverlayRubricas").style.display = "none";
-                document.getElementById('generarRubricas').textContent = 'Generar';
-            }
-        }
-
-        function handleButtonClickRubricas() {
-            SpinnerRubricas();
-            fetchDataAndFormatRubricas();
-        }
-        /*FIN RUBRICAS*/
-        /*TABS*/
-        function toggleContenido(num) {
-            const contents = document.querySelectorAll('.content[id^="contenido"]');
-            contents.forEach((content, index) => {
-                if (index === num - 1) {
-                    content.style.display = content.style.display === 'none' ? 'block' : 'none';
-                } else {
-                    content.style.display = 'none';
-                }
-            });
-        }
-
-        function toggleContenido2(num) {
-            const contents2 = document.querySelectorAll('.content[id^="contenidos"]');
-            contents2.forEach((content2, index) => {
-                if (index === num - 1) {
-                    content2.style.display = content2.style.display === 'none' ? 'block' : 'none';
-                } else {
-                    content2.style.display = 'none';
-                }
-            });
-        }
-
-        // Inicializar todos los contenidos como no visibles
-        document.addEventListener("DOMContentLoaded", function () {
-            const contents = document.querySelectorAll('.content[id^="contenido"]');
-            const contents2 = document.querySelectorAll('.content[id^="contenidos"]');
-            contents.forEach(content => (content.style.display = 'none'));
-            contents2.forEach(content2 => (content2.style.display = 'none'));
-        });
-        /*FIN TABS*/
+      /*FIN EVALUACION*/
     </script>
     <script src="Styles/script.js"></script>
-    <script>
-        // Deshabilitar clic derecho
-        document.addEventListener('contextmenu', function (event) {
-            event.preventDefault();
-        });
+    <script src="../jsAcademics/planifevl/estaprendizaje.js"></script>
+    <script src="../jsAcademics/planifevl/metodologia.js"></script>
+    <script src="../jsAcademics/planifevl/planificacion.js"></script>
+    <script src="../jsAcademics/planifevl/rubricas.js"></script>
+    <script src="../jsAcademics/planifevl/tabs.js"></script>
+    <script src="../jsAcademics/planifevl/temas.js"></script>
 
-        // Prevenir teclas específicas
-        document.onkeydown = function (e) {
-            if (e.keyCode == 123) {
-                return false; // F12
-            }
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-                return false; // Ctrl+Shift+I
-            }
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-                return false; // Ctrl+Shift+J
-            }
-            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-                return false; // Ctrl+U
-            }
-        };      
-    </script>
+    <script src="../Styles/script.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/main2.js"></script>
 
-
-</body>
-
+    <script></script>
+  </body>
 </html>
