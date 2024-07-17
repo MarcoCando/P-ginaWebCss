@@ -35,7 +35,7 @@
 
   function generateTableFromData(data) {
     const lines = data.split("\n");
-    let tableHtml = '<table class="table table-bordered"><thead><tr>';
+    let tableHtml = '<table class="table table-bordered table-striped"><thead><tr>';
 
     // Procesar encabezados
     let headers = lines[2]
