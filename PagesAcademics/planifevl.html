@@ -259,8 +259,14 @@
         <div class="content" id="contenidos4">
           <div class="input-group">
             <div class="input-group-prepend col-2">
-              <span class="span-title"
-                style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
+              <span class="span-title" style="
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  ">
                 Actividades
               </span>
             </div>
@@ -281,9 +287,6 @@
               </button>
             </div>
           </div>
-
-
-
         </div>
         <div class="content" id="contenidos5">
           <div class="input-group">
@@ -454,6 +457,11 @@
 
       document.getElementById("loadingOverlayEvaluacion").style.display =
         "flex";
+      document.getElementById("generarEvaluacion").disabled = true;
+
+
+      document.getElementById("generarEvaluacion").textContent = "Cargando...";
+
 
       try {
         const response = await fetch(url, {
@@ -476,6 +484,8 @@
         document.getElementById("textareaContentEvaluacion").value = `Error: ${error.message}`;
       } finally {
         document.getElementById("loadingOverlayEvaluacion").style.display = "none";
+        document.getElementById("generarEvaluacion").disabled = false;
+        document.getElementById("generarEvaluacion").textContent = "Generar";
       }
     }
 
@@ -528,7 +538,7 @@
     }
     /*FIN EVALUACION*/
     /*ACTIVIDADES*/
-    async function handleButtonClickActividades() {
+    async function fetchDataAndFormatActividades() {
       const url = "http://172.191.10.174/api/activities";
       const body = {
         "sesiones": "3",
@@ -550,7 +560,7 @@
 
       loadingOverlay.style.display = "flex";
       generarButton.disabled = true;
-      textarea.value = "";
+
 
       try {
         const response = await fetch(url, {
@@ -565,17 +575,41 @@
 
         const data = await response.json();
         textarea.value = JSON.stringify(data, null, 2); // Mostrar la respuesta en formato JSON en el textarea
+        adjustTextareaHeightActividades(); // Ajustar la altura del textarea después de establecer el valor
       } catch (error) {
         textarea.value = "Error al generar la planificación: " + error.message;
+        adjustTextareaHeightActividades(); // Ajustar la altura del textarea después de establecer el valor de error
       } finally {
-
-        document.getElementById("loadingOverlayActividades").style.display = "none";
+        loadingOverlay.style.display = "none";
         generarButton.disabled = false;
       }
     }
 
+    async function SpinnerActividades() {
+      document.getElementById("loadingOverlayActividades").style.display = "flex";
+      document.getElementById("generarActividades").textContent = "Cargando...";
+      document.getElementById("textareaContentActividades").value = "Cargando Contenido ...";
+      adjustTextareaHeightActividades(); // Ajustar la altura del textarea después de establecer el valor de carga
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 4000));
+      } catch (error) {
+        console.error("Error al realizar la solicitud:", error);
+      } finally {
+        document.getElementById("loadingOverlayActividades").style.display = "none";
+        document.getElementById("generarActividades").textContent = "Generar";
+      }
+    }
 
+    function handleButtonClickActividades() {
+      SpinnerActividades();
+      fetchDataAndFormatActividades();
+    }
 
+    function adjustTextareaHeightActividades() {
+      const textarea = document.getElementById("textareaContentActividades");
+      textarea.style.height = "auto";
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    }
     /*FIN ACTIVIDADES*/
   </script>
   <script src="Styles/script.js"></script>
