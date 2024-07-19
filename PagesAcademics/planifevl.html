@@ -620,7 +620,6 @@
               }
             });
           });
-
           // Crear y añadir un nuevo textarea por cada semana
           const newTextarea = document.createElement("textarea");
           const textareaId = `textareaContentSemana${index + 1}`;
@@ -631,24 +630,19 @@
           newTextarea.readOnly = true;
           newTextarea.value = weekText.trim();
           semanasContainer.appendChild(newTextarea);
-
           adjustTextareaHeight(newTextarea);
-
           // Guardar contenido en la variable correspondiente
           weekContents[textareaId] = newTextarea.value;
         }
         formattedText += week + "\n\n";
       });
-
       const textarea = document.getElementById("textareaContentActividades");
       textarea.value = formattedText.trim();
     }
-
     function adjustTextareaHeight(textarea) {
       textarea.style.height = "auto";
       textarea.style.height = `${textarea.scrollHeight}px`;
     }
-
     // Función para obtener el contenido de una semana específica
     function getWeekContent(weekNumber) {
       const textareaId = `textareaContentSemana${weekNumber}`;
