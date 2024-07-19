@@ -271,8 +271,8 @@
               </span>
             </div>
             <div class="input-group-prepend col-9">
-              <textarea id="textareaContentActividades" cols="110" rows="10" style="overflow: hidden"
-                readonly></textarea>
+              <textarea id="textareaContentActividades" cols="110" rows="10"
+                style="overflow: hidden;text-align:left;align-content: left;" readonly></textarea>
               <div id="loadingOverlayActividades" class="loading-overlay" style="display: none">
                 <div class="spinner">
                   <div class="double-bounce1"></div>
@@ -291,32 +291,21 @@
         <div class="content" id="contenidos5">
           <div class="input-group">
             <div class="input-group-prepend col-2">
-              <span class="span-title" style="
-                    top: 0;
-                    right: 0;
-                    left: 0;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  ">
+              <span class="span-title"
+                style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
                 Actividades/Semanas
               </span>
             </div>
-            <div class="input-group-prepend col-9">
-              <textarea id="textareaContentPlanificacion" cols="110" rows="10" style="overflow: hidden"
+            <div class="input-group-prepend col-9" id="semanasContainer">
+              <!-- Textareas for each week will be dynamically generated here -->
+              <textarea id="textareaContentActSemanas" cols="110" rows="10" style="overflow: hidden"
                 readonly></textarea>
-              <div id="loadingOverlayPlanificacion" class="loading-overlay" style="display: none">
+              <div id="loadingOverlayActSemanas" class="loading-overlay" style="display: none">
                 <div class="spinner">
                   <div class="double-bounce1"></div>
                   <div class="double-bounce2"></div>
                 </div>
               </div>
-            </div>
-            <div class="input-group-prepend col-1">
-              <button onclick="handleButtonClickPlanificacion()" id="generarPlanificacion" type="button"
-                class="btn btn-info" style="font-size: 12px; border-radius: 50px; height: 40px">
-                Generar
-              </button>
             </div>
           </div>
         </div>
@@ -538,6 +527,7 @@
     }
     /*FIN EVALUACION*/
     /*ACTIVIDADES*/
+    const weekContents = {};
     async function fetchDataAndFormatActividades() {
       const url = "http://172.191.10.174/api/activities";
       const body = {
@@ -574,30 +564,25 @@
         });
 
         const data = await response.json();
-        textarea.value = JSON.stringify(data, null, 2); // Mostrar la respuesta en formato JSON en el textarea
-        adjustTextareaHeightActividades(); // Ajustar la altura del textarea después de establecer el valor
+        const content = data.data; // Asumiendo que el JSON tiene una propiedad "data" con el contenido
+
+        formatContent(content);
+        adjustTextareaHeightActividades();
       } catch (error) {
         textarea.value = "Error al generar la planificación: " + error.message;
-        adjustTextareaHeightActividades(); // Ajustar la altura del textarea después de establecer el valor de error
+        adjustTextareaHeightActividades();
       } finally {
         loadingOverlay.style.display = "none";
         generarButton.disabled = false;
+        document.getElementById("generarActividades").textContent = "Generar";
       }
     }
 
-    async function SpinnerActividades() {
+    function SpinnerActividades() {
       document.getElementById("loadingOverlayActividades").style.display = "flex";
       document.getElementById("generarActividades").textContent = "Cargando...";
       document.getElementById("textareaContentActividades").value = "Cargando Contenido ...";
-      adjustTextareaHeightActividades(); // Ajustar la altura del textarea después de establecer el valor de carga
-      try {
-        await new Promise((resolve) => setTimeout(resolve, 4000));
-      } catch (error) {
-        console.error("Error al realizar la solicitud:", error);
-      } finally {
-        document.getElementById("loadingOverlayActividades").style.display = "none";
-        document.getElementById("generarActividades").textContent = "Generar";
-      }
+      adjustTextareaHeightActividades();
     }
 
     function handleButtonClickActividades() {
@@ -609,6 +594,65 @@
       const textarea = document.getElementById("textareaContentActividades");
       textarea.style.height = "auto";
       textarea.style.height = `${textarea.scrollHeight}px`;
+    }
+
+    function formatContent(content) {
+      const weeks = content.split("\n\n");
+      let formattedText = "";
+
+      const semanasContainer = document.getElementById("semanasContainer");
+      semanasContainer.innerHTML = ""; // Limpiar contenedor
+
+      weeks.forEach((week, index) => {
+        if (week.startsWith("Semana")) {
+          const parts = week.split("\n- ");
+          const header = parts.shift();
+          let weekText = `${header}\n`;
+          parts.forEach(part => {
+            const lines = part.split("\n");
+            lines.forEach(line => {
+              if (line.startsWith("Tema:")) {
+                weekText += `  ${line}\n`;
+              } else if (line.startsWith("Subtema:")) {
+                weekText += `    ${line}\n`;
+              } else if (line.startsWith("Actividad:")) {
+                weekText += `      ${line}\n`;
+              }
+            });
+          });
+
+          // Crear y añadir un nuevo textarea por cada semana
+          const newTextarea = document.createElement("textarea");
+          const textareaId = `textareaContentSemana${index + 1}`;
+          newTextarea.id = textareaId;
+          newTextarea.cols = 110;
+          newTextarea.rows = 10;
+          newTextarea.style.overflow = "hidden";
+          newTextarea.readOnly = true;
+          newTextarea.value = weekText.trim();
+          semanasContainer.appendChild(newTextarea);
+
+          adjustTextareaHeight(newTextarea);
+
+          // Guardar contenido en la variable correspondiente
+          weekContents[textareaId] = newTextarea.value;
+        }
+        formattedText += week + "\n\n";
+      });
+
+      const textarea = document.getElementById("textareaContentActividades");
+      textarea.value = formattedText.trim();
+    }
+
+    function adjustTextareaHeight(textarea) {
+      textarea.style.height = "auto";
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    }
+
+    // Función para obtener el contenido de una semana específica
+    function getWeekContent(weekNumber) {
+      const textareaId = `textareaContentSemana${weekNumber}`;
+      return weekContents[textareaId];
     }
     /*FIN ACTIVIDADES*/
   </script>

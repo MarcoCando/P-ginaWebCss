@@ -47,7 +47,7 @@
         return formatted;
       }
 
-      async function SpinnerEstrAprend()  {
+      async function SpinnerEstrAprend() {
         document.getElementById("loadingOverlayEstrAprend").style.display =
           "flex";
         document.getElementById("generarEstrAprend").textContent =
