@@ -1,14 +1,28 @@
 async function fetchDataAndFormatResultado() {
-    const datas = "1.Diseñar estrategias de marketing que integren herramientas de inteligencia artificial para mejorar la segmentación de mercado.\n5.Utilizar herramientas de inteligencia artificial para optimizar los procesos de marketing y mejorar la eficiencia operativa.";
+    const datas = sessionStorage.getItem('textareaContent');
+    const numeros = document.getElementById('txtCreditosDef').value; 
+    const semana = document.getElementById('txtNumSemanas').value;
+    const subject = document.getElementById('txtAsignatura').value;
+    const tipo = document.getElementById('drpTipo').value; // Obtener el valor seleccionado del dropdown
+    
+    /*"1.Diseñar estrategias de marketing que integren herramientas de inteligencia artificial para mejorar la segmentación de mercado.\n5.Utilizar herramientas de inteligencia artificial para optimizar los procesos de marketing y mejorar la eficiencia operativa.";*/
+    
     const params = new URLSearchParams({
         data: datas,
-        numero: 3,
+        numero: numeros, 
+        semanas: semana,
+        subject: subject,
+        modalidad: false,
+        tipo: tipo,
+        area: false,
+        proceso: "rdas"
+       /* numero: 3,
         semanas: 16,
         subject: "Fundamentos de Inteligencia Artificial",
         modalidad: false,
         tipo: "Periodo Academico",
         area: false,
-        proceso: "rdas"
+        proceso: "rdas"*/
     });
 
     try {

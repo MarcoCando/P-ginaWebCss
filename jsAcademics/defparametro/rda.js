@@ -19,6 +19,10 @@ async function fetchDataAndFormatRDA() {
         document.getElementById("textareaContent").value = formatted;
         adjustTextareaHeight();
         document.getElementById("loadingOverlay").style.display = "none";
+
+        sessionStorage.setItem('textareaContent', formatted);
+
+        
     } catch (error) {
         console.error("Error al obtener datos:", error);
         document.getElementById("textareaContent").value = `Error al obtener datos: ${error.message}`;

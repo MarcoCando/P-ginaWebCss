@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/df2ecd1a25.js" crossorigin="anonymous"></script>
 
+
 </head>
 
 <body>
@@ -64,13 +65,13 @@
             </div>
             <form action="">
                 <div style="right: 20px; position: absolute; padding: 20px 50px;">
-                    <a href="defparametro.html" type="button" class="btn btn-outline-success"
+                    <a href="defparametro.html" id="nextButton" class="btn btn-outline-success"
                         style="border-radius: 10px 40px 40px 10px; border: solid 1px;">
                         Siguiente
                     </a>
                 </div>
-                <div style="left: 20px; position: absolute; padding: 20px 50px; ">
-                    <button type="button" class="btn btn-outline-info">
+                <div style="left: 20px; position: absolute; padding: 20px 50px;">
+                    <button type="button" class="btn btn-outline-info" onclick="saveForm1Data()">
                         Guardar Cambios
                     </button>
                 </div>
@@ -248,6 +249,46 @@
     <script src="../Styles/script.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/main2.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Recuperar datos del sessionStorage al cargar la página
+            document.getElementById('txtEnfoque').value = sessionStorage.getItem('txtEnfoque') || '';
+            document.getElementById('txtPrograma').value = sessionStorage.getItem('txtPrograma') || '';
+            document.getElementById('txtNumber').value = sessionStorage.getItem('txtNumber') || '';
+            document.getElementById('textareaContent').value = sessionStorage.getItem('textareaContent') || '';
+            document.getElementById('textareaContentPerfil').value = sessionStorage.getItem('textareaContentPerfil') || '';
+            document.getElementById('tableContainer').innerHTML = sessionStorage.getItem('tableContainer') || '';
+
+            // Guardar datos en sessionStorage al cambiar el valor de los campos
+            document.getElementById('txtEnfoque').addEventListener('input', function () {
+                sessionStorage.setItem('txtEnfoque', this.value);
+            });
+            document.getElementById('txtPrograma').addEventListener('input', function () {
+                sessionStorage.setItem('txtPrograma', this.value);
+            });
+            document.getElementById('txtNumber').addEventListener('input', function () {
+                sessionStorage.setItem('txtNumber', this.value);
+            });
+            document.getElementById('textareaContent').addEventListener('input', function () {
+                sessionStorage.setItem('textareaContent', this.value);
+            });
+            document.getElementById('textareaContentPerfil').addEventListener('input', function () {
+                sessionStorage.setItem('textareaContentPerfil', this.value);
+            });
+        });
+
+        function saveForm1Data() {
+            sessionStorage.setItem('txtEnfoque', document.getElementById('txtEnfoque').value);
+            sessionStorage.setItem('txtPrograma', document.getElementById('txtPrograma').value);
+            sessionStorage.setItem('txtNumber', document.getElementById('txtNumber').value);
+            sessionStorage.setItem('textareaContent', document.getElementById('textareaContent').value);
+            sessionStorage.setItem('textareaContentPerfil', document.getElementById('textareaContentPerfil').value);
+            sessionStorage.setItem('tableContainer', document.getElementById('tableContainer').innerHTML);
+        }
+    </script>
+
+
 </body>
 
 </html>

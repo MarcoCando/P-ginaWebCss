@@ -1,18 +1,26 @@
 async function fetchDataAndFormatDesCurso() {
-    const data = `
+
+    const data = sessionStorage.getItem('textareaContentResultado');
+    const sesiones = document.getElementById('txtCreditosDef').value; 
+    const semanas = document.getElementById('txtNumSemanas').value;
+    const subject = document.getElementById('txtAsignatura').value;
+    const tipo = document.getElementById('drpTipo').value; // Obtener el valor seleccionado del dropdown
+    const definicion = document.getElementById('textareaContentDefCurso').value;
+
+   /* const data = `
 1. Diseñar estrategias de marketing que incorporen herramientas de inteligencia artificial para mejorar la segmentación y personalización de mensajes.
 2. Utilizar técnicas de inteligencia artificial para analizar grandes volúmenes de datos y extraer información relevante para la toma de decisiones de marketing.
 3. Implementar soluciones de inteligencia artificial en los procesos de marketing para optimizar la eficiencia operativa y mejorar la experiencia del cliente.`;
-
+*/
     const params = new URLSearchParams({
         data: data,
-        sesiones: 3,
-        semanas: 16,
-        subject: "Fundamentos de Inteligencia Artificial",
+        sesiones: sesiones,
+        semanas: semanas,
+        subject: subject,
         modalidad: "False",
-        tipo: "Periodo Academico",
+        tipo: tipo,
         area: "False",
-        definicion: "Fundamentos de Inteligencia Artificial es una asignatura que explora los principios básicos de la IA, incluyendo algoritmos de aprendizaje automático, redes neuronales y procesamiento del lenguaje natural. También se examinan tecnologías emergentes como la inteligencia artificial explicativa y ética. Se enfoca en aplicaciones prácticas e incluye casos de estudio de la vida real. Se promueve el uso de herramientas y enfoques contemporáneos para enseñar y comprender la IA en diversas industrias.",
+        definicion: definicion,
         proceso: "desc"
     });
 

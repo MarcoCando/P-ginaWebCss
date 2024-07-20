@@ -1,5 +1,6 @@
 async function fetchDataAndFormatDefCurso() {
-    const datas = "Fundamentos de Inteligencia Artificial";
+    const datas = document.getElementById('txtAsignatura').value;
+
     try {
         const url = `http://172.191.10.174/api/subject_definicion?data=${encodeURIComponent(datas)}`;
         console.log(`Fetching data from URL: ${url}`);

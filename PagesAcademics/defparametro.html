@@ -67,19 +67,19 @@
             </div>
             <form action="">
                 <div style="right: 20px; position: absolute; padding: 20px 0px;">
-                    <a href="planifevl.html" type="button" class="btn btn-outline-success"
+                    <a href="planifevl.html" id="nextButton2" class="btn btn-outline-success"
                         style="border-radius: 10px 40px 40px 10px; border: solid 1px;">
                         Siguiente
                     </a>
                 </div>
                 <div style="right: 130px; position: absolute; padding: 20px 0px;">
-                    <a href="parametro.html" type="button" class="btn btn-outline-success"
+                    <a href="parametro.html" id="prevButton2" class="btn btn-outline-success"
                         style="border-radius: 40px 10px 10px 40px; border: solid 1px;">
                         Regresar
                     </a>
                 </div>
-                <div style="left: 20px; position: absolute; padding: 20px 50px; ">
-                    <button type="button" class="btn btn-outline-info">
+                <div style="left: 20px; position: absolute; padding: 20px 50px;">
+                    <button type="button" class="btn btn-outline-info" onclick="saveForm2Data()">
                         Guardar Cambios
                     </button>
                 </div>
@@ -100,7 +100,7 @@
                                 Programa</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <input type="text" class="input100">
+                            <input type="text" id="txtProgramaNew" class="input100">
                         </div>
                     </div>
                     <div class="input-group">
@@ -109,10 +109,10 @@
                                 Asignatura</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <input type="text" class="input100">
+                            <input type="text" id="txtAsignatura" class="input100">
                         </div>
                     </div>
-                    <div class="input-group">
+                    <div class="input-group" style="display: none;">
                         <div class="input-group-prepend col-2">
                             <span class="span-title">
                                 Código de Asignatura</span>
@@ -121,7 +121,7 @@
                             <input type="number" class="input100">
                         </div>
                     </div>
-                    <div class="input-group">
+                    <div class="input-group" style="display: none;">
                         <div class="input-group-prepend col-2">
                             <span class="span-title">
                                 Naturaleza de la Asignatura</span>
@@ -143,7 +143,7 @@
                                 Créditos</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <input type="number" class="input100" placeholder="0">
+                            <input type="number" id="txtCreditosDef" class="input100">
                         </div>
                     </div>
                     <div class="input-group">
@@ -152,11 +152,9 @@
                                 Tipo</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <select id="Dropdown" class="Dropdowns">
-                                <option value="opcion1">Modular</option>
-                                <option value="opcion2">Opción 2</option>
-                                <option value="opcion3">Opción 3</option>
-                                <option value="opcion4">Opción 4</option>
+                            <select id="drpTipo" class="Dropdowns">
+                                <option value="Modular">Modular</option>
+                                <option value="Periodo Academico">Periodo Académico</option>
                             </select>
 
                         </div>
@@ -167,7 +165,7 @@
                                 Número de Semanas</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <input type="text" class="input100">
+                            <input type="number" id="txtNumSemanas" class="input100">
                         </div>
                     </div>
                     <br>
@@ -199,6 +197,8 @@
                     </div>
 
                     <hr style="height:1px;" />
+
+                    <textarea id="newTextareaContent" cols="110" rows="10" style="display: none;" readonly></textarea>
 
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
@@ -293,12 +293,80 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Recuperar el contenido de sessionStorage
+        const textareaContent = sessionStorage.getItem('textareaContent');
+        const programa = sessionStorage.getItem('txtPrograma');
+        const creditos = sessionStorage.getItem('txtNumber');
+
+        if (textareaContent) {
+            document.getElementById('newTextareaContent').value = textareaContent;
+            //document.getElementById('hiddenTextareaContent').value = textareaContent;
+        }
+        if (programa) {
+            document.getElementById('txtProgramaNew').value = programa;
+            //document.getElementById('hiddenTextareaContent').value = textareaContent;
+        }
+        if (creditos) {
+            document.getElementById('txtCreditosDef').value = creditos;
+            //document.getElementById('hiddenTextareaContent').value = textareaContent;
+        }
+
+    </script>
     <script src="../jsAcademics/defacademico/defcurso.js"></script>
     <script src="../jsAcademics/defacademico/resultado.js"></script>
     <script src="../jsAcademics/defacademico/descurso.js"></script>
     <script src="../Styles/script.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/main2.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Recuperar datos del sessionStorage al cargar la página
+            document.getElementById('txtAsignatura').value = sessionStorage.getItem('txtAsignatura') || '';
+            document.getElementById('txtNumSemanas').value = sessionStorage.getItem('txtNumSemanas') || '';
+            document.getElementById('textareaContentDefCurso').value = sessionStorage.getItem('textareaContentDefCurso') || '';
+            document.getElementById('textareaContentResultado').value = sessionStorage.getItem('textareaContentResultado') || '';
+            document.getElementById('textareaContentDesCurso').value = sessionStorage.getItem('textareaContentDesCurso') || '';
+            document.getElementById('drpTipo').value = sessionStorage.getItem('drpTipo') || '';
+            document.getElementById('tableBody').value = sessionStorage.getItem('tableBody') || '';
+
+
+            // Guardar datos en sessionStorage al cambiar el valor de los campos
+            document.getElementById('txtAsignatura').addEventListener('input', function () {
+                sessionStorage.setItem('txtAsignatura', this.value);
+            });
+            document.getElementById('txtNumSemanas').addEventListener('input', function () {
+                sessionStorage.setItem('txtNumSemanas', this.value);
+            });
+            document.getElementById('textareaContentDefCurso').addEventListener('input', function () {
+                sessionStorage.setItem('textareaContentDefCurso', this.value);
+            });
+            document.getElementById('textareaContentResultado').addEventListener('input', function () {
+                sessionStorage.setItem('textareaContentResultado', this.value);
+            });
+            document.getElementById('textareaContentDesCurso').addEventListener('input', function () {
+                sessionStorage.setItem('textareaContentDesCurso', this.value);
+            });
+            document.getElementById('drpTipo').addEventListener('input', function () {
+                sessionStorage.setItem('drpTipo', this.value);
+            });
+            document.getElementById('tableBody').addEventListener('input', function () {
+                sessionStorage.setItem('tableBody', this.value);
+            });
+        });
+
+        function saveForm2Data() {
+            sessionStorage.setItem('txtAsignatura', document.getElementById('txtAsignatura').value);
+            sessionStorage.setItem('txtCreditosDef', document.getElementById('txtCreditosDef').value);
+            sessionStorage.setItem('txtNumSemanas', document.getElementById('txtNumSemanas').value);
+            sessionStorage.setItem('textareaContentDefCurso', document.getElementById('textareaContentDefCurso').value);
+            sessionStorage.setItem('textareaContentResultado', document.getElementById('textareaContentResultado').value);
+            sessionStorage.setItem('textareaContentDesCurso', document.getElementById('textareaContentDesCurso').value);
+        }
+    </script>
+
+
 
 </body>
 
