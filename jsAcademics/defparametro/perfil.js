@@ -1,8 +1,13 @@
 /*PERFIL DE EGRESO*/
 async function fetchDataAndFormatPerfil() {
-    const rdaper = "1. Integra técnicas avanzadas de inteligencia artificial para desarrollar estrategias de marketing innovadoras y efectivas. 2. Evalúa la eficacia de las campañas de marketing personalizadas mediante el uso de algoritmos y análisis de datos para optimizar su rendimiento. 3. Diseña y ejecuta estrategias de marketing basadas en inteligencia artificial para optimizar la adquisición y retención de clientes de manera rentable.";
+    /*const rdaper = "1. Integra técnicas avanzadas de inteligencia artificial para desarrollar estrategias de marketing innovadoras y efectivas. 2. Evalúa la eficacia de las campañas de marketing personalizadas mediante el uso de algoritmos y análisis de datos para optimizar su rendimiento. 3. Diseña y ejecuta estrategias de marketing basadas en inteligencia artificial para optimizar la adquisición y retención de clientes de manera rentable.";
     const enfoque = "MARKETING EN INTELIGENCIA ARTIFICIAL";
-    const nameper = "MARKETING CON INTELIGENCIA ARTIFICIAL";
+    const nameper = "MARKETING CON INTELIGENCIA ARTIFICIAL";*/
+
+    const rdaper = document.getElementById('textareaContent').value;
+    const enfoque = document.getElementById('txtPrograma').value;
+    const nameper = document.getElementById('txtPrograma').value;
+
     try {
         const url = `http://172.191.10.174/api/perfil/programa?rda=${rdaper}&enfoque=${enfoque}&name=${nameper}`;
         const response = await fetch(url);

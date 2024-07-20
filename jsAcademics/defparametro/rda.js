@@ -1,10 +1,15 @@
 /*RESULTADOS DE APRENDIZAJE*/
 async function fetchDataAndFormatRDA() {
-    const rda = "comunicacion";
+    const rda = document.getElementById('txtEnfoque').value;
+    const creditos = document.getElementById('txtNumber').value;
+    const name = document.getElementById('txtPrograma').value;
+
+    /*const rda = "comunicacion";
     const creditos = 3;
-    const name = "MARKETING CON INTELIGENCIA ARTIFICIAL";
+    const name = "MARKETING CON INTELIGENCIA ARTIFICIAL";*/
+
     try {
-        const url = `http://172.191.10.174/api/rda/programa?rda=${rda}&creditos=${creditos}&name=${name}`;
+        const url = `http://172.191.10.174/api/rda/programa?rda=${encodeURIComponent(rda)}&creditos=${encodeURIComponent(creditos)}&name=${encodeURIComponent(name)}`;
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

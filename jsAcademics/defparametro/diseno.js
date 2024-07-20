@@ -5,8 +5,10 @@ let loadingDiseño = false;
 async function fetchData() {
     try {
         const url = "http://172.191.10.174/api/diseno/programa";
+        const rdasContent = document.getElementById('textareaContent').value;
+
         const body = {
-            rdas: "1. Integra técnicas avanzadas de inteligencia artificial para desarrollar estrategias de marketing innovadoras y efectivas. 2. Evalúa la eficacia de las campañas de marketing personalizadas mediante el uso de algoritmos y análisis de datos para optimizar su rendimiento. 3. Diseña y ejecuta estrategias de marketing basadas en inteligencia artificial para optimizar la adquisición y retención de clientes de manera rentable.",
+            rdas: rdasContent
         };
 
         const response = await fetch(url, {
