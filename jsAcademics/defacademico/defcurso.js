@@ -23,6 +23,7 @@ async function fetchDataAndFormatDefCurso() {
     } finally {
         adjustTextareaHeightDefCurso();
         document.getElementById("loadingOverlayDefCurso").style.display = "none";
+        document.getElementById('generarDefCurso').textContent = 'Generar';
     }
 }
 
@@ -41,19 +42,11 @@ async function SpinnerDefCurso() {
     document.getElementById("loadingOverlayDefCurso").style.display = "flex";
     document.getElementById('generarDefCurso').textContent = 'Cargando...';
     document.getElementById('textareaContentDefCurso').value = 'Cargando Contenido ...';
-    try {
-        await new Promise((resolve) => setTimeout(resolve, 4000));
-    } catch (error) {
-        console.error("Error al realizar la solicitud:", error);
-    } finally {
-        document.getElementById("loadingOverlayDefCurso").style.display = "none";
-        document.getElementById('generarDefCurso').textContent = 'Generar';
-    }
+    await fetchDataAndFormatDefCurso();
 }
 
 function handleButtonClickDefCurso() {
     SpinnerDefCurso();
-    fetchDataAndFormatDefCurso();
 }
 
 function adjustTextareaHeightDefCurso() {

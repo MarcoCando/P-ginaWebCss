@@ -5,8 +5,6 @@ async function fetchDataAndFormatResultado() {
     const subject = document.getElementById('txtAsignatura').value;
     const tipo = document.getElementById('drpTipo').value; // Obtener el valor seleccionado del dropdown
     
-    /*"1.Diseñar estrategias de marketing que integren herramientas de inteligencia artificial para mejorar la segmentación de mercado.\n5.Utilizar herramientas de inteligencia artificial para optimizar los procesos de marketing y mejorar la eficiencia operativa.";*/
-    
     const params = new URLSearchParams({
         data: datas,
         numero: numeros, 
@@ -16,13 +14,6 @@ async function fetchDataAndFormatResultado() {
         tipo: tipo,
         area: false,
         proceso: "rdas"
-       /* numero: 3,
-        semanas: 16,
-        subject: "Fundamentos de Inteligencia Artificial",
-        modalidad: false,
-        tipo: "Periodo Academico",
-        area: false,
-        proceso: "rdas"*/
     });
 
     try {
@@ -49,6 +40,7 @@ async function fetchDataAndFormatResultado() {
         adjustTextareaHeightResultado();
         document.getElementById("loadingOverlayResultado").style.display = "none";
         document.getElementById("loadingOverlayTable").style.display = "none";
+        document.getElementById('generarResultado').textContent = 'Generar';
     }
 }
 
@@ -83,20 +75,11 @@ async function SpinnerResultado() {
     document.getElementById("loadingOverlayTable").style.display = "flex";
     document.getElementById('generarResultado').textContent = 'Cargando...';
     document.getElementById('textareaContentResultado').value = 'Cargando Contenido ...';
-    try {
-        await new Promise((resolve) => setTimeout(resolve, 4000));
-    } catch (error) {
-        console.error("Error al realizar la solicitud:", error);
-    } finally {
-        document.getElementById("loadingOverlayResultado").style.display = "none";
-        document.getElementById("loadingOverlayTable").style.display = "none";
-        document.getElementById('generarResultado').textContent = 'Generar';
-    }
+    await fetchDataAndFormatResultado();
 }
 
 function handleButtonClickResultado() {
     SpinnerResultado();
-    fetchDataAndFormatResultado();
 }
 
 function adjustTextareaHeightResultado() {

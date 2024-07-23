@@ -1,5 +1,4 @@
 async function fetchDataAndFormatDesCurso() {
-
     const data = sessionStorage.getItem('textareaContentResultado');
     const sesiones = document.getElementById('txtCreditosDef').value; 
     const semanas = document.getElementById('txtNumSemanas').value;
@@ -7,11 +6,6 @@ async function fetchDataAndFormatDesCurso() {
     const tipo = document.getElementById('drpTipo').value; // Obtener el valor seleccionado del dropdown
     const definicion = document.getElementById('textareaContentDefCurso').value;
 
-   /* const data = `
-1. Diseñar estrategias de marketing que incorporen herramientas de inteligencia artificial para mejorar la segmentación y personalización de mensajes.
-2. Utilizar técnicas de inteligencia artificial para analizar grandes volúmenes de datos y extraer información relevante para la toma de decisiones de marketing.
-3. Implementar soluciones de inteligencia artificial en los procesos de marketing para optimizar la eficiencia operativa y mejorar la experiencia del cliente.`;
-*/
     const params = new URLSearchParams({
         data: data,
         sesiones: sesiones,
@@ -46,6 +40,7 @@ async function fetchDataAndFormatDesCurso() {
     } finally {
         adjustTextareaHeightDesCurso();
         document.getElementById("loadingOverlayDesCurso").style.display = "none";
+        document.getElementById('generarDesCurso').textContent = 'Generar';
     }
 }
 
@@ -64,19 +59,11 @@ async function SpinnerDesCurso() {
     document.getElementById("loadingOverlayDesCurso").style.display = "flex";
     document.getElementById('generarDesCurso').textContent = 'Cargando...';
     document.getElementById('textareaContentDesCurso').value = 'Cargando Contenido ...';
-    try {
-        await new Promise((resolve) => setTimeout(resolve, 4000));
-    } catch (error) {
-        console.error("Error al realizar la solicitud:", error);
-    } finally {
-        document.getElementById("loadingOverlayDesCurso").style.display = "none";
-        document.getElementById('generarDesCurso').textContent = 'Generar';
-    }
+    await fetchDataAndFormatDesCurso();
 }
 
 function handleButtonClickDesCurso() {
     SpinnerDesCurso();
-    fetchDataAndFormatDesCurso();
 }
 
 function adjustTextareaHeightDesCurso() {
