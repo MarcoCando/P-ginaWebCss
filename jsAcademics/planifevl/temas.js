@@ -1,10 +1,8 @@
 /*TEMAS*/
 async function fetchDataAndFormatTemas() {
-    const subject = "Fundamentos de Inteligencia Artificial";
-    const subjectDescription =
-      "La asignatura de Fundamentos de Inteligencia Artificial es un curso teórico-práctico que se centra en los principios básicos de la IA y su aplicación en el campo del marketing. Los estudiantes explorarán una amplia gama de temas, como algoritmos de aprendizaje automático, redes neuronales y procesamiento del lenguaje natural, así como también tecnologías emergentes como la inteligencia artificial explicativa y ética. A través de casos de estudio de la vida real, los estudiantes aprenderán a utilizar herramientas y enfoques contemporáneos para comprender y aplicar la IA en diversas industrias. Los bloques temáticos abarcan desde la introducción de la IA en el marketing hasta la implementación de soluciones de IA en procesos de marketing, optimización de la eficiencia operativa y mejora de la experiencia del cliente. Se busca formar a los estudiantes en habilidades prácticas y conocimientos teóricos para aplicar la IA de manera efectiva en el campo del marketing.";
-    const rdas =
-      "\n1. Diseñar estrategias de marketing que incorporen herramientas de inteligencia artificial para mejorar la segmentación y personalización de mensajes.\n2. Utilizar técnicas de inteligencia artificial para analizar grandes volúmenes de datos y extraer información relevante para la toma de decisiones de marketing.\n3. Implementar soluciones de inteligencia artificial en los procesos de marketing para optimizar la eficiencia operativa y mejorar la experiencia del cliente.";
+    const subject = document.getElementById('txtAsignaturaEvl').value;
+    const subjectDescription = document.getElementById('txtDesCursoEvl').value;    
+    const rdas = document.getElementById('txtRdasEvl').value;       
 
     try {
       const url = `http://172.191.10.174/api/temas?subject=${encodeURIComponent(

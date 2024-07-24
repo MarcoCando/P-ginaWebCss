@@ -12,12 +12,9 @@
   <link rel="stylesheet" href="Content/sweetalert2.min.css" />
   <script type="text/javascript" src="Content/sweetalert2.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
   <link rel="stylesheet" href="../Content/bootstrap.css" />
   <link rel="stylesheet" href="../Styles/StylesAcademics.css" />
-
   <script src="../Scripts/jquery-3.0.0.min.js"></script>
-
   <script src="../Scripts/bootstrap.min.js"></script>
   <script src="../Scripts/bootstrap.bundle.min.js"></script>
   <script src="../Confirmation/js/ConfirmationModal.js"></script>
@@ -83,7 +80,17 @@
             Guardar Cambios
           </button>
         </div>
+        <div>
+        </div>
         <br />
+        <input type="text" id="txtProgramaEvl" class="input100">
+        <input type="text" id="txtAsignaturaEvl" class="input100">
+        <input type="text" id="txtCreditosEvl" class="input100">
+        <input type="text" id="txtNumSemanasEvl" class="input100">
+        <input type="text" id="txtDrpTypoEvl" class="input100">
+        <input type="text" id="txtDrpNaturaleza" class="input100">
+        <input type="text" id="txtRdasEvl" class="input100">
+        <input type="text" id="txtDesCursoEvl" class="input100">
       </form>
       <br />
       <div class="p-4">
@@ -137,6 +144,8 @@
                   <div class="double-bounce2"></div>
                 </div>
               </div>
+
+
             </div>
             <div class="input-group-prepend col-1">
               <button onclick="handleButtonClickMetodologia()" id="generarMetodologia" type="button"
@@ -155,13 +164,14 @@
           <div class="tab" style="display: none;" onclick="toggleContenido2(3)">
             Planificación/Semanas
           </div>
-          <div class="tab" onclick="toggleContenido2(4)">Actividades</div>
-          <div class="tab" style="display: none;" onclick="toggleContenido2(5)">
+          <div class="tab" onclick="toggleContenido2(4)">
+            Estrategias de Aprendizajes
+          </div>
+          <div class="tab" onclick="toggleContenido2(5)">Actividades</div>
+          <div class="tab" onclick="toggleContenido2(6)">
             Actividades/Semanas
           </div>
-          <div class="tab" onclick="toggleContenido2(6)">
-            Estrategias de Aprendizaje
-          </div>
+
           <div class="tab" onclick="toggleContenido2(7)">Evaluación</div>
           <div class="tab" onclick="toggleContenido2(8)">Rubricas</div>
         </div>
@@ -267,59 +277,6 @@
                     justify-content: center;
                     align-items: center;
                   ">
-                Actividades
-              </span>
-            </div>
-            <div class="input-group-prepend col-9">
-              <textarea id="textareaContentActividades" cols="110" rows="10"
-                style="overflow: hidden;text-align:left;align-content: left;" readonly></textarea>
-              <div id="loadingOverlayActividades" class="loading-overlay" style="display: none">
-                <div class="spinner">
-                  <div class="double-bounce1"></div>
-                  <div class="double-bounce2"></div>
-                </div>
-              </div>
-            </div>
-            <div class="input-group-prepend col-1">
-              <button onclick="handleButtonClickActividades()" id="generarActividades" type="button"
-                class="btn btn-info" style="font-size: 12px; border-radius: 50px; height: 40px">
-                Generar
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="content" id="contenidos5">
-          <div class="input-group">
-            <div class="input-group-prepend col-2">
-              <span class="span-title"
-                style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
-                Actividades/Semanas
-              </span>
-            </div>
-            <div class="input-group-prepend col-9" id="semanasContainer">
-              <!-- Textareas for each week will be dynamically generated here -->
-              <textarea id="textareaContentActSemanas" cols="110" rows="10" style="overflow: hidden"
-                readonly></textarea>
-              <div id="loadingOverlayActSemanas" class="loading-overlay" style="display: none">
-                <div class="spinner">
-                  <div class="double-bounce1"></div>
-                  <div class="double-bounce2"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="content" id="contenidos6">
-          <div class="input-group">
-            <div class="input-group-prepend col-2">
-              <span class="span-title" style="
-                    top: 0;
-                    right: 0;
-                    left: 0;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  ">
                 Estrategias de Aprendizaje
               </span>
             </div>
@@ -341,7 +298,62 @@
             </div>
           </div>
         </div>
+        <div class="content" id="contenidos5">
+          <div class="input-group">
+            <div class="input-group-prepend col-2">
+              <span class="span-title" style="
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  ">
+                Actividades
+              </span>
+            </div>
+            <div class="input-group-prepend col-9">
+              <textarea id="textareaContentActividades" cols="110" rows="10"
+                style="overflow: hidden;text-align:left;align-content: left;" readonly></textarea>
+              <div id="loadingOverlayActividades" class="loading-overlay" style="display: none">
+                <div class="spinner">
+                  <div class="double-bounce1"></div>
+                  <div class="double-bounce2"></div>
+                </div>
+              </div>
+            </div>
+            <div class="input-group-prepend col-1">
+              <button onclick="handleButtonClickActividades()" id="generarActividades" type="button"
+                class="btn btn-info" style="font-size: 12px; border-radius: 50px; height: 40px">
+                Generar
+              </button>
+            </div>
+          </div>
+        </div>
         <div class="content" id="contenidos6">
+          <div class="input-group">
+            <div class="input-group-prepend col-2">
+              <span class="span-title"
+                style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
+                Actividades/Semanas
+              </span>
+            </div>
+            <div class="input-group-prepend col-9" id="semanasContainer">
+              <!-- Textareas for each week will be dynamically generated here -->
+              <textarea id="textareaContentActSemanas" cols="110" rows="10" style="overflow: hidden"
+                readonly></textarea>
+              <div id="loadingOverlayActSemanas" class="loading-overlay" style="display: none">
+                <div class="spinner">
+                  <div class="double-bounce1"></div>
+                  <div class="double-bounce2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="content" id="contenidos7">
           <div class="input-group">
             <div class="input-group-prepend col-2">
               <span class="span-title"
@@ -366,7 +378,7 @@
           </div>
 
         </div>
-        <div class="content" id="contenidos6">
+        <div class="content" id="contenidos8">
           <div class="input-group">
             <div class="input-group-prepend col-2">
               <span class="span-title" style="
@@ -430,7 +442,49 @@
     </div>
   </footer>
   <script>
+    // Recuperar el contenido de sessionStorage
 
+    const programadef = sessionStorage.getItem('txtPrograma');
+    const asignaturadef = sessionStorage.getItem('txtAsignatura');
+    const creditosdef = sessionStorage.getItem('txtNumber');
+    const numsemanasdef = sessionStorage.getItem('txtNumSemanas');
+    const drptypodef = sessionStorage.getItem('drpTipo');
+    const drpNatuAsign = sessionStorage.getItem('drpNaturaleza');
+    const rdasdef = sessionStorage.getItem('textareaContentResultado');
+    const descursodef = sessionStorage.getItem('textareaContentDesCurso');
+
+    if (programadef) {
+      document.getElementById('txtProgramaEvl').value = programadef;
+
+    }
+    if (asignaturadef) {
+      document.getElementById('txtAsignaturaEvl').value = asignaturadef;
+
+    }
+    if (creditosdef) {
+      document.getElementById('txtCreditosEvl').value = creditosdef;
+
+    }
+    if (numsemanasdef) {
+      document.getElementById('txtNumSemanasEvl').value = numsemanasdef;
+
+    }
+    if (drptypodef) {
+      document.getElementById('txtDrpTypoEvl').value = drptypodef;
+
+    }
+    if (drpNatuAsign) {
+      document.getElementById('txtDrpNaturaleza').value = drpNatuAsign;
+
+    }
+    if (rdasdef) {
+      document.getElementById('txtRdasEvl').value = rdasdef;
+
+    }
+    if (descursodef) {
+      document.getElementById('txtDesCursoEvl').value = descursodef;
+
+    }
 
   </script>
   <!--DESARROLLO-->
@@ -443,11 +497,10 @@
   <script src="../jsAcademics/planifevl/evaluacion.js"></script>
   <script src="../jsAcademics/planifevl/rubricas.js"></script>
   <!--DISEÑOS-->
-  <script src="Styles/script.js"></script>
+
   <script src="../Styles/script.js"></script>
   <script src="../js/main.js"></script>
   <script src="../js/main2.js"></script>
-
   <script></script>
 </body>
 

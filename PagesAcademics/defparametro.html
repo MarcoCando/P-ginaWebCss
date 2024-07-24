@@ -12,19 +12,14 @@
     <link rel="stylesheet" href="Content/sweetalert2.min.css" />
     <script type="text/javascript" src="Content/sweetalert2.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <link rel="stylesheet" href="../Content/bootstrap.css" />
     <link rel="stylesheet" href="../Styles/StylesAcademics.css" />
-
     <script src="../Scripts/jquery-3.0.0.min.js"></script>
-
     <script src="../Scripts/bootstrap.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../Confirmation/js/ConfirmationModal.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/df2ecd1a25.js" crossorigin="anonymous"></script>
-
-
 </head>
 
 <body>
@@ -34,7 +29,6 @@
                 <img src="assets/Logo64x64.png" />
                 <h1>Sistema Académico</h1>
             </div>
-
             <div class="hamburger">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -121,17 +115,15 @@
                             <input type="number" class="input100">
                         </div>
                     </div>
-                    <div class="input-group" style="display: none;">
+                    <div class="input-group">
                         <div class="input-group-prepend col-2">
                             <span class="span-title">
                                 Naturaleza de la Asignatura</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <select id="Dropdown" class="Dropdowns">
-                                <option value="opcion1">Teórico</option>
-                                <option value="opcion2">Opción 2</option>
-                                <option value="opcion3">Opción 3</option>
-                                <option value="opcion4">Opción 4</option>
+                            <select id="drpNaturaleza" class="Dropdowns">
+                                <option value="Teórico-Práctico">Teórico-Práctico</option>
+                                <option value="Teórico">Teórico</option>
                             </select>
 
                         </div>
@@ -333,6 +325,7 @@
             document.getElementById('textareaContentResultado').value = sessionStorage.getItem('textareaContentResultado') || '';
             document.getElementById('textareaContentDesCurso').value = sessionStorage.getItem('textareaContentDesCurso') || '';
             document.getElementById('drpTipo').value = sessionStorage.getItem('drpTipo') || '';
+            document.getElementById('drpNaturaleza').value = sessionStorage.getItem('drpNaturaleza') || '';
             document.getElementById('tableBody').value = sessionStorage.getItem('tableBody') || '';
 
 
@@ -355,6 +348,9 @@
             document.getElementById('drpTipo').addEventListener('input', function () {
                 sessionStorage.setItem('drpTipo', this.value);
             });
+            document.getElementById('drpNaturaleza').addEventListener('input', function () {
+                sessionStorage.setItem('drpNaturaleza', this.value);
+            });
             document.getElementById('tableBody').addEventListener('input', function () {
                 sessionStorage.setItem('tableBody', this.value);
             });
@@ -367,6 +363,7 @@
             sessionStorage.setItem('textareaContentDefCurso', document.getElementById('textareaContentDefCurso').value);
             sessionStorage.setItem('textareaContentResultado', document.getElementById('textareaContentResultado').value);
             sessionStorage.setItem('textareaContentDesCurso', document.getElementById('textareaContentDesCurso').value);
+            sessionStorage.setItem('tableBody', document.getElementById('textareaContentDesCurso').value);
         }
     </script>
 

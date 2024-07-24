@@ -1,7 +1,9 @@
 /* ESTRATEGIAS DE APRENDIZAJE */
 async function fetchDataAndFormatEstrAprend() {
-  const naturaleza = "Teórico-Práctico";
-  const subject = "Fundamentos de Inteligencia Artificial";
+  const naturaleza = document.getElementById('txtDrpNaturaleza').value;      
+  const subject = document.getElementById('txtAsignaturaEvl').value;   
+ /* const naturaleza = "Teórico-Práctico";
+  const subject = "Fundamentos de Inteligencia Artificial";*/
 
   try {
     const url = `http://172.191.10.174/api/estrategias_aprendizaje?naturaleza=${encodeURIComponent(
