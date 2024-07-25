@@ -1,7 +1,8 @@
 /*METODOLOGIA*/
 async function fetchDataAndFormatMetodologia() {
-
-   
+   /* const rdas =
+      "\n1. Diseñar estrategias de marketing que incorporen herramientas de inteligencia artificial para mejorar la segmentación y personalización de mensajes.\n2. Utilizar técnicas de inteligencia artificial para analizar grandes volúmenes de datos y extraer información relevante para la toma de decisiones de marketing.\n3. Implementar soluciones de inteligencia artificial en los procesos de marketing para optimizar la eficiencia operativa y mejorar la experiencia del cliente.";
+    const subject = "Fundamentos de Inteligencia Artificial";*/
     const rdas =    document.getElementById('txtRdasEvl').value;    
     const subject = document.getElementById('txtAsignaturaEvl').value;    
     const formacion = "TECNOLOGIA";
