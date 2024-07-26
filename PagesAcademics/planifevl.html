@@ -76,7 +76,7 @@
           </a>
         </div>
         <div style="left: -20px; position: absolute; padding: 20px 50px">
-          <button type="button" class="btn btn-outline-info">
+          <button type="button" class="btn btn-outline-info" onclick="saveForm2Data()">
             Guardar Cambios
           </button>
         </div>
@@ -493,7 +493,72 @@
       document.getElementById('txtDesCursoEvl').value = descursodef;
 
     }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Recuperar datos del sessionStorage al cargar la página
+      document.getElementById('textareaContentMetodologia').value = sessionStorage.getItem('textareaContentMetodologia') || '';
+      document.getElementById('textareaContentTemas').value = sessionStorage.getItem('textareaContentTemas') || '';
+      document.getElementById('textareaContentPlanificacion').value = sessionStorage.getItem('textareaContentPlanificacion') || '';
+      document.getElementById('textareaContentEstrAprend').value = sessionStorage.getItem('textareaContentEstrAprend') || '';
+      document.getElementById('textareaContentActividades').value = sessionStorage.getItem('textareaContentActividades') || '';
+      document.getElementById('txtActividades1').value = sessionStorage.getItem('txtActividades1') || '';
+      document.getElementById('txtActividades2').value = sessionStorage.getItem('txtActividades2') || '';
+      document.getElementById('txtActividades3').value = sessionStorage.getItem('txtActividades3') || '';
+      document.getElementById('txtActividades4').value = sessionStorage.getItem('txtActividades4') || '';
+      document.getElementById('tableContentEvaluacion').innerHTML = sessionStorage.getItem('tableContentEvaluacion') || '';
+      document.getElementById('tableContentRubricas').innerHTML = sessionStorage.getItem('tableContentRubricas') || '';
 
+
+
+      // Guardar datos en sessionStorage al cambiar el valor de los campos
+      document.getElementById('textareaContentMetodologia').addEventListener('input', function () {
+        sessionStorage.setItem('textareaContentMetodologia', this.value);
+      });
+      document.getElementById('textareaContentTemas').addEventListener('input', function () {
+        sessionStorage.setItem('textareaContentTemas', this.value);
+      });
+      document.getElementById('textareaContentPlanificacion').addEventListener('input', function () {
+        sessionStorage.setItem('textareaContentPlanificacion', this.value);
+      });
+      document.getElementById('textareaContentEstrAprend').addEventListener('input', function () {
+        sessionStorage.setItem('textareaContentEstrAprend', this.value);
+      });
+      document.getElementById('textareaContentActividades').addEventListener('input', function () {
+        sessionStorage.setItem('textareaContentActividades', this.value);
+      });
+      document.getElementById('txtActividades1').addEventListener('input', function () {
+        sessionStorage.setItem('txtActividades1', this.value);
+      });
+      document.getElementById('txtActividades2').addEventListener('input', function () {
+        sessionStorage.setItem('txtActividades2', this.value);
+      });
+      document.getElementById('txtActividades3').addEventListener('input', function () {
+        sessionStorage.setItem('txtActividades3', this.value);
+      });
+      document.getElementById('txtActividades4').addEventListener('input', function () {
+        sessionStorage.setItem('txtActividades4', this.value);
+      });
+      document.getElementById('tableContentEvaluacion').addEventListener('input', function () {
+        sessionStorage.setItem('tableContentEvaluacion', this.value);
+      });
+      document.getElementById('tableContentRubricas').addEventListener('input', function () {
+        sessionStorage.setItem('tableContentRubricas', this.value);
+      });
+    });
+    function saveForm2Data() {
+      sessionStorage.setItem('textareaContentMetodologia', document.getElementById('textareaContentMetodologia').value);
+      sessionStorage.setItem('textareaContentTemas', document.getElementById('textareaContentTemas').value);
+      sessionStorage.setItem('textareaContentPlanificacion', document.getElementById('textareaContentPlanificacion').value);
+      sessionStorage.setItem('textareaContentEstrAprend', document.getElementById('textareaContentEstrAprend').value);
+      sessionStorage.setItem('textareaContentActividades', document.getElementById('textareaContentActividades').value);
+      sessionStorage.setItem('txtActividades1', document.getElementById('txtActividades1').value);
+      sessionStorage.setItem('txtActividades2', document.getElementById('txtActividades2').value);
+      sessionStorage.setItem('txtActividades3', document.getElementById('txtActividades3').value);
+      sessionStorage.setItem('txtActividades4', document.getElementById('txtActividades4').value);
+      sessionStorage.setItem('tableContentEvaluacion', document.getElementById('tableContentEvaluacion').innerHTML);
+      sessionStorage.setItem('tableContentRubricas', document.getElementById('tableContentRubricas').innerHTML);
+    }
   </script>
   <!--DESARROLLO-->
   <script src="../jsAcademics/planifevl/tabs.js"></script>
