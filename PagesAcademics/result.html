@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Resultados</title>
+</head>
+
+<body>
+    <textarea id="id" placeholder="ID"></textarea>
+    <textarea id="program_id" placeholder="Program ID"></textarea>
+    <textarea id="subject" placeholder="Subject"></textarea>
+    <textarea id="subject_code" placeholder="Subject Code"></textarea>
+    <!-- Agrega más textareas según sea necesario -->
+
+    <script>
+        function displayData() {
+            const result = JSON.parse(localStorage.getItem('result'));
+
+            // Asignar valores a los textareas
+            document.getElementById('id').value = result.id;
+            document.getElementById('program_id').value = result.program_id;
+            document.getElementById('subject').value = result.subject;
+            document.getElementById('subject_code').value = result.subject_code;
+            // Asigna más valores según sea necesario
+        }
+
+        // Llamar a la función displayData cuando la página cargue
+        window.onload = displayData;
+    </script>
+</body>
+
+</html>

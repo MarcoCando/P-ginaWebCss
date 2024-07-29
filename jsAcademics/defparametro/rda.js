@@ -22,7 +22,7 @@ async function fetchDataAndFormatRDA() {
 
         sessionStorage.setItem('textareaContent', formatted);
 
-        
+
     } catch (error) {
         console.error("Error al obtener datos:", error);
         document.getElementById("textareaContent").value = `Error al obtener datos: ${error.message}`;
@@ -46,12 +46,15 @@ async function SpinnerRDA() {
     document.getElementById("loadingOverlay").style.display = "flex";
     document.getElementById('generar').textContent = 'Cargando...';
     document.getElementById('textareaContent').value = 'Cargando Contenido ...';
+
     try {
         await new Promise((resolve) => setTimeout(resolve, 1200));
     } catch (error) {
         console.error("Error al realizar la solicitud:", error);
     } finally {
         document.getElementById("loadingOverlay").style.display = "none";
+
+        document.getElementById("textareaContent").style.display = "flex";
         document.getElementById('generar').textContent = 'Generar';
 
     }

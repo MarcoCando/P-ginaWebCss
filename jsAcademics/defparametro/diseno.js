@@ -1,4 +1,4 @@
-/*DISEÑO CURRICULAR*/
+/* DISEÑO CURRICULAR */
 let programData = null;
 let loadingDiseño = false;
 
@@ -62,6 +62,10 @@ function renderTable() {
       <td style="text-align: center;">${number}</td>
       <td>${description}</td>
       <td style="text-align: center;">${credits}</td>
+      <td style="text-align: center;">
+        <button onclick="handleGenerar(event, ${index})" class="btn btn-sm btn-primary" data-description="${description}">Crear</button>
+        <button onclick="handleVer(event, ${index})" class="btn btn-sm btn-secondary">Ver</button>
+      </td>
     </tr>
   `;
         })
@@ -70,7 +74,7 @@ function renderTable() {
 
     const totalRow = `
 <tr>
-  <td colspan="2" style="text-align: center;">Total Créditos</td>
+  <td colspan="3" style="text-align: center;">Total Créditos</td>
   <td style="text-align: center;">${totalCredits}</td>
 </tr>
 `;
@@ -82,6 +86,7 @@ function renderTable() {
       <th>Number</th>
       <th>Nombre Asignatura</th>
       <th>Créditos</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>${rows}${totalRow}</tbody>
@@ -89,6 +94,7 @@ function renderTable() {
 `;
 
     document.getElementById("tableContainer").innerHTML = tableHTML;
+    initializeButtonEvents();
 }
 
 function extractNumber(text) {
@@ -97,9 +103,8 @@ function extractNumber(text) {
 }
 
 function extractDescription(text) {
-    const description = text.replace(/\{?\d+\}?\.\s*/, "");
-    const index = description.indexOf("\\n\\n");
-    return index !== -1 ? description.substring(0, index) : description;
+    const match = text.match(/\.\s*([^-]+)\s*-?/);
+    return match ? match[1].trim() : "";
 }
 
 function extractCredits(text) {
@@ -126,4 +131,54 @@ async function handleButtonClickDiseño() {
         loadingDiseño = false;
     }
 }
-/*FIN DE DISEÑO CURRICULAR*/
+
+function initializeButtonEvents() {
+    const crearButtons = document.querySelectorAll('button.btn-primary');
+    crearButtons.forEach((button, index) => {
+        button.addEventListener('click', (event) => handleGenerar(event, index));
+    });
+
+    const verButtons = document.querySelectorAll('button.btn-secondary');
+    verButtons.forEach((button, index) => {
+        button.addEventListener('click', (event) => handleVer(event, index));
+    });
+}
+
+// Funciones para manejar los clics en los botones "Generar" y "Ver"
+function handleGenerar(event, index) {
+    event.preventDefault(); // Prevenir comportamiento de recarga
+
+    if (programData && programData.name) {
+        const rows = programData.name.split("\n").filter(Boolean).slice(1, -1);
+        const selectedRow = rows[index];
+        const description = extractDescription(selectedRow);
+
+        if (description) {
+            console.log("Descripción seleccionada para generar:", description);
+            // Guardar la descripción en sessionStorage
+            sessionStorage.setItem("selectedDescription", description);
+            // Redirigir a defparametro.html
+            window.location.href = "defparametro.html";
+        }
+    }
+}
+
+function handleVer(event, index) {
+    event.preventDefault(); // Prevenir comportamiento de recarga
+
+    if (programData && programData.name) {
+        const rows = programData.name.split("\n").filter(Boolean).slice(1, -1);
+        const selectedRow = rows[index];
+        const description = extractDescription(selectedRow);
+
+        if (description) {
+            console.log("Descripción seleccionada para ver:", description);
+            // Aquí puedes agregar la lógica para manejar la descripción seleccionada
+        }
+    }
+}
+
+// Inicializar eventos de botones al cargar la página
+document.addEventListener('DOMContentLoaded', initializeButtonEvents);
+
+/* FIN DE DISEÑO CURRICULAR */

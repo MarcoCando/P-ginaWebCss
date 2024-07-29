@@ -103,7 +103,7 @@
                                 Asignatura</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <input type="text" id="txtAsignatura" class="input100">
+                            <input type="text" id="txtAsignatura" class="input100" readonly>
                         </div>
                     </div>
                     <div class="input-group" style="display: none;">
@@ -272,6 +272,8 @@
 
                 </div>
         </div>
+
+
         </form>
 
     </section>
@@ -290,6 +292,14 @@
         </div>
     </footer>
     <script>
+
+        const selectedDescription = sessionStorage.getItem("selectedDescription");
+
+        // Mostrar la descripción en el elemento con id "selectedDescription"
+        document.getElementById("txtAsignatura").value = selectedDescription;
+
+
+
         // Recuperar el contenido de sessionStorage
         const textareaContent = sessionStorage.getItem('textareaContent');
         const programa = sessionStorage.getItem('txtPrograma');
@@ -317,9 +327,26 @@
     <script src="../js/main2.js"></script>
 
     <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Obtener el nombre de la asignatura desde sessionStorage
+            const nombreAsignatura = sessionStorage.getItem('nombreAsignatura');
+
+            // Verificar si se obtuvo un valor y usarlo según sea necesario
+            if (nombreAsignatura) {
+                console.log(`Nombre de Asignatura: ${nombreAsignatura}`);
+
+                // Por ejemplo, puedes asignarlo a un campo de entrada en el formulario
+                const asignaturaInput = document.getElementById('asignaturaInput');
+                if (asignaturaInput) {
+                    asignaturaInput.value = nombreAsignatura;
+                }
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             // Recuperar datos del sessionStorage al cargar la página
-            document.getElementById('txtAsignatura').value = sessionStorage.getItem('txtAsignatura') || '';
+            // document.getElementById('txtAsignatura').value = sessionStorage.getItem('txtAsignatura') || '';
             document.getElementById('txtNumSemanas').value = sessionStorage.getItem('txtNumSemanas') || '';
             document.getElementById('textareaContentDefCurso').value = sessionStorage.getItem('textareaContentDefCurso') || '';
             document.getElementById('textareaContentResultado').value = sessionStorage.getItem('textareaContentResultado') || '';
@@ -330,9 +357,9 @@
 
 
             // Guardar datos en sessionStorage al cambiar el valor de los campos
-            document.getElementById('txtAsignatura').addEventListener('input', function () {
-                sessionStorage.setItem('txtAsignatura', this.value);
-            });
+            /*  document.getElementById('txtAsignatura').addEventListener('input', function () {
+                  sessionStorage.setItem('txtAsignatura', this.value);
+              });*/
             document.getElementById('txtNumSemanas').addEventListener('input', function () {
                 sessionStorage.setItem('txtNumSemanas', this.value);
             });
