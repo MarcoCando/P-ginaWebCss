@@ -4,50 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal</title>
+    <title>Enviar Solicitud POST</title>
 </head>
 
 <body>
-    <button onclick="fetchData()">Obtener Datos</button>
+    <h1>Enviar Solicitud POST</h1>
+    <button id="sendRequest">Enviar Solicitud</button>
 
-    <script>
-        async function fetchData() {
-            try {
-                const response = await fetch("http://40.112.56.227:8080/subject/get/5", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        "jsonrpc": "2.0",
-                        "params": {
-                            "db": "education_ia",
-                            "login": "user@hotmail.com",
-                            "password": "jde.2020"
-                        }
-                    }),
 
-                    redirect: "follow",
-                });
-
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                const data = await response.json();
-                const result = JSON.parse(data.result);
-
-                // Guardar los datos en localStorage
-                localStorage.setItem('result', JSON.stringify(result));
-
-                // Redirigir a la página de resultados
-                window.location.href = 'result.html';
-            } catch (error) {
-                console.error('Fetch error:', error);
-                alert('Error fetching data: ' + error.message);
-            }
-        }
-    </script>
 </body>
+<script>
+    document.getElementById('sendRequest').addEventListener('click', () => {
+
+        const targetUrl = 'http://40.112.56.227:8080/subject/get/5';
+        const url = targetUrl;
+        const data = {
+            jsonrpc: "2.0",
+            params: {
+                db: "education_ia",
+                login: "user@hotmail.com",
+                password: "jde.2020"
+            }
+        };
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    });
+</script>
 
 </html>
