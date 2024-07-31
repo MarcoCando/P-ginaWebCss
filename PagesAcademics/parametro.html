@@ -24,6 +24,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/df2ecd1a25.js" crossorigin="anonymous"></script>
 
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js
+"></script>
+    <link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
+" rel="stylesheet">
 
 </head>
 
@@ -65,12 +71,12 @@
             </div>
             <form action="">
 
-                <div style="right: 20px; position: absolute; padding: 20px 0px">
+                <!--<div style="right: 20px; position: absolute; padding: 20px 0px">
                     <a href="defparametro.html" type="button" class="btn btn-outline-success" onclick="saveForm1Data()"
                         style="border-radius: 10px 40px 40px 10px; border: solid 1px">
                         Siguiente
                     </a>
-                </div>
+                </div> -->
                 <div style="right: 130px; position: absolute; padding: 20px 0px">
                     <a href="configuration.html" type="button" class="btn btn-outline-success"
                         style="border-radius: 40px 10px 10px 40px; border: solid 1px">
@@ -78,7 +84,7 @@
                     </a>
                 </div>
                 <div style="left: 20px; position: absolute; padding: 20px 50px;">
-                    <button type="button" class="btn btn-outline-info">
+                    <button type="button" id="btnGuardar" class="btn btn-outline-info" onclick="saveForm1Data()">
                         Guardar Cambios
                     </button>
                 </div>
@@ -116,7 +122,7 @@
                         </div>
                         <div class="input-group-prepend col-2">
                             <span class="span-title">
-                                Creditos</span>
+                                Rdas</span>
                         </div>
                         <div class="input-group-prepend col-2">
                             <input type="number" id="txtNumber" class="input100" placeholder="0">
@@ -204,6 +210,7 @@
                         </div>
                     </div>
                     <div class="input-group">
+
                         <div class="input-group-prepend col-2">
                             <span class="span-title"
                                 style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
@@ -214,6 +221,7 @@
                             <div id="tableContainer" class="table-responsive table-striped">
                             </div>
 
+
                             <div id="loadingOverlayDiseño" class="loading-overlay" style="display: none;">
                                 <div class="spinner">
                                     <div class="double-bounce1"></div>
@@ -221,13 +229,19 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="input-group-prepend col-1">
                             <button onclick="handleButtonClickDiseño()" type="button" class="btn btn-info"
                                 style="font-size: 12px; border-radius: 50px; height: 40px;">
                                 Generar
                             </button>
                         </div>
+
                     </div>
+                    <textarea id="textareaContent" style="display: none;">Sample content</textarea>
+
+
+                    <!-- <div id="inputsContainer"></div>-->
                     <hr>
                     <br>
                 </div>
@@ -262,7 +276,7 @@
     <script src="../js/main2.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        /*document.addEventListener('DOMContentLoaded', function () {
             // Recuperar datos del sessionStorage al cargar la página
             document.getElementById('txtEnfoque').value = sessionStorage.getItem('txtEnfoque') || '';
             document.getElementById('txtPrograma').value = sessionStorage.getItem('txtPrograma') || '';
@@ -270,6 +284,7 @@
             document.getElementById('textareaContent').value = sessionStorage.getItem('textareaContent') || '';
             document.getElementById('textareaContentPerfil').value = sessionStorage.getItem('textareaContentPerfil') || '';
             document.getElementById('tableContainer').innerHTML = sessionStorage.getItem('tableContainer') || '';
+            // document.getElementById('inputsContainer').innerHTML = sessionStorage.getItem('inputsContainer') || '';
 
             // Guardar datos en sessionStorage al cambiar el valor de los campos
             document.getElementById('txtEnfoque').addEventListener('input', function () {
@@ -287,16 +302,48 @@
             document.getElementById('textareaContentPerfil').addEventListener('input', function () {
                 sessionStorage.setItem('textareaContentPerfil', this.value);
             });
+            document.getElementById('tableContainer').addEventListener('input', function () {
+                sessionStorage.setItem('tableContainer', this.innerHTML);
+            });
         });
 
         function saveForm1Data() {
+
             sessionStorage.setItem('txtEnfoque', document.getElementById('txtEnfoque').value);
             sessionStorage.setItem('txtPrograma', document.getElementById('txtPrograma').value);
             sessionStorage.setItem('txtNumber', document.getElementById('txtNumber').value);
             sessionStorage.setItem('textareaContent', document.getElementById('textareaContent').value);
             sessionStorage.setItem('textareaContentPerfil', document.getElementById('textareaContentPerfil').value);
             sessionStorage.setItem('tableContainer', document.getElementById('tableContainer').innerHTML);
+            //sessionStorage.setItem('inputsContainer', document.getElementById('inputsContainer').innerHTML);
+
         }
+
+        const guardarBtn = document.getElementById('btnGuardar');
+
+        // Asocia el evento click al botón
+        guardarBtn.addEventListener('click', function () {
+            // Aquí puedes simular un error para demostrar el uso de SweetAlert2
+            try {
+
+                Swal.fire({
+                    title: "Guardado",
+                    text: 'Página Guardada con Éxito: ',
+                    icon: "success"
+                });
+                // Simulación de un error
+                //throw new Error("Simulación de error");
+
+                // Aquí iría tu lógica de guardar cambios...
+            } catch (error) {
+                // Muestra la alerta de error con SweetAlert2
+                Swal.fire({
+                    title: "Error",
+                    text: 'Error al enviar la configuración: ' + error.message,
+                    icon: "error"
+                });
+            }
+        });*/
     </script>
 
 

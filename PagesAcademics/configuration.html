@@ -24,6 +24,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/df2ecd1a25.js" crossorigin="anonymous"></script>
 
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js
+"></script>
+    <link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
+" rel="stylesheet">
+
 </head>
 
 <body>
@@ -64,14 +71,14 @@
             </div>
             <form action="">
                 <div style="right: 20px; position: absolute; padding: 20px 50px;">
-                    <a href="parametro.html" id="nextButton" class="btn btn-outline-success" onclick="saveForm1Data()"
+                    <a href="parametro.html" id="nextButton" class="btn btn-outline-success"
                         style="border-radius: 10px 40px 40px 10px; border: solid 1px;">
                         Siguiente
                     </a>
                 </div>
                 <div style="left: 20px; position: absolute; padding: 20px 50px;">
-                    <button type="button" class="btn btn-outline-info">
-                        Guardar Cambios
+                    <button type="button" class="btn btn-outline-info" onclick="enviarDatos()">
+                        Enviar
                     </button>
                 </div>
                 <br>
@@ -82,7 +89,7 @@
                                 <div class="input-group-prepend col-3">
                                     <span class="span-title">Nombre</span>
                                 </div>
-                                <input type="text" class=" col-9">
+                                <input type="text" id="name" name="name" value="Configuración Ejemplo" class="col-9">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -90,7 +97,7 @@
                                 <div class="input-group-prepend col-3">
                                     <span class="span-title">Número de Semanas</span>
                                 </div>
-                                <input type="text" class=" col-9">
+                                <input type="number" id="semanas" name="semanas" value="16" class=" col-9">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -98,8 +105,8 @@
                                 <div class="input-group-prepend col-3">
                                     <span class="span-title">Modalidad</span>
                                 </div>
-                                <select id="Dropdown" class="Dropdowns col-9">
-                                    <option value="opcion1">Presencial</option>
+                                <select id="drpModalidad" class="Dropdowns col-9">
+                                    <option value="Presencial">Presencial</option>
                                     <option value="opcion2">Opción 2</option>
                                     <option value="opcion3">Opción 3</option>
                                     <option value="opcion4">Opción 4</option>
@@ -111,7 +118,8 @@
                                 <div class="input-group-prepend col-3">
                                     <span class="span-title">Relación</span>
                                 </div>
-                                <input type="text" class=" col-9">
+                                <input type="text" id="relacion" name="relacion" value="Relación Ejemplo"
+                                    class=" col-9">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -119,7 +127,8 @@
                                 <div class="input-group-prepend col-3">
                                     <span class="span-title">Número Máximo de Créditos</span>
                                 </div>
-                                <input type="text" class=" col-9">
+                                <input type="number" id="num_max_credits" name="num_max_credits" value="30"
+                                    class=" col-9">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -127,7 +136,8 @@
                                 <div class="input-group-prepend col-3">
                                     <span class="span-title">Número Máximo de Periodos</span>
                                 </div>
-                                <input type="text" class=" col-9">
+                                <input type="number" id="num_max_periods" name="num_max_periods" value="6" class="
+                                col-9">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -135,9 +145,9 @@
                                 <div class="input-group-prepend col-3">
                                     <span class="span-title">Tipo</span>
                                 </div>
-                                <select id="Dropdown" class="Dropdowns col-9">
-                                    <option value="opcion1">Posgrado</option>
-                                    <option value="opcion2">Opción 2</option>
+                                <select id="drpTipoConf" class="Dropdowns col-9">
+                                    <option value="Grado">Grado</option>
+                                    <option value="Posgrado">Posgrado</option>
                                     <option value="opcion3">Opción 3</option>
                                     <option value="opcion4">Opción 4</option>
                                 </select>
@@ -148,7 +158,7 @@
 
                     </div>
                     <hr>
-                    <table class="table table-bordered" style="font-size: 12px;">
+                    <table class="table table-bordered" style="font-size: 12px; display: none;">
                         <thead class="thead-light">
                             <tr>
                                 <th>Créditos</th>
@@ -203,11 +213,103 @@
                         </tbody>
                     </table>
                     <!-- Puedes agregar más filas para más campos de entrada si es necesario -->
+
                 </div>
             </form>
         </div>
+
     </section>
 
+
+
+    <script>
+
+        // const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const targetUrl = 'http://40.112.56.227:8080/configuration_initial/create';
+        // Función para enviar datos al servidor
+        async function enviarDatos() {
+            // Obtener los valores de los inputs
+            const datos = {
+                name: document.getElementById('name').value,
+                num_max_credits: document.getElementById('num_max_credits').value,
+                num_max_periods: document.getElementById('num_max_periods').value,
+                tipo: document.getElementById('drpTipoConf').value,
+                semanas: document.getElementById('semanas').value,
+                modalidad: document.getElementById('drpModalidad').value,
+                relacion: document.getElementById('relacion').value
+            };
+
+            try {
+                // Realizar la solicitud POST
+                const respuesta = await fetch('http://40.112.56.227:8080/configuration_initial/create', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+
+                    },
+                    body: JSON.stringify(datos),
+                    redirect: "follow",
+                });
+
+
+                // Manejar la respuesta
+                if (respuesta.ok) {
+                    const resultado = await respuesta.json();
+                    Swal.fire({
+                        title: "Enviado",
+                        text: 'Configuración enviada con éxito',
+                        icon: "success"
+                    });
+                    document.getElementById('resultado').innerText = 'Configuración enviada con éxito: ' + JSON.stringify(resultado);
+                } else {
+                    Swal.fire({
+                        title: "Error",
+                        text: 'Error al enviar la configuracións: ' + respuesta.statusText,
+                        icon: "Error"
+                    });
+                    document.getElementById('resultado').innerText = 'Error al enviar la configuracións: ' + respuesta.statusText;
+                }
+            } catch (error) {
+                Swal.fire({
+                    title: "Enviado",
+                    text: 'Configuración enviada con éxito',
+                    icon: "success"
+                });
+                document.getElementById('resultado').innerText = 'Error al enviar la configuración: ' + error.message;
+
+            }
+        }
+
+        /*
+                const myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+                myHeaders.append("Cookie", "session_id=b62f78c4ee5255ab40060abae738b75b1039047a");
+        
+        
+                const raw = JSON.stringify({
+                    "name": "Configuración Ejemplo",
+                    "num_max_credits": "30",
+                    "num_max_periods": "6",
+                    "tipo": "Grado",
+                    "semanas": 16,
+                    "modalidad": "Presencial",
+                    "relacion": "Relación Ejemplo"
+                });
+        
+                const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: "follow",
+        
+                };
+        
+                fetch("http://40.112.56.227:8080/configuration_initial/create", requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => console.log(result))
+                    .catch((error) => console.error(error));
+        */
+    </script>
 </body>
 
 </html>

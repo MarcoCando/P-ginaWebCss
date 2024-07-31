@@ -1,4 +1,4 @@
-/* DISEÑO CURRICULAR */
+/*DISEÑO CURRICULAR*/
 let programData = null;
 let loadingDiseño = false;
 
@@ -63,8 +63,8 @@ function renderTable() {
       <td>${description}</td>
       <td style="text-align: center;">${credits}</td>
       <td style="text-align: center;">
-        <button onclick="handleGenerar(event, ${index})" class="btn btn-sm btn-primary" data-description="${description}">Crear</button>
-        <button onclick="handleVer(event, ${index})" class="btn btn-sm btn-secondary">Ver</button>
+        <button onclick="handleGenerar(${index})" class="btn btn-sm btn-primary">Generar</button>
+        <button onclick="handleVer(${index})" class="btn btn-sm btn-secondary">Ver</button>
       </td>
     </tr>
   `;
@@ -94,7 +94,6 @@ function renderTable() {
 `;
 
     document.getElementById("tableContainer").innerHTML = tableHTML;
-    initializeButtonEvents();
 }
 
 function extractNumber(text) {
@@ -103,8 +102,9 @@ function extractNumber(text) {
 }
 
 function extractDescription(text) {
-    const match = text.match(/\.\s*([^-]+)\s*-?/);
-    return match ? match[1].trim() : "";
+    const description = text.replace(/\{?\d+\}?\.\s*/, "");
+    const index = description.indexOf("\\n\\n");
+    return index !== -1 ? description.substring(0, index) : description;
 }
 
 function extractCredits(text) {
@@ -132,53 +132,15 @@ async function handleButtonClickDiseño() {
     }
 }
 
-function initializeButtonEvents() {
-    const crearButtons = document.querySelectorAll('button.btn-primary');
-    crearButtons.forEach((button, index) => {
-        button.addEventListener('click', (event) => handleGenerar(event, index));
-    });
-
-    const verButtons = document.querySelectorAll('button.btn-secondary');
-    verButtons.forEach((button, index) => {
-        button.addEventListener('click', (event) => handleVer(event, index));
-    });
-}
-
 // Funciones para manejar los clics en los botones "Generar" y "Ver"
-function handleGenerar(event, index) {
-    event.preventDefault(); // Prevenir comportamiento de recarga
-
-    if (programData && programData.name) {
-        const rows = programData.name.split("\n").filter(Boolean).slice(1, -1);
-        const selectedRow = rows[index];
-        const description = extractDescription(selectedRow);
-
-        if (description) {
-            console.log("Descripción seleccionada para generar:", description);
-            // Guardar la descripción en sessionStorage
-            sessionStorage.setItem("selectedDescription", description);
-            // Redirigir a defparametro.html
-            window.location.href = "defparametro.html";
-        }
-    }
+function handleGenerar(index) {
+    // Aquí puedes añadir la lógica para el botón "Generar" específico de cada fila
+    console.log(`Generar para el elemento con índice ${index}`);
 }
 
-function handleVer(event, index) {
-    event.preventDefault(); // Prevenir comportamiento de recarga
-
-    if (programData && programData.name) {
-        const rows = programData.name.split("\n").filter(Boolean).slice(1, -1);
-        const selectedRow = rows[index];
-        const description = extractDescription(selectedRow);
-
-        if (description) {
-            console.log("Descripción seleccionada para ver:", description);
-            // Aquí puedes agregar la lógica para manejar la descripción seleccionada
-        }
-    }
+function handleVer(index) {
+    // Aquí puedes añadir la lógica para el botón "Ver" específico de cada fila
+    console.log(`Ver para el elemento con índice ${index}`);
 }
 
-// Inicializar eventos de botones al cargar la página
-document.addEventListener('DOMContentLoaded', initializeButtonEvents);
-
-/* FIN DE DISEÑO CURRICULAR */
+/*FIN DE DISEÑO CURRICULAR*/
