@@ -279,7 +279,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
             document.getElementById('txtNumber').value = sessionStorage.getItem('txtNumber') || '';
             document.getElementById('textareaContent').value = sessionStorage.getItem('textareaContent') || '';
             document.getElementById('textareaContentPerfil').value = sessionStorage.getItem('textareaContentPerfil') || '';
-            document.getElementById('tableContainer').innerHTML = sessionStorage.getItem('tableContainer') || '';
+            //document.getElementById('tableContainer').innerHTML = sessionStorage.getItem('tableContainer') || '';
             // document.getElementById('inputsContainer').innerHTML = sessionStorage.getItem('inputsContainer') || '';
 
             // Guardar datos en sessionStorage al cambiar el valor de los campos
@@ -307,7 +307,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
             sessionStorage.setItem('txtNumber', document.getElementById('txtNumber').value);
             sessionStorage.setItem('textareaContent', document.getElementById('textareaContent').value);
             sessionStorage.setItem('textareaContentPerfil', document.getElementById('textareaContentPerfil').value);
-            sessionStorage.setItem('tableContainer', document.getElementById('tableContainer').innerHTML);
+            // sessionStorage.setItem('tableContainer', document.getElementById('tableContainer').innerHTML);
             //sessionStorage.setItem('inputsContainer', document.getElementById('inputsContainer').innerHTML);
 
         }

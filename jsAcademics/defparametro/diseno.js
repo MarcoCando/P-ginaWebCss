@@ -63,8 +63,8 @@ function renderTable() {
       <td>${description}</td>
       <td style="text-align: center;">${credits}</td>
       <td style="text-align: center;">
-        <button onclick="handleGenerar(event, ${index})" class="btn btn-sm btn-primary" data-description="${description}">Crear</button>
-        <button onclick="handleVer(event, ${index})" class="btn btn-sm btn-secondary">Ver</button>
+        <button class="btn btn-sm btn-primary" data-index="${index}" data-description="${description}">Crear</button>
+        <button class="btn btn-sm btn-secondary" data-index="${index}">Ver</button>
       </td>
     </tr>
   `;
@@ -97,6 +97,9 @@ function renderTable() {
 
     // Guardar el contenido de la tabla en sessionStorage
     sessionStorage.setItem('tableContainer', tableHTML);
+
+    // Volver a enlazar los eventos de los botones
+    rebindButtonEvents();
 }
 
 function extractNumber(text) {
@@ -135,49 +138,55 @@ async function handleButtonClickDiseño() {
 }
 
 // Funciones para manejar los clics en los botones "Generar" y "Ver"
-function handleGenerar(event, index) {
+function handleGenerar(event) {
     event.preventDefault(); // Prevenir comportamiento de recarga
+    const index = event.target.getAttribute('data-index');
+    const description = event.target.getAttribute('data-description');
 
-    if (programData && programData.name) {
-        const rows = programData.name.split("\n").filter(Boolean).slice(1, -1);
-        const selectedRow = rows[index];
-        const description = extractDescription(selectedRow);
-
-        if (description) {
-            console.log("Descripción seleccionada para generar:", description);
-            // Guardar la descripción en sessionStorage
-            sessionStorage.setItem("selectedDescription", description);
-            // Guardar el contenido de la tabla en sessionStorage
-            sessionStorage.setItem('tableContainer', document.getElementById('tableContainer').innerHTML);
-            // Redirigir a defparametro.html
-            window.location.href = "defparametro.html";
-        }
+    if (description) {
+        console.log("Descripción seleccionada para generar:", description);
+        // Guardar la descripción en sessionStorage
+        sessionStorage.setItem("selectedDescription", description);
+        // Guardar el contenido de la tabla en sessionStorage
+        sessionStorage.setItem('tableContainer', document.getElementById('tableContainer').innerHTML);
+        // Redirigir a defparametro.html
+        window.location.href = "defparametro.html";
     }
 }
 
-function handleVer(event, index) {
+function handleVer(event) {
     event.preventDefault(); // Prevenir comportamiento de recarga
+    const index = event.target.getAttribute('data-index');
+    const description = event.target.getAttribute('data-description');
 
-    if (programData && programData.name) {
-        const rows = programData.name.split("\n").filter(Boolean).slice(1, -1);
-        const selectedRow = rows[index];
-        const description = extractDescription(selectedRow);
-
-        if (description) {
-            console.log("Descripción seleccionada para ver:", description);
-            // Aquí puedes agregar la lógica para manejar la descripción seleccionada
-        }
+    if (description) {
+        console.log("Descripción seleccionada para ver:", description);
+        // Aquí puedes agregar la lógica para manejar la descripción seleccionada
     }
 }
 
 // Restaurar el contenido de la tabla desde sessionStorage al cargar la página
-/*window.onload = function () {
+window.onload = function () {
     const savedTableHTML = sessionStorage.getItem('tableContainer');
     if (savedTableHTML) {
         document.getElementById('tableContainer').innerHTML = savedTableHTML;
+        rebindButtonEvents(); // Volver a enlazar los eventos de los botones
     } else {
         handleButtonClickDiseño();
     }
-};*/
+};
+
+function rebindButtonEvents() {
+    const createButtons = document.querySelectorAll('.btn-primary');
+    const viewButtons = document.querySelectorAll('.btn-secondary');
+
+    createButtons.forEach((button) => {
+        button.addEventListener('click', handleGenerar);
+    });
+
+    viewButtons.forEach((button) => {
+        button.addEventListener('click', handleVer);
+    });
+}
 
 /* FIN DE DISEÑO CURRICULAR */
