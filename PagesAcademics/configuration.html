@@ -97,7 +97,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                                 <div class="input-group-prepend col-3">
                                     <span class="span-title">Número de Semanas</span>
                                 </div>
-                                <input type="number" id="semanas" name="semanas" value="16" class=" col-9">
+                                <input type="number" id="semanas" name="semanas" class=" col-9">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -107,9 +107,6 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                                 </div>
                                 <select id="drpModalidad" class="Dropdowns col-9">
                                     <option value="Presencial">Presencial</option>
-                                    <option value="opcion2">Opción 2</option>
-                                    <option value="opcion3">Opción 3</option>
-                                    <option value="opcion4">Opción 4</option>
                                 </select>
                             </div>
                         </div>
@@ -148,8 +145,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                                 <select id="drpTipoConf" class="Dropdowns col-9">
                                     <option value="Grado">Grado</option>
                                     <option value="Posgrado">Posgrado</option>
-                                    <option value="opcion3">Opción 3</option>
-                                    <option value="opcion4">Opción 4</option>
+
                                 </select>
                             </div>
                         </div>
@@ -309,6 +305,27 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                     .then((result) => console.log(result))
                     .catch((error) => console.error(error));
         */
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+
+            document.getElementById('drpModalidad').value = sessionStorage.getItem('drpModalidad') || '';
+            document.getElementById('semanas').value = sessionStorage.getItem('semanas') || '';
+
+
+
+
+            // Guardar datos en sessionStorage al cambiar el valor de los campos
+
+            document.getElementById('drpModalidad').addEventListener('input', function () {
+                sessionStorage.setItem('drpModalidad', this.value);
+            });
+            document.getElementById('semanas').addEventListener('input', function () {
+                sessionStorage.setItem('semanas', this.value);
+            });
+
+        });
     </script>
 </body>
 

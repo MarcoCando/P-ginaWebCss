@@ -172,7 +172,7 @@ window.onload = function () {
         document.getElementById('tableContainer').innerHTML = savedTableHTML;
         rebindButtonEvents(); // Volver a enlazar los eventos de los botones
     } else {
-        handleButtonClickDiseño();
+        //handleButtonClickDiseño();
     }
 };
 

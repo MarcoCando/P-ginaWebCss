@@ -1,17 +1,18 @@
 async function fetchDataAndFormatDesCurso() {
     const data = sessionStorage.getItem('textareaContentResultado');
-    const sesiones = document.getElementById('txtCreditosDef').value; 
+    const sesiones = document.getElementById('txtCreditosDef').value;
     const semanas = document.getElementById('txtNumSemanas').value;
     const subject = document.getElementById('txtAsignatura').value;
     const tipo = document.getElementById('drpTipo').value; // Obtener el valor seleccionado del dropdown
     const definicion = document.getElementById('textareaContentDefCurso').value;
+    const modalidad = document.getElementById('txtnewmodalidad').value;
 
     const params = new URLSearchParams({
         data: data,
         sesiones: sesiones,
         semanas: semanas,
         subject: subject,
-        modalidad: "False",
+        modalidad: modalidad,
         tipo: tipo,
         area: "False",
         definicion: definicion,

@@ -79,6 +79,7 @@
                     </button>
                 </div>
                 <br>
+                <input type="text" id="txtnewmodalidad">
                 <div class="p-5">
                     <div class="input-group" style="display: none;">
                         <div class="input-group-prepend col-2">
@@ -158,7 +159,7 @@
                                 Número de Semanas</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <input type="number" id="txtNumSemanas" class="input100" value="16">
+                            <input type="number" id="txtNumSemanas" class="input100">
                         </div>
                     </div>
                     <br>
@@ -297,14 +298,12 @@
 
         // Mostrar la descripción en el elemento con id "selectedDescription"
         document.getElementById("txtAsignatura").value = selectedDescription;
-
-
-
         // Recuperar el contenido de sessionStorage
         const textareaContent = sessionStorage.getItem('textareaContent');
         const programa = sessionStorage.getItem('txtPrograma');
         const creditos = sessionStorage.getItem('txtNumber');
         const semanas = sessionStorage.getItem('semanas');
+        const modalidades = sessionStorage.getItem('drpModalidad');
 
 
         if (textareaContent) {
@@ -323,6 +322,12 @@
             document.getElementById('txtNumSemanas').value = semanas;
             //document.getElementById('hiddenTextareaContent').value = textareaContent;
         }
+        if (modalidades) {
+            document.getElementById('txtnewmodalidad').value = modalidades;
+            //document.getElementById('hiddenTextareaContent').value = textareaContent;
+        }
+
+
 
 
     </script>

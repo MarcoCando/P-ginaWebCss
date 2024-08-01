@@ -1,16 +1,18 @@
 async function fetchDataAndFormatResultado() {
     const datas = sessionStorage.getItem('textareaContent');
-    const numeros = document.getElementById('txtCreditosDef').value; 
+    const numeros = document.getElementById('txtCreditosDef').value;
     const semana = document.getElementById('txtNumSemanas').value;
     const subject = document.getElementById('txtAsignatura').value;
     const tipo = document.getElementById('drpTipo').value; // Obtener el valor seleccionado del dropdown
-    
+    const modalidad = document.getElementById('txtnewmodalidad').value;
+
+
     const params = new URLSearchParams({
         data: datas,
-        numero: numeros, 
+        numero: numeros,
         semanas: semana,
         subject: subject,
-        modalidad: false,
+        modalidad: modalidad,
         tipo: tipo,
         area: false,
         proceso: "rdas"
