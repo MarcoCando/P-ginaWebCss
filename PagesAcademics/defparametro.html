@@ -62,7 +62,7 @@
             <form action="">
                 <div style="right: 20px; position: absolute; padding: 20px 0px;">
                     <a href="planifevl.html" id="nextButton2" class="btn btn-outline-success"
-                        style="border-radius: 10px 40px 40px 10px; border: solid 1px;">
+                        style="border-radius: 10px 40px 40px 10px; border: solid 1px;" onclick="saveForm2Data()">
                         Siguiente
                     </a>
                 </div>
@@ -73,9 +73,14 @@
                         Regresar
                     </a>
                 </div> -->
-                <div style="left: 20px; position: absolute; padding: 20px 50px;">
-                    <button type="button" class="btn btn-outline-info" onclick="saveForm2Data()">
+                <div style="left: 20px; position: absolute; padding: 20px 50px; display: none;">
+                    <button type="button" class="btn btn-outline-info">
                         Guardar Cambios
+                    </button>
+                </div>
+                <div style="left: 20px; position: absolute; padding: 20px 50px;">
+                    <button type="button" class="btn btn-outline-warning" onclick="clearpage()">
+                        Nuevo
                     </button>
                 </div>
                 <br>
@@ -403,6 +408,12 @@
             sessionStorage.setItem('textareaContentResultado', document.getElementById('textareaContentResultado').value);
             sessionStorage.setItem('textareaContentDesCurso', document.getElementById('textareaContentDesCurso').value);
             sessionStorage.setItem('tableBody', document.getElementById('textareaContentDesCurso').value);
+        }
+
+        function clearpage() {
+            document.getElementById('textareaContentDefCurso').value = '';
+            document.getElementById('textareaContentResultado').value = '';
+            document.getElementById('textareaContentDesCurso').value = '';
         }
     </script>
 
