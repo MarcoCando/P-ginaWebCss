@@ -113,13 +113,13 @@
                             <input type="text" id="txtAsignatura" class="input100">
                         </div>
                     </div>
-                    <div class="input-group" style="display: none;">
+                    <div class="input-group">
                         <div class="input-group-prepend col-2">
                             <span class="span-title">
                                 Código de Asignatura</span>
                         </div>
                         <div class="input-group-prepend col-1">
-                            <input type="number" class="input100">
+                            <input type="text" id="txtCodAsign" class="input100">
                         </div>
                     </div>
                     <div class="input-group">
@@ -371,6 +371,7 @@
             document.getElementById('drpTipo').value = sessionStorage.getItem('drpTipo') || '';
             document.getElementById('drpNaturaleza').value = sessionStorage.getItem('drpNaturaleza') || '';
             document.getElementById('tableBody').value = sessionStorage.getItem('tableBody') || '';
+            document.getElementById('txtCodAsign').value = sessionStorage.getItem('txtCodAsign') || '';
 
 
             // Guardar datos en sessionStorage al cambiar el valor de los campos
@@ -395,6 +396,9 @@
             document.getElementById('drpNaturaleza').addEventListener('input', function () {
                 sessionStorage.setItem('drpNaturaleza', this.value);
             });
+            document.getElementById('txtCodAsign').addEventListener('input', function () {
+                sessionStorage.setItem('txtCodAsign', this.value);
+            });
             document.getElementById('tableBody').addEventListener('input', function () {
                 sessionStorage.setItem('tableBody', this.value);
             });
@@ -408,6 +412,8 @@
             sessionStorage.setItem('textareaContentResultado', document.getElementById('textareaContentResultado').value);
             sessionStorage.setItem('textareaContentDesCurso', document.getElementById('textareaContentDesCurso').value);
             sessionStorage.setItem('tableBody', document.getElementById('textareaContentDesCurso').value);
+            sessionStorage.setItem('txtCodAsign', document.getElementById('txtCodAsign').value);
+
         }
 
         function clearpage() {
