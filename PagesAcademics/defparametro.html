@@ -38,15 +38,16 @@
         <div class="menubar">
             <ul>
                 <li>
-                    <i class="fa-solid fa-arrow-right"></i><a href="#">Inicio <i class="fa-solid fa-house"></i></a>
+                    <i class="fa-solid fa-arrow-right"></i><a href="index.html">Inicio <i
+                            class="fa-solid fa-house"></i></a>
                 </li>
                 <li>
-                    <i class="fa-solid fa-arrow-right"></i><a href="#">Lenguaje <i
-                            class="fa-solid fa-earth-americas"></i></a>
-                    <i class="fa-solid fa-arrow-right"></i><a href="parametro.html">Español <img width="20" height="20"
-                            src="https://img.icons8.com/color/48/spain-circular.png" alt="spain-circular" /></a>
-                    <i class="fa-solid fa-arrow-right"></i><a href="Parametro2.html">Inglés <img width="20" height="20"
-                            src="https://img.icons8.com/color/48/usa-circular.png" alt="usa-circular" /></a>
+                    <i class="fa-solid fa-arrow-right"></i><a href="configuration.html">Configuracion <i
+                            class="fa-solid fa-gear"></i></a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right"></i><a href="parametro.html">Crear Asignatura <i
+                            class="fa-solid fa-square-plus" style="color: #05af13;"></i></a>
                 </li>
             </ul>
         </div>
@@ -80,11 +81,11 @@
                 </div>
                 <div style="left: 20px; position: absolute; padding: 20px 50px;">
                     <button type="button" class="btn btn-outline-warning" onclick="clearpage()">
-                        Nuevo
+                        Nueva Asignatura
                     </button>
                 </div>
                 <br>
-                <input type="text" id="txtnewmodalidad">
+
                 <div class="p-5">
                     <div class="input-group" style="display: none;">
                         <div class="input-group-prepend col-2">
@@ -110,7 +111,7 @@
                                 Asignatura</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <input type="text" id="txtAsignatura" class="input100">
+                            <input type="text" id="txtAsignatura" class="input100 " readonly>
                         </div>
                     </div>
                     <div class="input-group">
@@ -164,7 +165,7 @@
                                 Número de Semanas</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <input type="number" id="txtNumSemanas" class="input100">
+                            <input type="number" id="txtNumSemanas" class="input100" readonly>
                         </div>
                     </div>
                     <br>
@@ -283,7 +284,7 @@
         </form>
 
     </section>
-
+    <input type="text" id="txtnewmodalidad" style="display: none;">
     <br>
     <footer class="container-fluid text-white py-4  float-right" style="background-color: #153d64;">
         <div class="d-flex">
@@ -420,6 +421,8 @@
             document.getElementById('textareaContentDefCurso').value = '';
             document.getElementById('textareaContentResultado').value = '';
             document.getElementById('textareaContentDesCurso').value = '';
+            document.getElementById('txtCodAsign').value = '';
+
         }
     </script>
 

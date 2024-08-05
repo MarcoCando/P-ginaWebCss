@@ -4,44 +4,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enviar Solicitud POST</title>
+    <title>Sistema de Creación de Syllabus Académicos</title>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../Content/bootstrap.css" />
+    <link rel="stylesheet" href="../Styles/StylesAcademics.css" />
+
+    <script src="../Scripts/jquery-3.0.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../Styles/StylesAcademics.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/df2ecd1a25.js" crossorigin="anonymous"></script>
+    <style>
+        /* Estilos generales */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #153d64;
+        }
+
+        /* Estilos del encabezado */
+        header {
+            background-color: #153d64;
+            color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero section */
+        .hero {
+            background-image: url('../Images/bg_index.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #153d64;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            margin-top: 70px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(221, 221, 221, 0.7);
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            z-index: 2;
+            margin-bottom: 0.5em;
+            color: #153d64;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            z-index: 2;
+        }
+
+        /* Estilos de contenido */
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .content .box {
+            flex-basis: 30%;
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .content .box h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #0066cc;
+        }
+
+        .content .box p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .content .box i {
+            font-size: 2em;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+
+        /* Pie de página */
+
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .content .box {
+                flex-basis: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Enviar Solicitud </h1>
-    <button id="sendRequest">Enviar Solicitud</button>
 
+    <header>
+        <section>
+            <nav style="background-color: #153d64;">
+                <div class="logo">
+                    <img src="assets/Logo64x64.png" />
+                    <h1>Sistema Académico</h1>
+                </div>
+                <div class="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+            </nav>
+            <div class="menubar">
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-arrow-right"></i><a href="index.html">Inicio <i
+                                class="fa-solid fa-house"></i></a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-arrow-right"></i><a href="configuration.html">Configuracion <i
+                                class="fa-solid fa-gear"></i></a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-arrow-right"></i><a href="parametro.html">Crear Asignatura <i
+                                class="fa-solid fa-square-plus" style="color: #05af13;"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </header>
 
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Bienvenido al Sistema de Creación de Syllabus Académicos</h1>
+            <p>Facilitando la planificación educativa de manera eficiente y efectiva.</p>
+        </div>
+    </section>
+
+    <section class="container content" id="servicios">
+
+        <div class="box">
+            <a href="parametro.html">
+                <i class="fas fa-file-alt"></i>
+                <h3>Creación de Syllabus</h3>
+                <p>Automatiza la creación de syllabus usando Inteligencia Artificial, que cumplen con los estándares
+                    académicos.</p>
+            </a>
+        </div>
+        <div class="box">
+            <a href="configuration.html">
+                <i class="fas fa-tasks"></i>
+                <h3>Creación de Configuraciones</h3>
+                <p>Organiza y crea configuraciones de acuerdo a tu necesidad Académica</p>
+            </a>
+        </div>
+        <div class="box">
+            <a href="">
+                <i class="fas fa-chart-line"></i>
+                <h3>Syllabus Crados</h3>
+                <p>Realiza un seguimiento de los Syllabus creados</p>
+                <br>
+            </a>
+        </div>
+    </section>
+
+    <br>
+    <br>
+    <footer class="container-fluid text-white py-4  float-right" style="background-color: #153d64;">
+        <div class="d-flex">
+            <div class="col-8 d-flex flex-column">
+                <span>Tecnologia Informática - Departamento de Desarrollo de Aplicaciones
+                </span>
+                <span>Improve-IT
+                </span>
+                <span>Av. Amazonas y Unión de Periodistas
+                </span>
+            </div>
+        </div>
+    </footer>
 </body>
-<script>
-    document.getElementById('sendRequest').addEventListener('click', () => {
-
-        const targetUrl = 'http://40.112.56.227:8080/subject/get/5';
-        const url = targetUrl;
-        const data = {
-            jsonrpc: "2.0",
-            params: {
-                db: "education_ia",
-                login: "user@hotmail.com",
-                password: "jde.2020"
-            }
-        };
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    });
-</script>
+<script src="../Styles/script.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/main2.js"></script>
 
 </html>

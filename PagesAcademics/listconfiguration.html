@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="../Content/sweetalert2.min.css" />
+    <script src="../Content/sweetalert2.all.min.js"></script>
+    <script src="../Content/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="Content/sweetalert2.min.css" />
+    <script type="text/javascript" src="Content/sweetalert2.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="../Content/bootstrap.css" />
+    <link rel="stylesheet" href="../Styles/StylesAcademics.css" />
+
+    <script src="../Scripts/jquery-3.0.0.min.js"></script>
+
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Confirmation/js/ConfirmationModal.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/df2ecd1a25.js" crossorigin="anonymous"></script>
+
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js
+"></script>
+    <link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
+" rel="stylesheet">
+
+</head>
+
+<body>
+    <section>
+        <nav style="background-color: #153d64;">
+            <div class="logo">
+                <img src="assets/Logo64x64.png" />
+                <h1>Sistema Académico</h1>
+            </div>
+            <div class="hamburger">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+        </nav>
+        <div class="menubar">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-arrow-right"></i><a href="#">Inicio <i class="fa-solid fa-house"></i></a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right"></i><a href="#">Configuracion <i
+                            class="fa-solid fa-gear"></i></a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right"></i><a href="#">Crear Asignatura <i
+                            class="fa-solid fa-square-plus" style="color: #05af13;"></i></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="welcome">
+        <div class="card m-2" style="background-color: #f5f5f5;">
+            <div class="card-header">
+                <div class="welcome-2">
+                    <h2>Lista Configuraciones <i class="fa fa-info-circle"></i></h2>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend col-12">
+                    <div id="resultTable" class="table table-hover table-bordered" style="font-size: 12px;">
+                    </div>
+                </div>
+                <!-- <div id="inputsContainer"></div>-->
+            </div>
+        </div>
+    </section>
+    <script>
+        // Configurar los encabezados
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Cookie", "session_id=b62f78c4ee5255ab40060abae738b75b1039047a");
+
+        // Cuerpo de la solicitud
+        const raw = JSON.stringify({
+            "jsonrpc": "2.0",
+            "params": {
+                "db": "education_ia",
+                "login": "user@hotmail.com",
+                "password": "jde.2020"
+            }
+        });
+
+        // Opciones de la solicitud
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        };
+
+        // Función para crear la tabla
+        function createTable(data) {
+            // Crear la tabla con tus estilos personalizados
+            let table = '<table class="table table-hover table-bordered" style="font-size: 12px;">';
+            table += '<thead style="background-color: #cacaca; text-align: center; color: #3d3d3dc9;"><tr><th>ID</th><th>Name</th></tr></thead><tbody>';
+
+            // Añadir filas a la tabla
+            data.forEach(item => {
+                table += `<tr><td>${item.id}</td><td>${item.name}</td></tr>`;
+            });
+
+            table += '</tbody></table>';
+            return table;
+        }
+
+        // Realizar la solicitud
+        fetch("http://40.112.56.227:8080/config/list/", requestOptions)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json(); // Parsear la respuesta como JSON
+            })
+            .then((result) => {
+                console.log(result);
+
+                // Asegurarse de que el resultado sea un objeto con la clave 'result'
+                if (result && result.result) {
+                    // Parsear la cadena JSON contenida en 'result.result'
+                    const data = JSON.parse(result.result);
+
+                    // Crear y colocar la tabla en el DOM
+                    const tableHTML = createTable(data);
+                    document.getElementById('resultTable').innerHTML = tableHTML;
+                } else {
+                    console.error('Error: Invalid response format');
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                const errorMessage = document.createElement('p');
+                errorMessage.innerText = "Error: " + error.message;
+                document.getElementById('resultTable').appendChild(errorMessage);
+            });
+    </script>
+    <script src="../Styles/script.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/main2.js"></script>
+</body>
+
+</html>

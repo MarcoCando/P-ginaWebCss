@@ -24,13 +24,43 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/df2ecd1a25.js" crossorigin="anonymous"></script>
 
-    <script src="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js
-"></script>
-    <link href="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
-" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css" rel="stylesheet">
 
+    <style>
+        .table-container {
+            max-height: 385px;
+            /* Altura máxima del contenedor */
+            overflow-y: auto;
+            /* Habilitar barra de desplazamiento vertical */
+        }
+
+        table {
+            width: 100%;
+            /* Asegura que la tabla ocupe todo el ancho del contenedor */
+            border-collapse: collapse;
+            /* Quitar los espacios entre celdas */
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            /* Borde de las celdas */
+            padding: 8px;
+            /* Espaciado dentro de las celdas */
+            text-align: left;
+            /* Alineación del texto en las celdas */
+        }
+
+        th {
+            background-color: #f2f2f2;
+            /* Fondo del encabezado */
+            position: sticky;
+            /* Fija el encabezado al hacer scroll */
+            top: 0;
+            /* Mantener el encabezado en la parte superior */
+        }
+    </style>
 </head>
 
 <body>
@@ -49,175 +79,287 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
         <div class="menubar">
             <ul>
                 <li>
-                    <i class="fa-solid fa-arrow-right"></i><a href="#">Inicio <i class="fa-solid fa-house"></i></a>
+                    <i class="fa-solid fa-arrow-right"></i><a href="index.html">Inicio <i
+                            class="fa-solid fa-house"></i></a>
                 </li>
                 <li>
-                    <i class="fa-solid fa-arrow-right"></i><a href="#">Lenguaje <i
-                            class="fa-solid fa-earth-americas"></i></a>
-                    <i class="fa-solid fa-arrow-right"></i><a href="parametro.html">Español <img width="20" height="20"
-                            src="https://img.icons8.com/color/48/spain-circular.png" alt="spain-circular" /></a>
-                    <i class="fa-solid fa-arrow-right"></i><a href="Parametro2.html">Inglés <img width="20" height="20"
-                            src="https://img.icons8.com/color/48/usa-circular.png" alt="usa-circular" /></a>
+                    <i class="fa-solid fa-arrow-right"></i><a href="configuration.html">Configuracion <i
+                            class="fa-solid fa-gear"></i></a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right"></i><a href="parametro.html">Crear Asignatura <i
+                            class="fa-solid fa-square-plus" style="color: #05af13;"></i></a>
                 </li>
             </ul>
         </div>
     </section>
-    <section class="welcome">
-        <div class="card m-2" style="background-color: #f5f5f5;">
-            <div class="card-header">
-                <div class="welcome-2">
-                    <h2>Configuracion <i class="fa fa-info-circle"></i></h2>
-                </div>
-            </div>
-            <form action="">
-                <div style="right: 20px; position: absolute; padding: 20px 50px;">
-                    <a href="parametro.html" id="nextButton" class="btn btn-outline-success"
-                        style="border-radius: 10px 40px 40px 10px; border: solid 1px;">
-                        Siguiente
-                    </a>
-                </div>
-                <div style="left: 20px; position: absolute; padding: 20px 50px;">
-                    <button type="button" class="btn btn-outline-info" onclick="enviarDatos()">
-                        Enviar
-                    </button>
-                </div>
-                <br>
-                <div class="p-5">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend col-3">
-                                    <span class="span-title">Nombre</span>
-                                </div>
-                                <input type="text" id="name" name="name" value="Configuración Ejemplo" class="col-9">
-                            </div>
+    <div class="container text-center">
+        <div class="row">
+            <!-- Primera columna -->
+            <div class="col-md-8">
+                <section class="welcome">
+                    <div class="card m-2" style="background-color: #f5f5f5;">
+                        <div class="card-header">
+                            <h2>Configuración <i class="fa-solid fa-gears"></i></h2>
                         </div>
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend col-3">
-                                    <span class="span-title">Número de Semanas</span>
-                                </div>
-                                <input type="number" id="semanas" name="semanas" class=" col-9">
+                        <form action="">
+                            <!-- Botones de acción -->
+                            <div class="d-flex justify-content-between p-4">
+                                <button type="button" class="btn btn-outline-info" onclick="enviarDatos()">
+                                    Enviar
+                                </button>
+                                <a href="parametro.html" id="nextButton" class="btn btn-outline-success">
+                                    Siguiente
+                                </a>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend col-3">
-                                    <span class="span-title">Modalidad</span>
+                            <div class="p-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="span-title">Nombre</span>
+                                            </div>
+                                            <input type="text" id="name" name="name" value="Configuración Ejemplo"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="span-title">Número de Semanas</span>
+                                            </div>
+                                            <input type="number" id="semanas" name="semanas" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="span-title">Modalidad</span>
+                                            </div>
+                                            <select id="drpModalidad" class="form-control">
+                                                <option value="Presencial">Presencial</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="span-title">Relación</span>
+                                            </div>
+                                            <input type="text" id="relacion" name="relacion" value="Relación Ejemplo"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="span-title">Número Máximo de Créditos</span>
+                                            </div>
+                                            <input type="number" id="num_max_credits" name="num_max_credits" value="30"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="span-title">Número Máximo de Periodos</span>
+                                            </div>
+                                            <input type="number" id="num_max_periods" name="num_max_periods" value="6"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="span-title">Tipo</span>
+                                            </div>
+                                            <select id="drpTipoConf" class="form-control">
+                                                <option value="Grado">Grado</option>
+                                                <option value="Posgrado">Posgrado</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                                <select id="drpModalidad" class="Dropdowns col-9">
-                                    <option value="Presencial">Presencial</option>
-                                </select>
+                                <hr>
+                                <table class="table table-bordered" style="font-size: 12px; display: none;">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Créditos</th>
+                                            <th>Docente</th>
+                                            <th>Autonomo</th>
+                                            <th>Aplicación</th>
+                                            <th>Total</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>48</td>
+                                            <td>48</td>
+                                            <td>48</td>
+                                            <td>144</td>
+                                            <td class="text-center">
+                                                <i class="fas fa-trash-alt text-danger"></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>64</td>
+                                            <td>64</td>
+                                            <td>64</td>
+                                            <td>192</td>
+                                            <td class="text-center">
+                                                <i class="fas fa-trash-alt text-danger"></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>80</td>
+                                            <td>80</td>
+                                            <td>80</td>
+                                            <td>240</td>
+                                            <td class="text-center">
+                                                <i class="fas fa-trash-alt text-danger"></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>32</td>
+                                            <td>32</td>
+                                            <td>32</td>
+                                            <td>96</td>
+                                            <td class="text-center">
+                                                <i class="fas fa-trash-alt text-danger"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend col-3">
-                                    <span class="span-title">Relación</span>
-                                </div>
-                                <input type="text" id="relacion" name="relacion" value="Relación Ejemplo"
-                                    class=" col-9">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend col-3">
-                                    <span class="span-title">Número Máximo de Créditos</span>
-                                </div>
-                                <input type="number" id="num_max_credits" name="num_max_credits" value="30"
-                                    class=" col-9">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend col-3">
-                                    <span class="span-title">Número Máximo de Periodos</span>
-                                </div>
-                                <input type="number" id="num_max_periods" name="num_max_periods" value="6" class="
-                                col-9">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend col-3">
-                                    <span class="span-title">Tipo</span>
-                                </div>
-                                <select id="drpTipoConf" class="Dropdowns col-9">
-                                    <option value="Grado">Grado</option>
-                                    <option value="Posgrado">Posgrado</option>
-
-                                </select>
-                            </div>
-                        </div>
-
-
-
+                        </form>
                     </div>
-                    <hr>
-                    <table class="table table-bordered" style="font-size: 12px; display: none;">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Créditos</th>
-                                <th>Docente</th>
-                                <th>Autonomo</th>
-                                <th>Aplicación</th>
-                                <th>Total</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>3</td>
-                                <td>48</td>
-                                <td>48</td>
-                                <td>48</td>
-                                <td>144</td>
-                                <td class="text-center">
-                                    <i class="fas fa-trash-alt text-danger"></i>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>64</td>
-                                <td>64</td>
-                                <td>64</td>
-                                <td>192</td>
-                                <td class="text-center">
-                                    <i class="fas fa-trash-alt text-danger"></i>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>240</td>
-                                <td class="text-center">
-                                    <i class="fas fa-trash-alt text-danger"></i>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>32</td>
-                                <td>32</td>
-                                <td>32</td>
-                                <td>96</td>
-                                <td class="text-center">
-                                    <i class="fas fa-trash-alt text-danger"></i>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- Puedes agregar más filas para más campos de entrada si es necesario -->
+                </section>
+            </div>
 
-                </div>
-            </form>
+            <!-- Segunda columna -->
+            <div class="col-md-4">
+                <section class="welcome">
+                    <div class="card m-2" style="background-color: #f5f5f5;">
+                        <div class="card-header">
+                            <h2>Lista Configuraciones <i class="fa-solid fa-list"></i></h2>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend col-12">
+                                <div id="resultTable" class="table table-container" style="font-size: 12px;">
+                                    <!-- Contenido de la tabla -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Tercera Columna-->
+            <div class="col-md-12">
+                <section class="welcome">
+                    <div class="card m-2" style="background-color: #f5f5f5;">
+                        <div class="card-header">
+                            <h2>Ver Detalle Configuracion <i class="fa-solid fa-list"></i></h2>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend col-12">
+                                <textarea name="" id=""></textarea>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
+    </div>
+    <br>
+    <br>
+    <footer class="container-fluid text-white py-4  float-right" style="background-color: #153d64;">
+        <div class="d-flex">
+            <div class="col-8 d-flex flex-column">
+                <span>Tecnologia Informática - Departamento de Desarrollo de Aplicaciones
+                </span>
+                <span>Improve-IT
+                </span>
+                <span>Av. Amazonas y Unión de Periodistas
+                </span>
+            </div>
+        </div>
+    </footer>
 
-    </section>
+    <script>
+        // Configurar los encabezados
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        //   myHeaders.append("Cookie", "session_id=b62f78c4ee5255ab40060abae738b75b1039047a");
 
+        // Cuerpo de la solicitud
+        const raw = JSON.stringify({
+            "jsonrpc": "2.0",
+            "params": {
+                "db": "education_ia",
+                "login": "user@hotmail.com",
+                "password": "jde.2020"
+            }
+        });
 
+        // Opciones de la solicitud
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        };
 
+        // Función para crear la tabla
+        function createTable(data) {
+            // Crear la tabla con tus estilos personalizados
+            let table = '<table class="table table-hover table-bordered" style="font-size: 12px;">';
+            table += '<thead style="background-color: #cacaca; text-align: center; color: #3d3d3dc9;"><tr><th>ID</th><th>Name</th></tr></thead><tbody>';
+
+            // Añadir filas a la tabla
+            data.forEach(item => {
+                table += `<tr><td>${item.id}</td><td>${item.name}</td></tr>`;
+            });
+
+            table += '</tbody></table>';
+            return table;
+        }
+
+        // Realizar la solicitud
+        fetch("http://40.112.56.227:8080/config/list/", requestOptions)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json(); // Parsear la respuesta como JSON
+            })
+            .then((result) => {
+                console.log(result);
+
+                // Asegurarse de que el resultado sea un objeto con la clave 'result'
+                if (result && result.result) {
+                    // Parsear la cadena JSON contenida en 'result.result'
+                    const data = JSON.parse(result.result);
+
+                    // Crear y colocar la tabla en el DOM
+                    const tableHTML = createTable(data);
+                    document.getElementById('resultTable').innerHTML = tableHTML;
+                } else {
+                    console.error('Error: Invalid response format');
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                const errorMessage = document.createElement('p');
+                errorMessage.innerText = "Error: " + error.message;
+                document.getElementById('resultTable').appendChild(errorMessage);
+            });
+    </script>
     <script>
 
         // const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -274,37 +416,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                 document.getElementById('resultado').innerText = 'Error al enviar la configuración: ' + error.message;
 
             }
-        }
-
-        /*
-                const myHeaders = new Headers();
-                myHeaders.append("Content-Type", "application/json");
-                myHeaders.append("Cookie", "session_id=b62f78c4ee5255ab40060abae738b75b1039047a");
-        
-        
-                const raw = JSON.stringify({
-                    "name": "Configuración Ejemplo",
-                    "num_max_credits": "30",
-                    "num_max_periods": "6",
-                    "tipo": "Grado",
-                    "semanas": 16,
-                    "modalidad": "Presencial",
-                    "relacion": "Relación Ejemplo"
-                });
-        
-                const requestOptions = {
-                    method: "POST",
-                    headers: myHeaders,
-                    body: raw,
-                    redirect: "follow",
-        
-                };
-        
-                fetch("http://40.112.56.227:8080/configuration_initial/create", requestOptions)
-                    .then((response) => response.text())
-                    .then((result) => console.log(result))
-                    .catch((error) => console.error(error));
-        */
+        }     
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -312,9 +424,6 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
 
             document.getElementById('drpModalidad').value = sessionStorage.getItem('drpModalidad') || '';
             document.getElementById('semanas').value = sessionStorage.getItem('semanas') || '';
-
-
-
 
             // Guardar datos en sessionStorage al cambiar el valor de los campos
 
@@ -327,6 +436,9 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
 
         });
     </script>
+    <script src="../Styles/script.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/main2.js"></script>
 </body>
 
 </html>

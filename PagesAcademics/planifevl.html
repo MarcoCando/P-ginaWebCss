@@ -25,12 +25,11 @@
 
 <body>
   <section>
-    <nav style="background-color: #153d64">
+    <nav style="background-color: #153d64;">
       <div class="logo">
         <img src="assets/Logo64x64.png" />
         <h1>Sistema Académico</h1>
       </div>
-
       <div class="hamburger">
         <span class="line"></span>
         <span class="line"></span>
@@ -40,15 +39,15 @@
     <div class="menubar">
       <ul>
         <li>
-          <i class="fa-solid fa-arrow-right"></i><a href="#">Inicio <i class="fa-solid fa-house"></i></a>
+          <i class="fa-solid fa-arrow-right"></i><a href="index.html">Inicio <i class="fa-solid fa-house"></i></a>
         </li>
         <li>
-          <i class="fa-solid fa-arrow-right"></i><a href="#">Lenguaje <i class="fa-solid fa-earth-americas"></i></a>
-          <i class="fa-solid fa-arrow-right"></i><a href="parametro.html">Español
-            <img width="20" height="20" src="https://img.icons8.com/color/48/spain-circular.png"
-              alt="spain-circular" /></a>
-          <i class="fa-solid fa-arrow-right"></i><a href="Parametro2.html">Inglés
-            <img width="20" height="20" src="https://img.icons8.com/color/48/usa-circular.png" alt="usa-circular" /></a>
+          <i class="fa-solid fa-arrow-right"></i><a href="configuration.html">Configuracion <i
+              class="fa-solid fa-gear"></i></a>
+        </li>
+        <li>
+          <i class="fa-solid fa-arrow-right"></i><a href="parametro.html">Crear Asignatura <i
+              class="fa-solid fa-square-plus" style="color: #05af13;"></i></a>
         </li>
       </ul>
     </div>
@@ -491,10 +490,6 @@
       const planificacionsave = document.getElementById('textareaContentPlanificacion').value;
       const actividadessave = document.getElementById('textareaContentActividades').value;
       const evaluacionsave = document.getElementById('tableContentEvaluacion').value;
-
-
-
-
 
       const data = {
         "program_id": "1",
