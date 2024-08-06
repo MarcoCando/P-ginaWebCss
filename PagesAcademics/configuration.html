@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academics</title>
+    <link href="../Images/Logo/icocosin.png" rel="icon" />
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" type="text/css" href="../Content/sweetalert2.min.css" />
     <script src="../Content/sweetalert2.all.min.js"></script>
@@ -67,7 +68,7 @@
     <section>
         <nav style="background-color: #153d64;">
             <div class="logo">
-                <img src="assets/Logo64x64.png" />
+                <img src="../Images/Logo/logblsin.png" style="width: 150px; height: 50px;" />
                 <h1>Sistema Académico</h1>
             </div>
             <div class="hamburger">
@@ -107,7 +108,7 @@
                             <!-- Botones de acción -->
                             <div class="d-flex justify-content-between p-4">
                                 <button type="button" class="btn btn-outline-info" onclick="enviarDatos()">
-                                    Enviar
+                                    Guardar
                                 </button>
                                 <a href="parametro.html" id="nextButton" class="btn btn-outline-success">
                                     Siguiente
@@ -312,245 +313,11 @@
     </footer>
 
     <script>
-        function obtenerDatos() {
-            const parametro = document.getElementById('txtidconfig').value;
-            const url = `http://40.112.56.227:8080/configuration_initial/get/${parametro}`;
-            const body = {
-                "jsonrpc": "2.0",
-                "params": {
-                    "db": "education_ia",
-                    "login": "user@hotmail.com",
-                    "password": "jde.2020"
-                }
-            };
 
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(body)
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result) {
-                        const resultData = JSON.parse(data.result).configuration_initial;
-                        llenarTabla([resultData]);
-                    } else {
-                        console.error('Error en la respuesta:', data);
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        }
-
-        function llenarTabla(datos) {
-            const tabla = document.getElementById('tablaDatos').getElementsByTagName('tbody')[0];
-            tabla.innerHTML = '';
-
-            datos.forEach(item => {
-                const fila = tabla.insertRow();
-                fila.insertCell().innerText = item.id;
-                fila.insertCell().innerText = item.name;
-                fila.insertCell().innerText = item.num_max_credits;
-                fila.insertCell().innerText = item.num_max_periods;
-                fila.insertCell().innerText = item.tipo;
-                fila.insertCell().innerText = item.semanas;
-                fila.insertCell().innerText = item.modalidad;
-                fila.insertCell().innerText = item.relacion;
-            });
-        }
-    </script>
-
-    <script>
-        // Configurar los encabezados
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        // Cuerpo de la solicitud
-        const raw = JSON.stringify({
-            "jsonrpc": "2.0",
-            "params": {
-                "db": "education_ia",
-                "login": "user@hotmail.com",
-                "password": "jde.2020"
-            }
-        });
-
-        // Opciones de la solicitud
-        const requestOptions = {
-            method: "POST",
-            headers: myHeaders,
-            body: raw,
-            redirect: "follow"
-        };
-
-        // Función para crear la tabla
-        function createTable(data) {
-            // Crear la tabla con tus estilos personalizados
-            let table = '<table class="table table-hover table-bordered" style="font-size: 12px;">';
-            table += '<thead style="background-color: #cacaca; text-align: center; color: #3d3d3dc9;"><tr><th>ID</th><th>Name</th><th>Action</th></tr></thead><tbody>';
-
-            // Añadir filas a la tabla
-            data.forEach(item => {
-                table += `<tr><td>${item.id}</td><td>${item.name}</td><td><button class="btn view-btn btn-info" data-id="${item.id}">Ver</button></td></tr>`;
-            });
-
-            table += '</tbody></table>';
-            return table;
-        }
-
-        // Realizar la solicitud
-        fetch("http://40.112.56.227:8080/config/list/", requestOptions)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json(); // Parsear la respuesta como JSON
-            })
-            .then((result) => {
-                console.log(result);
-
-                // Asegurarse de que el resultado sea un objeto con la clave 'result'
-                if (result && result.result) {
-                    // Parsear la cadena JSON contenida en 'result.result'
-                    const data = JSON.parse(result.result);
-
-                    // Crear y colocar la tabla en el DOM
-                    const tableHTML = createTable(data);
-                    document.getElementById('resultTable').innerHTML = tableHTML;
-
-                    // Añadir event listeners a los botones "Ver"
-                    document.querySelectorAll('.view-btn').forEach(button => {
-                        button.addEventListener('click', (event) => {
-                            const id = event.target.getAttribute('data-id');
-                            obtenerDatos(id);
-                        });
-                    });
-                } else {
-                    console.error('Error: Invalid response format');
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                const errorMessage = document.createElement('p');
-                errorMessage.innerText = "Error: " + error.message;
-                document.getElementById('resultTable').appendChild(errorMessage);
-            });
-
-        function obtenerDatos(parametro) {
-            const url = `http://40.112.56.227:8080/configuration_initial/get/${parametro}`;
-            const body = {
-                "jsonrpc": "2.0",
-                "params": {
-                    "db": "education_ia",
-                    "login": "user@hotmail.com",
-                    "password": "jde.2020"
-                }
-            };
-
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(body)
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result) {
-                        const resultData = JSON.parse(data.result).configuration_initial;
-                        llenarTabla([resultData]);
-                    } else {
-                        console.error('Error en la respuesta:', data);
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        }
-
-        function llenarTabla(datos) {
-            const tabla = document.getElementById('tablaDatos').getElementsByTagName('tbody')[0];
-            tabla.innerHTML = '';
-
-            datos.forEach(item => {
-                const fila = tabla.insertRow();
-                fila.insertCell().innerText = item.id;
-                fila.insertCell().innerText = item.name;
-                fila.insertCell().innerText = item.num_max_credits;
-                fila.insertCell().innerText = item.num_max_periods;
-                fila.insertCell().innerText = item.tipo;
-                fila.insertCell().innerText = item.semanas;
-                fila.insertCell().innerText = item.modalidad;
-                fila.insertCell().innerText = item.relacion;
-            });
-        }
     </script>
     <script>
 
-        // const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        const targetUrl = 'http://40.112.56.227:8080/configuration_initial/create';
-        // Función para enviar datos al servidor
-        async function enviarDatos() {
-            // Obtener los valores de los inputs
-            const datos = {
-                name: document.getElementById('txtname').value,
-                num_max_credits: document.getElementById('txtnum_max_credits').value,
-                num_max_periods: document.getElementById('txtnum_max_periods').value,
-                tipo: document.getElementById('drpTipoConf').value,
-                semanas: document.getElementById('txtsemanas').value,
-                modalidad: document.getElementById('drpModalidad').value,
-                relacion: document.getElementById('txtrelacion').value
-            };
 
-            try {
-                // Realizar la solicitud POST
-                const respuesta = await fetch('http://40.112.56.227:8080/configuration_initial/create', {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-
-                    },
-                    body: JSON.stringify(datos),
-                    redirect: "follow",
-                });
-
-
-                // Manejar la respuesta
-                if (respuesta.ok) {
-                    const resultado = await respuesta.json();
-                    Swal.fire({
-                        title: "Enviado",
-                        text: 'Configuración enviada con éxito',
-                        icon: "success"
-                    });
-
-                    document.getElementById('txtname').value = '';
-                    document.getElementById('txtnum_max_credits').value = '';
-                    document.getElementById('txtnum_max_periods').value = '';
-                    document.getElementById('drpTipoConf').value = '';
-                    document.getElementById('txtsemanas').value = '';
-                    document.getElementById('drpModalidad').value = '';
-                    document.getElementById('txtrelacion').value = '';
-
-
-                    document.getElementById('resultado').innerText = 'Configuración enviada con éxito: ' + JSON.stringify(resultado);
-                } else {
-                    Swal.fire({
-                        title: "Error",
-                        text: 'Error al enviar la configuracións: ' + respuesta.statusText,
-                        icon: "Error"
-                    });
-                    document.getElementById('resultado').innerText = 'Error al enviar la configuracións: ' + respuesta.statusText;
-                }
-            } catch (error) {
-                Swal.fire({
-                    title: "Enviado",
-                    text: 'Configuración enviada con éxito',
-                    icon: "success"
-                });
-                document.getElementById('resultado').innerText = 'Error al enviar la configuración: ' + error.message;
-
-            }
-        }     
     </script>
     <script>
         let refresh = document.getElementById('refresh');
@@ -559,6 +326,8 @@
         })
     </script>
 
+    <script src="../jsAcademics/configuration/guardarconfig.js"></script>
+    <script src="../jsAcademics/configuration/listarconfig.js"></script>
     <script src="../Styles/script.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/main2.js"></script>

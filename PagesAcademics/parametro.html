@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academics</title>
+    <link href="../Images/Logo/icocosin.png" rel="icon" />
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" type="text/css" href="../Content/sweetalert2.min.css" />
     <script src="../Content/sweetalert2.all.min.js"></script>
@@ -37,7 +38,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
     <section>
         <nav style="background-color: #153d64;">
             <div class="logo">
-                <a href="index.html"> <img src="assets/Logo64x64.png" /></a>
+                <a href="index.html"> <img src="../Images/Logo/logblsin.png" style="width: 150px; height: 50px;" /></a>
                 <h1>Sistema Académico</h1>
             </div>
             <div class="hamburger">
@@ -86,13 +87,13 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                         style="border-radius: 10px 40px 40px 10px; border: solid 1px">
                         Siguiente
                     </a>
-                </div> -->
+                </div> 
                 <div style="right: 130px; position: absolute; padding: 20px 0px">
                     <a href="configuration.html" type="button" class="btn btn-outline-success"
                         style="border-radius: 40px 10px 10px 40px; border: solid 1px">
                         Regresar
                     </a>
-                </div>
+                </div>-->
                 <div style="left: 20px; position: absolute; padding: 20px 50px;">
                     <button type="button" id="" class="btn btn-outline-warning" onclick="clearpage()">
                         Nuevo Programa
@@ -103,7 +104,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                         Guardar Cambios
                     </button>
                 </div>
-                <div style="left: 425px; position: absolute; padding: 20px 50px;">
+                <div style="right: 120px; position: absolute; padding: 20px 50px;">
                     <button type="button" id="btnEnviarPertinencia" class="btn btn-outline-primary">
                         Descargar Pertinencia <i class="fa-solid fa-file-arrow-down"></i>
                     </button>
@@ -287,7 +288,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
     <footer class="container-fluid text-white py-4  float-right" style="background-color: #153d64;">
         <div class="d-flex">
             <div class="col-8 d-flex flex-column">
-                <span>Tecnologia Informática - Departamento de Desarrollo de Aplicaciones
+                <span>Tecnología Informática - Departamento de Desarrollo de Aplicaciones
                 </span>
                 <span>Improve-IT
                 </span>
@@ -296,207 +297,11 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
             </div>
         </div>
     </footer>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="fa-regular fa-floppy-disk"></i></a>
-
-    <div id="preloader">
-        <div class="line"></div>
-    </div>
-
-    <script>
-        // Crear los headers para la solicitud
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        myHeaders.append("Cookie", "session_id=b62f78c4ee5255ab40060abae738b75b1039047a");
-
-        // Definir el cuerpo de la solicitud
-        const raw = JSON.stringify({
-            "jsonrpc": "2.0",
-            "params": {
-                "db": "education_ia",
-                "login": "user@hotmail.com",
-                "password": "jde.2020"
-            }
-        });
-
-        // Configurar las opciones de la solicitud
-        const requestOptions = {
-            method: "POST",  // Cambiado a POST
-            headers: myHeaders,
-            body: raw,
-            redirect: "follow"
-        };
-
-        // Realizar la solicitud fetch
-        fetch("http://40.112.56.227:8080/config/list/", requestOptions)
-            .then((response) => response.json())  // Convertir la respuesta a JSON
-            .then((data) => {
-                // Obtener el resultado que es un string JSON y convertirlo a objeto
-                const resultArray = JSON.parse(data.result);
-
-                // Obtener el elemento select
-                const selectElement = document.getElementById("drpConfiguraciones");
-
-                // Limpiar las opciones actuales (excepto la predeterminada)
-                selectElement.innerHTML = "<option selected>Selecciona una Configuracion</option>";
-
-                // Añadir las nuevas opciones al select
-                resultArray.forEach((item) => {
-                    const option = document.createElement("option");
-                    option.value = item.id;     // Asignar el ID como valor de la opción
-                    option.text = item.name;    // Asignar el nombre como texto visible
-                    selectElement.appendChild(option);
-                });
-
-                // Agregar evento para manejar el cambio de selección
-                selectElement.addEventListener("change", (event) => {
-                    const selectedId = event.target.value; // Obtener el id seleccionado
-
-                    // Evitar enviar solicitudes si no se seleccionó una configuración válida
-                    if (selectedId === "Selecciona una Configuracion") {
-                        return;
-                    }
-
-                    // URL de la solicitud que toma el ID seleccionado
-                    const configUrl = `http://40.112.56.227:8080/configuration_initial/get/${selectedId}`;
-
-                    // Hacer la solicitud para obtener la configuración inicial
-                    fetch(configUrl, requestOptions)
-                        .then((response) => response.json())
-                        .then((data) => {
-                            // Obtener y parsear el resultado que es un string JSON
-                            const result = JSON.parse(data.result);
-
-                            if (result.status === "success") {
-                                const config = result.configuration_initial;
-
-                                // Llenar los campos de entrada con los datos obtenidos
-                                document.getElementById("txtNombreConfig").value = config.name;
-                                document.getElementById("txtNumeroSemConfig").value = config.semanas;
-                                document.getElementById("txtModalidadConfig").value = config.modalidad;
-                                document.getElementById("txtRelacionConfig").value = config.relacion;
-                                document.getElementById("txtNumMaxCrediConfig").value = config.num_max_credits;
-                                document.getElementById("txtNumMaxPerioConfig").value = config.num_max_periods;
-                                document.getElementById("txtTipoConfig").value = config.tipo;
-
-                            } else {
-                                console.error("Failed to retrieve configuration:", result);
-                            }
-                        })
-                        .catch((error) => console.error("Error:", error));
-                });
-            })
-            .catch((error) => console.error("Error:", error));
-
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Recuperar datos del sessionStorage al cargar la página
-            document.getElementById('txtEnfoque').value = sessionStorage.getItem('txtEnfoque') || '';
-            document.getElementById('txtPrograma').value = sessionStorage.getItem('txtPrograma') || '';
-            document.getElementById('txtNumber').value = sessionStorage.getItem('txtNumber') || '';
-            document.getElementById('textareaContent').value = sessionStorage.getItem('textareaContent') || '';
-            document.getElementById('textareaContentPerfil').value = sessionStorage.getItem('textareaContentPerfil') || '';
-
-            document.getElementById('txtNombreConfig').value = sessionStorage.getItem('txtNombreConfig') || '';
-            document.getElementById('txtNumeroSemConfig').value = sessionStorage.getItem('txtNumeroSemConfig') || '';
-            document.getElementById('txtModalidadConfig').value = sessionStorage.getItem('txtModalidadConfig') || '';
-            document.getElementById('txtRelacionConfig').value = sessionStorage.getItem('txtRelacionConfig') || '';
-            document.getElementById('txtNumMaxCrediConfig').value = sessionStorage.getItem('txtNumMaxCrediConfig') || '';
-            document.getElementById('txtNumMaxPerioConfig').value = sessionStorage.getItem('txtNumMaxPerioConfig') || '';
-            document.getElementById('txtTipoConfig').value = sessionStorage.getItem('txtTipoConfig') || '';
-            document.getElementById('drpConfiguraciones').value = sessionStorage.getItem('drpConfiguraciones') || '';
-
-            //document.getElementById('tableContainer').innerHTML = sessionStorage.getItem('tableContainer') || '';
-            // document.getElementById('inputsContainer').innerHTML = sessionStorage.getItem('inputsContainer') || '';
-
-            // Guardar datos en sessionStorage al cambiar el valor de los campos
-            document.getElementById('txtEnfoque').addEventListener('input', function () {
-                sessionStorage.setItem('txtEnfoque', this.value);
-            });
-            document.getElementById('txtPrograma').addEventListener('input', function () {
-                sessionStorage.setItem('txtPrograma', this.value);
-            });
-            document.getElementById('txtNumber').addEventListener('input', function () {
-                sessionStorage.setItem('txtNumber', this.value);
-            });
-            document.getElementById('textareaContent').addEventListener('input', function () {
-                sessionStorage.setItem('textareaContent', this.value);
-            });
-            document.getElementById('textareaContentPerfil').addEventListener('input', function () {
-                sessionStorage.setItem('textareaContentPerfil', this.value);
-            });
-        });
-
-        function saveForm1Data() {
-
-            sessionStorage.setItem('txtEnfoque', document.getElementById('txtEnfoque').value);
-            sessionStorage.setItem('txtPrograma', document.getElementById('txtPrograma').value);
-            sessionStorage.setItem('txtNumber', document.getElementById('txtNumber').value);
-            sessionStorage.setItem('textareaContent', document.getElementById('textareaContent').value);
-            sessionStorage.setItem('textareaContentPerfil', document.getElementById('textareaContentPerfil').value);
-
-            sessionStorage.setItem('txtNombreConfig', document.getElementById('txtNombreConfig').value);
-            sessionStorage.setItem('txtNumeroSemConfig', document.getElementById('txtNumeroSemConfig').value);
-            sessionStorage.setItem('txtModalidadConfig', document.getElementById('txtModalidadConfig').value);
-            sessionStorage.setItem('txtRelacionConfig', document.getElementById('txtRelacionConfig').value);
-            sessionStorage.setItem('txtNumMaxCrediConfig', document.getElementById('txtNumMaxCrediConfig').value);
-            sessionStorage.setItem('txtNumMaxPerioConfig', document.getElementById('txtNumMaxPerioConfig').value);
-            sessionStorage.setItem('txtTipoConfig', document.getElementById('txtTipoConfig').value);
-            sessionStorage.setItem('drpConfiguraciones', document.getElementById('drpConfiguraciones').value);
-            // sessionStorage.setItem('tableContainer', document.getElementById('tableContainer').innerHTML);
-            //sessionStorage.setItem('inputsContainer', document.getElementById('inputsContainer').innerHTML);
-
-        }
-
-        const guardarBtn = document.getElementById('btnGuardar');
-
-        // Asocia el evento click al botón
-        guardarBtn.addEventListener('click', function () {
-            // Aquí puedes simular un error para demostrar el uso de SweetAlert2
-            try {
-
-                Swal.fire({
-                    title: "Guardado",
-                    text: 'Página Guardada con Éxito: ',
-                    icon: "success"
-                });
-                // Simulación de un error
-                //throw new Error("Simulación de error");
-
-                // Aquí iría tu lógica de guardar cambios...
-            } catch (error) {
-                // Muestra la alerta de error con SweetAlert2
-                Swal.fire({
-                    title: "Error",
-                    text: 'Error al enviar la configuración: ' + error.message,
-                    icon: "error"
-                });
-            }
-        });        
-    </script>
-    <script>
-        function clearpage() {
-            document.getElementById('txtEnfoque').value = '';
-            document.getElementById('txtPrograma').value = '';
-            document.getElementById('txtNumber').value = '';
-            document.getElementById('textareaContent').value = '';
-            document.getElementById('textareaContentPerfil').value = '';
-            document.getElementById('tableContainer').value = '';
-
-        }
-    </script>
-    <script>
-        document.getElementById('btnEnviarPertinencia').addEventListener('click', function () {
-            var programa = document.getElementById('txtPrograma').value;
-            var url = 'http://172.191.10.174/download-pertincencia?name=' + encodeURIComponent(programa);
-            window.open(url, '_blank');
-        });
-    </script>
-    </script>
     <script src="../jsAcademics/defparametro/rda.js"></script>
     <script src="../jsAcademics/defparametro/perfil.js"></script>
     <script src="../jsAcademics/defparametro/diseno.js"></script>
+    <script src="../jsAcademics/defparametro/Configuracion.js"></script>
+    <script src="../jsAcademics/defparametro/SessionBtnVarios.js"></script>
     <script src="../Styles/script.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/main2.js"></script>
