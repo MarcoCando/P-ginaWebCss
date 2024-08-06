@@ -93,6 +93,7 @@
             </ul>
         </div>
     </section>
+
     <div class="container text-center">
         <div class="row">
             <!-- Primera columna -->
@@ -119,8 +120,7 @@
                                             <div class="input-group-prepend col-4">
                                                 <span class="span-title">Nombre</span>
                                             </div>
-                                            <input type="text" id="name" name="name" value="Configuración Ejemplo"
-                                                class="form-control">
+                                            <input type="text" id="txtname" name="name" value="" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -128,7 +128,7 @@
                                             <div class="input-group-prepend col-4">
                                                 <span class="span-title">Número de Semanas</span>
                                             </div>
-                                            <input type="number" id="semanas" name="semanas" class="form-control">
+                                            <input type="number" id="txtsemanas" name="semanas" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -146,7 +146,7 @@
                                             <div class="input-group-prepend col-4">
                                                 <span class="span-title">Relación</span>
                                             </div>
-                                            <input type="text" id="relacion" name="relacion" value="Relación Ejemplo"
+                                            <input type="text" id="txtrelacion" name="relacion" value=""
                                                 class="form-control">
                                         </div>
                                     </div>
@@ -155,7 +155,7 @@
                                             <div class="input-group-prepend col-4">
                                                 <span class="span-title">Número Máximo de Créditos</span>
                                             </div>
-                                            <input type="number" id="num_max_credits" name="num_max_credits" value="30"
+                                            <input type="number" id="txtnum_max_credits" name="num_max_credits" value=""
                                                 class="form-control">
                                         </div>
                                     </div>
@@ -164,7 +164,7 @@
                                             <div class="input-group-prepend col-4">
                                                 <span class="span-title">Número Máximo de Periodos</span>
                                             </div>
-                                            <input type="number" id="num_max_periods" name="num_max_periods" value="6"
+                                            <input type="number" id="txtnum_max_periods" name="num_max_periods" value=""
                                                 class="form-control">
                                         </div>
                                     </div>
@@ -246,11 +246,15 @@
                 <section class="welcome">
                     <div class="card m-2" style="background-color: #f5f5f5;">
                         <div class="card-header">
-                            <h2>Lista Configuraciones <i class="fa-solid fa-list"></i></h2>
+                            <h2>Configuraciones <button type="button" id="refresh" class="btn btn-outline-primary"
+                                    style="font-size: 10px;">
+                                    <i class="fa-solid fa-arrows-rotate"></i>
+                                </button> </h2>
                         </div>
                         <div class="input-group">
                             <div class="input-group-prepend col-12">
                                 <div id="resultTable" class="table table-container" style="font-size: 12px;">
+
                                     <!-- Contenido de la tabla -->
                                 </div>
                             </div>
@@ -263,12 +267,28 @@
                 <section class="welcome">
                     <div class="card m-2" style="background-color: #f5f5f5;">
                         <div class="card-header">
-                            <h2>Ver Detalle Configuracion <i class="fa-solid fa-list"></i></h2>
+                            <h2>Ver Detalle Configuracion <i class="fa-solid fa-circle-info"></i></h2>
                         </div>
                         <div class="input-group">
                             <div class="input-group-prepend col-12">
-                                <textarea name="" id=""></textarea>
 
+                                <table id="tablaDatos" class="table table-hover table-bordered"
+                                    style="font-size: 12px;">
+                                    <thead style="background-color: #cacaca; text-align: center; color: #3d3d3dc9;">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nombre</th>
+                                            <th>Número Máximo de Créditos</th>
+                                            <th>Número Máximo de Períodos</th>
+                                            <th>Tipo</th>
+                                            <th>Semanas</th>
+                                            <th>Modalidad</th>
+                                            <th>Relación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -292,10 +312,59 @@
     </footer>
 
     <script>
+        function obtenerDatos() {
+            const parametro = document.getElementById('txtidconfig').value;
+            const url = `http://40.112.56.227:8080/configuration_initial/get/${parametro}`;
+            const body = {
+                "jsonrpc": "2.0",
+                "params": {
+                    "db": "education_ia",
+                    "login": "user@hotmail.com",
+                    "password": "jde.2020"
+                }
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result) {
+                        const resultData = JSON.parse(data.result).configuration_initial;
+                        llenarTabla([resultData]);
+                    } else {
+                        console.error('Error en la respuesta:', data);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function llenarTabla(datos) {
+            const tabla = document.getElementById('tablaDatos').getElementsByTagName('tbody')[0];
+            tabla.innerHTML = '';
+
+            datos.forEach(item => {
+                const fila = tabla.insertRow();
+                fila.insertCell().innerText = item.id;
+                fila.insertCell().innerText = item.name;
+                fila.insertCell().innerText = item.num_max_credits;
+                fila.insertCell().innerText = item.num_max_periods;
+                fila.insertCell().innerText = item.tipo;
+                fila.insertCell().innerText = item.semanas;
+                fila.insertCell().innerText = item.modalidad;
+                fila.insertCell().innerText = item.relacion;
+            });
+        }
+    </script>
+
+    <script>
         // Configurar los encabezados
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        //   myHeaders.append("Cookie", "session_id=b62f78c4ee5255ab40060abae738b75b1039047a");
 
         // Cuerpo de la solicitud
         const raw = JSON.stringify({
@@ -319,11 +388,11 @@
         function createTable(data) {
             // Crear la tabla con tus estilos personalizados
             let table = '<table class="table table-hover table-bordered" style="font-size: 12px;">';
-            table += '<thead style="background-color: #cacaca; text-align: center; color: #3d3d3dc9;"><tr><th>ID</th><th>Name</th></tr></thead><tbody>';
+            table += '<thead style="background-color: #cacaca; text-align: center; color: #3d3d3dc9;"><tr><th>ID</th><th>Name</th><th>Action</th></tr></thead><tbody>';
 
             // Añadir filas a la tabla
             data.forEach(item => {
-                table += `<tr><td>${item.id}</td><td>${item.name}</td></tr>`;
+                table += `<tr><td>${item.id}</td><td>${item.name}</td><td><button class="btn view-btn btn-info" data-id="${item.id}">Ver</button></td></tr>`;
             });
 
             table += '</tbody></table>';
@@ -349,6 +418,14 @@
                     // Crear y colocar la tabla en el DOM
                     const tableHTML = createTable(data);
                     document.getElementById('resultTable').innerHTML = tableHTML;
+
+                    // Añadir event listeners a los botones "Ver"
+                    document.querySelectorAll('.view-btn').forEach(button => {
+                        button.addEventListener('click', (event) => {
+                            const id = event.target.getAttribute('data-id');
+                            obtenerDatos(id);
+                        });
+                    });
                 } else {
                     console.error('Error: Invalid response format');
                 }
@@ -359,6 +436,53 @@
                 errorMessage.innerText = "Error: " + error.message;
                 document.getElementById('resultTable').appendChild(errorMessage);
             });
+
+        function obtenerDatos(parametro) {
+            const url = `http://40.112.56.227:8080/configuration_initial/get/${parametro}`;
+            const body = {
+                "jsonrpc": "2.0",
+                "params": {
+                    "db": "education_ia",
+                    "login": "user@hotmail.com",
+                    "password": "jde.2020"
+                }
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result) {
+                        const resultData = JSON.parse(data.result).configuration_initial;
+                        llenarTabla([resultData]);
+                    } else {
+                        console.error('Error en la respuesta:', data);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function llenarTabla(datos) {
+            const tabla = document.getElementById('tablaDatos').getElementsByTagName('tbody')[0];
+            tabla.innerHTML = '';
+
+            datos.forEach(item => {
+                const fila = tabla.insertRow();
+                fila.insertCell().innerText = item.id;
+                fila.insertCell().innerText = item.name;
+                fila.insertCell().innerText = item.num_max_credits;
+                fila.insertCell().innerText = item.num_max_periods;
+                fila.insertCell().innerText = item.tipo;
+                fila.insertCell().innerText = item.semanas;
+                fila.insertCell().innerText = item.modalidad;
+                fila.insertCell().innerText = item.relacion;
+            });
+        }
     </script>
     <script>
 
@@ -368,13 +492,13 @@
         async function enviarDatos() {
             // Obtener los valores de los inputs
             const datos = {
-                name: document.getElementById('name').value,
-                num_max_credits: document.getElementById('num_max_credits').value,
-                num_max_periods: document.getElementById('num_max_periods').value,
+                name: document.getElementById('txtname').value,
+                num_max_credits: document.getElementById('txtnum_max_credits').value,
+                num_max_periods: document.getElementById('txtnum_max_periods').value,
                 tipo: document.getElementById('drpTipoConf').value,
-                semanas: document.getElementById('semanas').value,
+                semanas: document.getElementById('txtsemanas').value,
                 modalidad: document.getElementById('drpModalidad').value,
-                relacion: document.getElementById('relacion').value
+                relacion: document.getElementById('txtrelacion').value
             };
 
             try {
@@ -398,6 +522,16 @@
                         text: 'Configuración enviada con éxito',
                         icon: "success"
                     });
+
+                    document.getElementById('txtname').value = '';
+                    document.getElementById('txtnum_max_credits').value = '';
+                    document.getElementById('txtnum_max_periods').value = '';
+                    document.getElementById('drpTipoConf').value = '';
+                    document.getElementById('txtsemanas').value = '';
+                    document.getElementById('drpModalidad').value = '';
+                    document.getElementById('txtrelacion').value = '';
+
+
                     document.getElementById('resultado').innerText = 'Configuración enviada con éxito: ' + JSON.stringify(resultado);
                 } else {
                     Swal.fire({
@@ -419,23 +553,12 @@
         }     
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-
-
-            document.getElementById('drpModalidad').value = sessionStorage.getItem('drpModalidad') || '';
-            document.getElementById('semanas').value = sessionStorage.getItem('semanas') || '';
-
-            // Guardar datos en sessionStorage al cambiar el valor de los campos
-
-            document.getElementById('drpModalidad').addEventListener('input', function () {
-                sessionStorage.setItem('drpModalidad', this.value);
-            });
-            document.getElementById('semanas').addEventListener('input', function () {
-                sessionStorage.setItem('semanas', this.value);
-            });
-
-        });
+        let refresh = document.getElementById('refresh');
+        refresh.addEventListener('click', _ => {
+            location.reload();
+        })
     </script>
+
     <script src="../Styles/script.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/main2.js"></script>

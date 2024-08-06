@@ -20,9 +20,13 @@ async function fetchDataAndFormatRubricas() {
 
     const tableHtml = generateTableFromData(result.data);
     document.getElementById("tableContentRubricas").innerHTML = tableHtml;
+
+    // Add data to single input field
+    document.getElementById("txtRubricasEvl").value = result.data;
   } catch (error) {
     console.error("Error al obtener datos:", error);
     document.getElementById("tableContentRubricas").innerHTML = `Error al obtener datos: ${error.message}`;
+    document.getElementById("txtRubricasEvl").value = `Error al obtener datos: ${error.message}`;
   } finally {
     document.getElementById("loadingOverlayRubricas").style.display = "none";
     document.getElementById("generarRubricas").textContent = "Generar";

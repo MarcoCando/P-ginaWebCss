@@ -78,7 +78,6 @@
             Guardar Cambios
           </button>
         </div>
-        <input type="text" id="resultInput" placeholder="Resultado aquí" readonly>
         <div>
         </div>
         <br />
@@ -130,6 +129,7 @@
             <div class="input-group-prepend col-9">
               <textarea id="textareaContentMetodologia" cols="110" rows="10" style="overflow: hidden"
                 readonly></textarea>
+              <input type="text" id="txtMetodologiaEvl" style="display: none;">
               <div id="loadingOverlayMetodologia" class="loading-overlay" style="display: none">
                 <div class="spinner">
                   <div class="double-bounce1"></div>
@@ -184,6 +184,7 @@
             </div>
             <div class="input-group-prepend col-9">
               <textarea id="textareaContentTemas" cols="110" rows="10" style="overflow: hidden" readonly></textarea>
+              <input type="text" name="" id="txtTemasEvl" style="display: none;">
               <div id="loadingOverlayTemas" class="loading-overlay" style="display: none">
                 <div class="spinner">
                   <div class="double-bounce1"></div>
@@ -216,6 +217,7 @@
             <div class="input-group-prepend col-9">
               <textarea id="textareaContentPlanificacion" cols="110" rows="10" style="overflow: hidden"
                 readonly></textarea>
+              <input type="text" id="txtPlanificacionEvl" style="display: none;">
               <div id="loadingOverlayPlanificacion" class="loading-overlay" style="display: none">
                 <div class="spinner">
                   <div class="double-bounce1"></div>
@@ -275,6 +277,7 @@
             <div class="input-group-prepend col-9">
               <textarea id="textareaContentEstrAprend" cols="110" rows="10" style="overflow: hidden"
                 readonly></textarea>
+              <input type="text" id="txtEstrAprendEvl" style="display: none;">
               <div id="loadingOverlayEstrAprend" class="loading-overlay" style="display: none">
                 <div class="spinner">
                   <div class="double-bounce1"></div>
@@ -307,6 +310,7 @@
             <div class="input-group-prepend col-9">
               <textarea id="textareaContentActividades" cols="110" rows="10"
                 style="overflow: hidden;text-align:left;align-content: left;" readonly></textarea>
+              <input type="text" id="txtActividadesEvl" style="display: none;">
               <div id="loadingOverlayActividades" class="loading-overlay" style="display: none">
                 <div class="spinner">
                   <div class="double-bounce1"></div>
@@ -377,6 +381,7 @@
               <div id="tableContentEvaluacion" class="table-responsive"
                 style="overflow: auto; font-size: 12px;text-align: left; align-items: left;">
               </div>
+              <input type="text" id="txtEvaluacionEvl" style="display: none;">
               <div id="loadingOverlayEvaluacion" class="loading-overlay" style="display: none;">
                 <div class="spinner"></div>
               </div>
@@ -406,6 +411,7 @@
             </div>
             <div class="input-group-prepend col-9">
               <div id="tableContentRubricas" class="table-responsive" style="overflow: auto; font-size: 12px "></div>
+              <input type="text" name="" id="txtRubricasEvl" style="display: none;">
               <div id="loadingOverlayRubricas" class="loading-overlay" style="display: none">
                 <div class="spinner">
                   <div class="double-bounce1"></div>
@@ -455,7 +461,7 @@
       </div>
     </div>
   </footer>
-  <div>
+  <div style="display: none;">
     <input type="text" id="txtProgramaEvl" class="input100">
     <input type="text" id="txtAsignaturaEvl" class="input100">
     <input type="text" id="txtCodAsignEvl" class="input100">
@@ -467,6 +473,7 @@
     <input type="text" id="txtDesCursoEvl" class="input100">
     <input type="text" id="txtDefCursoEvl" class="input100">
     <input type="text" id="txtnewmodalidadEvl" class=" input100">
+    <input type="text" id="resultInput" placeholder="Resultado aquí" readonly>
   </div>
   <script>
     //ENVIAR ASIGNATURA
@@ -480,16 +487,17 @@
       const numrdassave = document.getElementById('txtCreditosEvl').value;
       const numsemanassave = document.getElementById('txtNumSemanasEvl').value;
       const naturalezasave = document.getElementById('txtDrpNaturaleza').value;
-      const temassave = document.getElementById('textareaContentTemas').value;
+      const temassave = document.getElementById('txtTemasEvl').value;
       const modalidadsave = document.getElementById('txtnewmodalidadEvl').value;
       const tiposave = document.getElementById('txtDrpTypoEvl').value;
-      const metodologiasave = document.getElementById('textareaContentMetodologia').value;
-      const estrategiassave = document.getElementById('textareaContentEstrAprend').value;
-      const rubricassave = document.getElementById('no').value;
+      const metodologiasave = document.getElementById('txtMetodologiaEvl').value;
+      const estrategiassave = document.getElementById('txtEstrAprendEvl').value;
+      const rubricassave = document.getElementById('txtRubricasEvl').value;
       const resultadosave = document.getElementById('txtRdasEvl').value;
-      const planificacionsave = document.getElementById('textareaContentPlanificacion').value;
-      const actividadessave = document.getElementById('textareaContentActividades').value;
-      const evaluacionsave = document.getElementById('tableContentEvaluacion').value;
+      const porcentajesave = document.getElementById('txtPorcentaje').value;
+      const planificacionsave = document.getElementById('txtPlanificacionEvl').value;
+      const actividadessave = document.getElementById('txtActividadesEvl').value;
+      const evaluacionsave = document.getElementById('txtEvaluacionEvl').value;
 
       const data = {
         "program_id": "1",
@@ -501,6 +509,7 @@
         "numero": numrdassave,
         "semanas": numsemanassave,
         "naturaleza": naturalezasave,
+        "text": " ",
         "modalidad": modalidadsave,
         "tipo": tiposave,
         "origen": "Nueva",
@@ -508,11 +517,15 @@
         "metodologia": metodologiasave,
         "estrategias": estrategiassave,
         "rubrica_define": "3",
-        "rubricas": "Criterios basados en participación, exámenes y trabajos prácticos.",
+        "rubricas": rubricassave,
+        "objetivo_general": " ",
         "resultado": resultadosave,
+        "resultadoModel": " ",
+        "resultadoModelDara": " ",
+        "porcentaje": porcentajesave,
         "planificacion": planificacionsave,
         "temas": temassave,
-        "bibliografias": ".",
+        "bibliografias": " ",
         "actividades": actividadessave,
         "mecanismos": "Estudios de Caso",
         "evaluacion": evaluacionsave
@@ -633,13 +646,13 @@
     const asignaturadef = sessionStorage.getItem('txtAsignatura');
     const codasignatura = sessionStorage.getItem('txtCodAsign');
     const creditosdef = sessionStorage.getItem('txtNumber');
-    const numsemanasdef = sessionStorage.getItem('semanas');
+    const numsemanasdef = sessionStorage.getItem('txtNumeroSemConfig');
     const drptypodef = sessionStorage.getItem('drpTipo');
     const drpNatuAsign = sessionStorage.getItem('drpNaturaleza');
     const rdasdef = sessionStorage.getItem('textareaContentResultado');
     const descursodef = sessionStorage.getItem('textareaContentDesCurso');
     const defcursodef = sessionStorage.getItem('textareaContentDefCurso');
-    const modalidadesdef = sessionStorage.getItem('drpModalidad');
+    const modalidadesdef = sessionStorage.getItem('txtModalidadConfig');
 
 
     if (programadef) {

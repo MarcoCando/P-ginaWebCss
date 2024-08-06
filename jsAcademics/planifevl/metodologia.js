@@ -1,83 +1,90 @@
 /*METODOLOGIA*/
 async function fetchDataAndFormatMetodologia() {
-   /* const rdas =
-      "\n1. Diseñar estrategias de marketing que incorporen herramientas de inteligencia artificial para mejorar la segmentación y personalización de mensajes.\n2. Utilizar técnicas de inteligencia artificial para analizar grandes volúmenes de datos y extraer información relevante para la toma de decisiones de marketing.\n3. Implementar soluciones de inteligencia artificial en los procesos de marketing para optimizar la eficiencia operativa y mejorar la experiencia del cliente.";
-    const subject = "Fundamentos de Inteligencia Artificial";*/
-    const rdas =    document.getElementById('txtRdasEvl').value;    
-    const subject = document.getElementById('txtAsignaturaEvl').value;    
-    const formacion = "TECNOLOGIA";
-    try {
-      const url = `http://172.191.10.174/api/metodologia?rdas=${encodeURIComponent(
-        rdas
-      )}&subject=${encodeURIComponent(
-        subject
-      )}&formacion=${encodeURIComponent(formacion)}`;
-      console.log(`Fetching data from URL: ${url}`);
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const result = await response.json();
-      console.log(`Data received:`, result);
-
-      if (!result.data) {
-        throw new Error(
-          `'data' property is undefined in the response data`
-        );
-      }
-
-      const formatted = formatTextMetodologia(result.data);
-      document.getElementById("textareaContentMetodologia").value =
-        formatted;
-    } catch (error) {
-      console.error("Error al obtener datos:", error);
-      document.getElementById(
-        "textareaContentMetodologia"
-      ).value = `Error al obtener datos: ${error.message}`;
-    } finally {
-      adjustTextareaHeightMetodologia();
-      document.getElementById("loadingOverlayMetodologia").style.display =
-        "none";
+  /* const rdas =
+     "\n1. Diseñar estrategias de marketing que incorporen herramientas de inteligencia artificial para mejorar la segmentación y personalización de mensajes.\n2. Utilizar técnicas de inteligencia artificial para analizar grandes volúmenes de datos y extraer información relevante para la toma de decisiones de marketing.\n3. Implementar soluciones de inteligencia artificial en los procesos de marketing para optimizar la eficiencia operativa y mejorar la experiencia del cliente.";
+   const subject = "Fundamentos de Inteligencia Artificial";*/
+  const rdas = document.getElementById('txtRdasEvl').value;
+  const subject = document.getElementById('txtAsignaturaEvl').value;
+  const formacion = "TECNOLOGIA";
+  try {
+    const url = `http://172.191.10.174/api/metodologia?rdas=${encodeURIComponent(
+      rdas
+    )}&subject=${encodeURIComponent(
+      subject
+    )}&formacion=${encodeURIComponent(formacion)}`;
+    console.log(`Fetching data from URL: ${url}`);
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  }
+    const result = await response.json();
+    console.log(`Data received:`, result);
 
-  function formatTextMetodologia(text) {
-    if (!text) {
-      throw new Error("Invalid text input for formatting");
+    if (!result.data) {
+      throw new Error(
+        `'data' property is undefined in the response data`
+      );
     }
-    let formatted = text.replace(/\\n/g, "\n");
-    if (formatted.includes("\n")) {
-      formatted += "\n\n";
-    }
-    return formatted;
-  }
 
-  async function SpinnerMetodologia() {
-    document.getElementById("loadingOverlayMetodologia").style.display =
-      "flex";
-    document.getElementById("generarMetodologia").textContent =
-      "Cargando...";
+    const formatted = formatTextMetodologia(result.data);
     document.getElementById("textareaContentMetodologia").value =
-      "Cargando Contenido ...";
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 4000));
-    } catch (error) {
-      console.error("Error al realizar la solicitud:", error);
-    } finally {
-      document.getElementById("loadingOverlayMetodologia").style.display =
-        "none";
-      document.getElementById("generarMetodologia").textContent = "Generar";
-    }
+      formatted;
+    document.getElementById("txtMetodologiaEvl").value =
+      formatted; // Update input as well
+  } catch (error) {
+    console.error("Error al obtener datos:", error);
+    document.getElementById(
+      "textareaContentMetodologia"
+    ).value = `Error al obtener datos: ${error.message}`;
+    document.getElementById(
+      "txtMetodologiaEvl"
+    ).value = `Error al obtener datos: ${error.message}`; // Update input as well
+  } finally {
+    adjustTextareaHeightMetodologia();
+    document.getElementById("loadingOverlayMetodologia").style.display =
+      "none";
   }
+}
 
-  function handleButtonClickMetodologia() {
-    SpinnerMetodologia();
-    fetchDataAndFormatMetodologia();
+function formatTextMetodologia(text) {
+  if (!text) {
+    throw new Error("Invalid text input for formatting");
   }
+  let formatted = text.replace(/\\n/g, "\n");
+  if (formatted.includes("\n")) {
+    formatted += "\n\n";
+  }
+  return formatted;
+}
 
-  function adjustTextareaHeightMetodologia() {
-    const textarea = document.getElementById("textareaContentMetodologia");
-    textarea.style.height = "110px";
-    textarea.style.height = `${textarea.scrollHeight}px`;
+async function SpinnerMetodologia() {
+  document.getElementById("loadingOverlayMetodologia").style.display =
+    "flex";
+  document.getElementById("generarMetodologia").textContent =
+    "Cargando...";
+  document.getElementById("textareaContentMetodologia").value =
+    "Cargando Contenido ...";
+  document.getElementById("txtMetodologiaEvl").value =
+    "Cargando Contenido ..."; // Update input as well
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 4000));
+  } catch (error) {
+    console.error("Error al realizar la solicitud:", error);
+  } finally {
+    document.getElementById("loadingOverlayMetodologia").style.display =
+      "none";
+    document.getElementById("generarMetodologia").textContent = "Generar";
   }
-  /*FIN METODOLOGIA*/
+}
+
+function handleButtonClickMetodologia() {
+  SpinnerMetodologia();
+  fetchDataAndFormatMetodologia();
+}
+
+function adjustTextareaHeightMetodologia() {
+  const textarea = document.getElementById("textareaContentMetodologia");
+  textarea.style.height = "110px";
+  textarea.style.height = `${textarea.scrollHeight}px`;
+}
+/*FIN METODOLOGIA*/

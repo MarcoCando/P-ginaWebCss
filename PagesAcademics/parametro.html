@@ -49,19 +49,29 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
         <div class="menubar">
             <ul>
                 <li>
-                    <i class="fa-solid fa-arrow-right"></i><a href="#">Inicio <i class="fa-solid fa-house"></i></a>
+                    <i class="fa-solid fa-arrow-right"></i><a href="index.html">Inicio <i
+                            class="fa-solid fa-house"></i></a>
                 </li>
                 <li>
-                    <i class="fa-solid fa-arrow-right"></i><a href="#">Lenguaje <i
-                            class="fa-solid fa-earth-americas"></i></a>
-                    <i class="fa-solid fa-arrow-right"></i><a href="parametro.html">Español <img width="20" height="20"
-                            src="https://img.icons8.com/color/48/spain-circular.png" alt="spain-circular" /></a>
-                    <i class="fa-solid fa-arrow-right"></i><a href="Parametro2.html">Inglés <img width="20" height="20"
-                            src="https://img.icons8.com/color/48/usa-circular.png" alt="usa-circular" /></a>
+                    <i class="fa-solid fa-arrow-right"></i><a href="configuration.html">Configuracion <i
+                            class="fa-solid fa-gear"></i></a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right"></i><a href="parametro.html">Crear Asignatura <i
+                            class="fa-solid fa-square-plus" style="color: #05af13;"></i></a>
                 </li>
             </ul>
         </div>
     </section>
+    <div style="display: none;">
+        <input type="text" id="txtNombreConfig">
+        <input type="text" id="txtNumeroSemConfig">
+        <input type="text" id="txtModalidadConfig">
+        <input type="text" id="txtRelacionConfig">
+        <input type="text" id="txtNumMaxCrediConfig">
+        <input type="text" id="txtNumMaxPerioConfig">
+        <input type="text" id="txtTipoConfig">
+    </div>
     <section class="welcome">
         <div class="card m-2" style="background-color: #f5f5f5;">
             <div class="card-header">
@@ -90,6 +100,21 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                 </div>
                 <br>
                 <div class="p-5">
+                    <div class="input-group">
+                        <div class="input-group-prepend col-2">
+                            <span class="span-title">
+
+                                Configuración</span>
+                        </div>
+                        <div class="input-group-prepend col-9">
+                            <select class="form-control" id="drpConfiguraciones">
+                                <option selected>Selecciona una Configuracion</option>
+                                <option value="Grado">Grado</option>
+
+                                option
+                            </select>
+                        </div>
+                    </div>
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
                             <span class="span-title">
@@ -265,7 +290,92 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
         <div class="line"></div>
     </div>
 
+    <script>
+        // Crear los headers para la solicitud
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Cookie", "session_id=b62f78c4ee5255ab40060abae738b75b1039047a");
 
+        // Definir el cuerpo de la solicitud
+        const raw = JSON.stringify({
+            "jsonrpc": "2.0",
+            "params": {
+                "db": "education_ia",
+                "login": "user@hotmail.com",
+                "password": "jde.2020"
+            }
+        });
+
+        // Configurar las opciones de la solicitud
+        const requestOptions = {
+            method: "POST",  // Cambiado a POST
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        };
+
+        // Realizar la solicitud fetch
+        fetch("http://40.112.56.227:8080/config/list/", requestOptions)
+            .then((response) => response.json())  // Convertir la respuesta a JSON
+            .then((data) => {
+                // Obtener el resultado que es un string JSON y convertirlo a objeto
+                const resultArray = JSON.parse(data.result);
+
+                // Obtener el elemento select
+                const selectElement = document.getElementById("drpConfiguraciones");
+
+                // Limpiar las opciones actuales (excepto la predeterminada)
+                selectElement.innerHTML = "<option selected>Selecciona una Configuracion</option>";
+
+                // Añadir las nuevas opciones al select
+                resultArray.forEach((item) => {
+                    const option = document.createElement("option");
+                    option.value = item.id;     // Asignar el ID como valor de la opción
+                    option.text = item.name;    // Asignar el nombre como texto visible
+                    selectElement.appendChild(option);
+                });
+
+                // Agregar evento para manejar el cambio de selección
+                selectElement.addEventListener("change", (event) => {
+                    const selectedId = event.target.value; // Obtener el id seleccionado
+
+                    // Evitar enviar solicitudes si no se seleccionó una configuración válida
+                    if (selectedId === "Selecciona una Configuracion") {
+                        return;
+                    }
+
+                    // URL de la solicitud que toma el ID seleccionado
+                    const configUrl = `http://40.112.56.227:8080/configuration_initial/get/${selectedId}`;
+
+                    // Hacer la solicitud para obtener la configuración inicial
+                    fetch(configUrl, requestOptions)
+                        .then((response) => response.json())
+                        .then((data) => {
+                            // Obtener y parsear el resultado que es un string JSON
+                            const result = JSON.parse(data.result);
+
+                            if (result.status === "success") {
+                                const config = result.configuration_initial;
+
+                                // Llenar los campos de entrada con los datos obtenidos
+                                document.getElementById("txtNombreConfig").value = config.name;
+                                document.getElementById("txtNumeroSemConfig").value = config.semanas;
+                                document.getElementById("txtModalidadConfig").value = config.modalidad;
+                                document.getElementById("txtRelacionConfig").value = config.relacion;
+                                document.getElementById("txtNumMaxCrediConfig").value = config.num_max_credits;
+                                document.getElementById("txtNumMaxPerioConfig").value = config.num_max_periods;
+                                document.getElementById("txtTipoConfig").value = config.tipo;
+
+                            } else {
+                                console.error("Failed to retrieve configuration:", result);
+                            }
+                        })
+                        .catch((error) => console.error("Error:", error));
+                });
+            })
+            .catch((error) => console.error("Error:", error));
+
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Recuperar datos del sessionStorage al cargar la página
@@ -274,6 +384,16 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
             document.getElementById('txtNumber').value = sessionStorage.getItem('txtNumber') || '';
             document.getElementById('textareaContent').value = sessionStorage.getItem('textareaContent') || '';
             document.getElementById('textareaContentPerfil').value = sessionStorage.getItem('textareaContentPerfil') || '';
+
+            document.getElementById('txtNombreConfig').value = sessionStorage.getItem('txtNombreConfig') || '';
+            document.getElementById('txtNumeroSemConfig').value = sessionStorage.getItem('txtNumeroSemConfig') || '';
+            document.getElementById('txtModalidadConfig').value = sessionStorage.getItem('txtModalidadConfig') || '';
+            document.getElementById('txtRelacionConfig').value = sessionStorage.getItem('txtRelacionConfig') || '';
+            document.getElementById('txtNumMaxCrediConfig').value = sessionStorage.getItem('txtNumMaxCrediConfig') || '';
+            document.getElementById('txtNumMaxPerioConfig').value = sessionStorage.getItem('txtNumMaxPerioConfig') || '';
+            document.getElementById('txtTipoConfig').value = sessionStorage.getItem('txtTipoConfig') || '';
+            document.getElementById('drpConfiguraciones').value = sessionStorage.getItem('drpConfiguraciones') || '';
+
             //document.getElementById('tableContainer').innerHTML = sessionStorage.getItem('tableContainer') || '';
             // document.getElementById('inputsContainer').innerHTML = sessionStorage.getItem('inputsContainer') || '';
 
@@ -302,6 +422,15 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
             sessionStorage.setItem('txtNumber', document.getElementById('txtNumber').value);
             sessionStorage.setItem('textareaContent', document.getElementById('textareaContent').value);
             sessionStorage.setItem('textareaContentPerfil', document.getElementById('textareaContentPerfil').value);
+
+            sessionStorage.setItem('txtNombreConfig', document.getElementById('txtNombreConfig').value);
+            sessionStorage.setItem('txtNumeroSemConfig', document.getElementById('txtNumeroSemConfig').value);
+            sessionStorage.setItem('txtModalidadConfig', document.getElementById('txtModalidadConfig').value);
+            sessionStorage.setItem('txtRelacionConfig', document.getElementById('txtRelacionConfig').value);
+            sessionStorage.setItem('txtNumMaxCrediConfig', document.getElementById('txtNumMaxCrediConfig').value);
+            sessionStorage.setItem('txtNumMaxPerioConfig', document.getElementById('txtNumMaxPerioConfig').value);
+            sessionStorage.setItem('txtTipoConfig', document.getElementById('txtTipoConfig').value);
+            sessionStorage.setItem('drpConfiguraciones', document.getElementById('drpConfiguraciones').value);
             // sessionStorage.setItem('tableContainer', document.getElementById('tableContainer').innerHTML);
             //sessionStorage.setItem('inputsContainer', document.getElementById('inputsContainer').innerHTML);
 

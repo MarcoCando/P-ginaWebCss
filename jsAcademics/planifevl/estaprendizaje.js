@@ -1,9 +1,9 @@
 /* ESTRATEGIAS DE APRENDIZAJE */
 async function fetchDataAndFormatEstrAprend() {
-  const naturaleza = document.getElementById('txtDrpNaturaleza').value;      
-  const subject = document.getElementById('txtAsignaturaEvl').value;   
- /* const naturaleza = "Teórico-Práctico";
-  const subject = "Fundamentos de Inteligencia Artificial";*/
+  const naturaleza = document.getElementById('txtDrpNaturaleza').value;
+  const subject = document.getElementById('txtAsignaturaEvl').value;
+  /* const naturaleza = "Teórico-Práctico";
+   const subject = "Fundamentos de Inteligencia Artificial";*/
 
   try {
     const url = `http://172.191.10.174/api/estrategias_aprendizaje?naturaleza=${encodeURIComponent(
@@ -23,9 +23,11 @@ async function fetchDataAndFormatEstrAprend() {
 
     const formatted = formatTextEstrAprend(result.data);
     document.getElementById("textareaContentEstrAprend").value = formatted;
+    document.getElementById("txtEstrAprendEvl").value = formatted; // Update input as well
   } catch (error) {
     console.error("Error al obtener datos:", error);
     document.getElementById("textareaContentEstrAprend").value = `Error al obtener datos: ${error.message}`;
+    document.getElementById("txtEstrAprendEvl").value = `Error al obtener datos: ${error.message}`; // Update input as well
   } finally {
     adjustTextareaHeightEstrAprend();
     document.getElementById("loadingOverlayEstrAprend").style.display = "none";
@@ -48,6 +50,7 @@ async function SpinnerEstrAprend() {
   document.getElementById("loadingOverlayEstrAprend").style.display = "flex";
   document.getElementById("generarEstrAprend").textContent = "Cargando...";
   document.getElementById("textareaContentEstrAprend").value = "Cargando Contenido ...";
+  document.getElementById("txtEstrAprendEvl").value = "Cargando Contenido ..."; // Update input as well
   await fetchDataAndFormatEstrAprend();
 }
 

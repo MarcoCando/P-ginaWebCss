@@ -10,10 +10,10 @@ async function fetchDataAndFormatActividades() {
     "tipo": document.getElementById('txtDrpTypoEvl').value,
     "area": "False",
     "rdas": document.getElementById('txtRdasEvl').value,
-    "metodologia": document.getElementById('textareaContentMetodologia').value,
+    "metodologia": document.getElementById('txtMetodologiaEvl').value,
     "planificacion": document.getElementById('textareaContentPlanificacion').value,
     "naturaleza": document.getElementById('txtDrpNaturaleza').value,
-    "estrategia_aprendizaje": document.getElementById('textareaContentEstrAprend').value,
+    "estrategia_aprendizaje": document.getElementById('txtPlanificacionEvl').value,
     /* "sesiones": "3",
      "semanas": "16",
      "subject": "Fundamentos de Inteligencia Artificial",
@@ -122,6 +122,7 @@ function formatContent(content) {
   });
   const textarea = document.getElementById("textareaContentActividades");
   textarea.value = formattedText.trim();
+  document.getElementById("txtActividadesEvl").value = formattedText.trim();
   document.getElementById("txtActividades1").value = txt1.trim();
   document.getElementById("txtActividades2").value = txt2.trim();
   document.getElementById("txtActividades3").value = txt3.trim();

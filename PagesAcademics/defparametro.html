@@ -284,7 +284,9 @@
         </form>
 
     </section>
-    <input type="text" id="txtnewmodalidad" style="display: none;">
+    <div style="display: none;">
+        <input type="text" id="txtnewmodalidad">
+    </div>
     <br>
     <footer class="container-fluid text-white py-4  float-right" style="background-color: #153d64;">
         <div class="d-flex">
@@ -308,8 +310,8 @@
         const textareaContent = sessionStorage.getItem('textareaContent');
         const programa = sessionStorage.getItem('txtPrograma');
         const creditos = sessionStorage.getItem('txtNumber');
-        const semanas = sessionStorage.getItem('semanas');
-        const modalidades = sessionStorage.getItem('drpModalidad');
+        const semanas = sessionStorage.getItem('txtNumeroSemConfig');
+        const modalidades = sessionStorage.getItem('txtModalidadConfig');
 
 
         if (textareaContent) {
