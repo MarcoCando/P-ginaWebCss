@@ -37,7 +37,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
     <section>
         <nav style="background-color: #153d64;">
             <div class="logo">
-                <img src="assets/Logo64x64.png" />
+                <a href="index.html"> <img src="assets/Logo64x64.png" /></a>
                 <h1>Sistema Académico</h1>
             </div>
             <div class="hamburger">
@@ -94,10 +94,27 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                     </a>
                 </div>
                 <div style="left: 20px; position: absolute; padding: 20px 50px;">
+                    <button type="button" id="" class="btn btn-outline-warning" onclick="clearpage()">
+                        Nuevo Programa
+                    </button>
+                </div>
+                <div style="left: 220px; position: absolute; padding: 20px 50px;">
                     <button type="button" id="btnGuardar" class="btn btn-outline-info" onclick="saveForm1Data()">
                         Guardar Cambios
                     </button>
                 </div>
+                <div style="left: 425px; position: absolute; padding: 20px 50px;">
+                    <button type="button" id="btnEnviarPertinencia" class="btn btn-outline-primary">
+                        Descargar Pertinencia <i class="fa-solid fa-file-arrow-down"></i>
+                    </button>
+                    <div id="loadingOverlayPertinencia" class="loading-overlay" style="display: none;">
+                        <div class="spinner">
+                            <div class="double-bounce1"></div>
+                            <div class="double-bounce2"></div>
+                        </div>
+                    </div>
+                </div>
+
                 <br>
                 <div class="p-5">
                     <div class="input-group">
@@ -107,18 +124,15 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                                 Configuración</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <select class="form-control" id="drpConfiguraciones">
+                            <select class="Dropdowns" id="drpConfiguraciones">
                                 <option selected>Selecciona una Configuracion</option>
                                 <option value="Grado">Grado</option>
-
-                                option
                             </select>
                         </div>
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
                             <span class="span-title">
-
                                 Enfoque</span>
                         </div>
                         <div class="input-group-prepend col-9">
@@ -128,7 +142,6 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
                             <span class="span-title">
-
                                 Programa</span>
                         </div>
                         <div class="input-group-prepend col-9">
@@ -460,7 +473,26 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                     icon: "error"
                 });
             }
+        });        
+    </script>
+    <script>
+        function clearpage() {
+            document.getElementById('txtEnfoque').value = '';
+            document.getElementById('txtPrograma').value = '';
+            document.getElementById('txtNumber').value = '';
+            document.getElementById('textareaContent').value = '';
+            document.getElementById('textareaContentPerfil').value = '';
+            document.getElementById('tableContainer').value = '';
+
+        }
+    </script>
+    <script>
+        document.getElementById('btnEnviarPertinencia').addEventListener('click', function () {
+            var programa = document.getElementById('txtPrograma').value;
+            var url = 'http://172.191.10.174/download-pertincencia?name=' + encodeURIComponent(programa);
+            window.open(url, '_blank');
         });
+    </script>
     </script>
     <script src="../jsAcademics/defparametro/rda.js"></script>
     <script src="../jsAcademics/defparametro/perfil.js"></script>

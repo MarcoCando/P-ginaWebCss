@@ -64,7 +64,7 @@ function renderTable() {
       <td style="text-align: center;">${credits}</td>
       <td style="text-align: center;">
         <button class="btn btn-sm btn-primary" data-index="${index}" data-description="${description}">Crear</button>
-        <button class="btn btn-sm btn-secondary" data-index="${index}">Ver</button>
+        <!--<button class="btn btn-sm btn-secondary" data-index="${index}">Ver</button>-->
       </td>
     </tr>
   `;
