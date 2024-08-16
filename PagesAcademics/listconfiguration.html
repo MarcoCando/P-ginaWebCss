@@ -2,371 +2,394 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academics</title>
-    <link href="../Images/Logo/icocosin.png" rel="icon" />
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" type="text/css" href="../Content/sweetalert2.min.css" />
-    <script src="../Content/sweetalert2.all.min.js"></script>
-    <script src="../Content/sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="Content/sweetalert2.min.css" />
-    <script type="text/javascript" src="Content/sweetalert2.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Academics</title>
+       <link href="../Images/Logo/icocosin.png" rel="icon" />
+       <meta name='viewport' content='width=device-width, initial-scale=1'>
+       <link rel="stylesheet" type="text/css" href="../Content/sweetalert2.min.css" />
+       <script src="../Content/sweetalert2.all.min.js"></script>
+       <script src="../Content/sweetalert2.min.js"></script>
+       <link rel="stylesheet" href="Content/sweetalert2.min.css" />
+       <script type="text/javascript" src="Content/sweetalert2.min.js"></script>
+       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <link rel="stylesheet" href="../Content/bootstrap.css" />
-    <!-- <link rel="stylesheet" href="../Styles/StylesAcademics.css" />-->
+       <link rel="stylesheet" href="../Content/bootstrap.css" />
+       <!-- <link rel="stylesheet" href="../Styles/StylesAcademics.css" />-->
 
-    <script src="../Scripts/jquery-3.0.0.min.js"></script>
+       <script src="../Scripts/jquery-3.0.0.min.js"></script>
 
-    <script src="../Scripts/bootstrap.min.js"></script>
-    <script src="../Scripts/bootstrap.bundle.min.js"></script>
-    <script src="../Confirmation/js/ConfirmationModal.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/df2ecd1a25.js" crossorigin="anonymous"></script>
+       <script src="../Scripts/bootstrap.min.js"></script>
+       <script src="../Scripts/bootstrap.bundle.min.js"></script>
+       <script src="../Confirmation/js/ConfirmationModal.js"></script>
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+       <script src="https://kit.fontawesome.com/df2ecd1a25.js" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css" rel="stylesheet">
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js"></script>
+       <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css" rel="stylesheet">
 
-    <style>
-        .table-container {
-            max-height: 385px;
-            /* Altura máxima del contenedor */
-            overflow-y: auto;
-            /* Habilitar barra de desplazamiento vertical */
-        }
+       <style>
+              .table-container {
+                     max-height: 385px;
+                     /* Altura máxima del contenedor */
+                     overflow-y: auto;
+                     /* Habilitar barra de desplazamiento vertical */
+              }
 
-        table {
-            width: 100%;
-            /* Asegura que la tabla ocupe todo el ancho del contenedor */
-            border-collapse: collapse;
-            /* Quitar los espacios entre celdas */
-        }
+              table {
+                     width: 100%;
+                     /* Asegura que la tabla ocupe todo el ancho del contenedor */
+                     border-collapse: collapse;
+                     /* Quitar los espacios entre celdas */
+              }
 
-        th,
-        td {
-            border: 1px solid #ddd;
-            /* Borde de las celdas */
-            padding: 8px;
-            /* Espaciado dentro de las celdas */
-            text-align: left;
-            /* Alineación del texto en las celdas */
-        }
+              th,
+              td {
+                     border: 1px solid #ddd;
+                     /* Borde de las celdas */
+                     padding: 8px;
+                     /* Espaciado dentro de las celdas */
+                     text-align: left;
+                     /* Alineación del texto en las celdas */
+              }
 
-        th {
-            background-color: #f2f2f2;
-            /* Fondo del encabezado */
-            position: sticky;
-            /* Fija el encabezado al hacer scroll */
-            top: 0;
-            /* Mantener el encabezado en la parte superior */
-        }
-    </style>
+              th {
+                     background-color: #f2f2f2;
+                     /* Fondo del encabezado */
+                     position: sticky;
+                     /* Fija el encabezado al hacer scroll */
+                     top: 0;
+                     /* Mantener el encabezado en la parte superior */
+              }
+       </style>
 </head>
 
 <body>
-    <section>
-        <nav style="background-color: #153d64;">
-            <div class="logo">
-                <img src="../Images/Logo/logblsin.png" style="width: 150px; height: 50px;" />
-                <h1>Sistema Académico</h1>
-            </div>
-            <div class="hamburger">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </div>
-        </nav>
-        <div class="menubar">
-            <ul>
-                <li>
-                    <i class="fa-solid fa-arrow-right"></i><a href="index.html">Inicio <i
-                            class="fa-solid fa-house"></i></a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-arrow-right"></i><a href="configuration.html">Configuracion <i
-                            class="fa-solid fa-gear"></i></a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-arrow-right"></i><a href="parametro.html">Crear Asignatura <i
-                            class="fa-solid fa-square-plus" style="color: #05af13;"></i></a>
-                </li>
-            </ul>
-        </div>
-    </section>
+       <section>
+              <nav style="background-color: #153d64;">
+                     <div class="logo">
+                            <img src="../Images/Logo/logblsin.png" style="width: 150px; height: 50px;" />
+                            <h1>Sistema Académico</h1>
+                     </div>
+                     <div class="hamburger">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                     </div>
+              </nav>
+              <div class="menubar">
+                     <ul>
+                            <li>
+                                   <i class="fa-solid fa-arrow-right"></i><a href="index.html">Inicio <i
+                                                 class="fa-solid fa-house"></i></a>
+                            </li>
+                            <li>
+                                   <i class="fa-solid fa-arrow-right"></i><a href="configuration.html">Configuracion <i
+                                                 class="fa-solid fa-gear"></i></a>
+                            </li>
+                            <li>
+                                   <i class="fa-solid fa-arrow-right"></i><a href="parametro.html">Crear Asignatura <i
+                                                 class="fa-solid fa-square-plus" style="color: #05af13;"></i></a>
+                            </li>
+                     </ul>
+              </div>
+       </section>
+       <section class="container-fluid my-3">
+              <div class="card">
+                     <div class="mb-3 card-header bg-dark">
+                            lab
+                     </div>
+                     <div class="row px-3">
+                            <div class="col-6 pr-1">
+                                   <div class="mb-2">
+                                          <div class="form-row">
+                                                 <div class="col-6">
+                                                        <div class="input-group">
+                                                               <div class="input-group-prepend">
+                                                                      <span class="input-group-text">Buscar</span>
+                                                               </div>
+                                                               <input type="text" class="form-control">
+                                                               <button>Busccar</button>
 
-    <section class="container-fluid my-3">
-        <div class="card">
-            <div class="mb-3 card-header bg-dark">
-                lab
-            </div>
-            <div class="row px-3">
-                <div class="col-6 pr-1">
-                    <div class="mb-2">
-                        <div class="form-row">
-                            <div class="col-6">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Buscar</span>
-                                    </div>
-                                    <input type="text" class="form-control">
-                                    <button>Busccar</button>
-
-                                </div>
+                                                        </div>
+                                                 </div>
+                                          </div>
+                                   </div>
                             </div>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
+                     </div>
 
 
 
 
-        </div>
+              </div>
 
-    </section>
-
-
-
-    <div class="container text-center">
-        <div class="row">
-            <!-- Primera columna -->
-            <div class="col-md-4">
-                <section class="welcome">
-                    <div class="card m-2" style="background-color: #f5f5f5;">
-                        <div class="card-header">
-                            <h2>Configuración <i class="fa-solid fa-gears"></i></h2>
-                        </div>
-                        <form action="">
-                            <!-- Botones de acción -->
-                            <div class="d-flex justify-content-between p-4">
-                                <button type="button" class="btn btn-outline-info" onclick="enviarDatos()">
-                                    Guardar
-                                </button>
-                                <a href="parametro.html" id="nextButton" class="btn btn-outline-success">
-                                    Siguiente
-                                </a>
-                            </div>
-                            <div class="p-3">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend col-4">
-                                                <span class="span-title">Nombre</span>
-                                            </div>
-                                            <input type="text" id="txtname" name="name" value="" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend col-4">
-                                                <span class="span-title">Número de Semanas</span>
-                                            </div>
-                                            <input type="number" id="txtsemanas" name="semanas" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend col-4">
-                                                <span class="span-title">Modalidad</span>
-                                            </div>
-                                            <select id="drpModalidad" class="form-control">
-                                                <option value="Presencial">Presencial</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend col-4">
-                                                <span class="span-title">Relación</span>
-                                            </div>
-                                            <input type="text" id="txtrelacion" name="relacion" value=""
-                                                class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend col-4">
-                                                <span class="span-title">Número Máximo de Créditos</span>
-                                            </div>
-                                            <input type="number" id="txtnum_max_credits" name="num_max_credits" value=""
-                                                class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend col-4">
-                                                <span class="span-title">Número Máximo de Periodos</span>
-                                            </div>
-                                            <input type="number" id="txtnum_max_periods" name="num_max_periods" value=""
-                                                class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend col-4">
-                                                <span class="span-title">Tipo</span>
-                                            </div>
-                                            <select id="drpTipoConf" class="form-control">
-                                                <option value="Grado">Grado</option>
-                                                <option value="Posgrado">Posgrado</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <table class="table table-bordered" style="font-size: 12px; display: none;">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>Créditos</th>
-                                            <th>Docente</th>
-                                            <th>Autonomo</th>
-                                            <th>Aplicación</th>
-                                            <th>Total</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>48</td>
-                                            <td>48</td>
-                                            <td>48</td>
-                                            <td>144</td>
-                                            <td class="text-center">
-                                                <i class="fas fa-trash-alt text-danger"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>64</td>
-                                            <td>64</td>
-                                            <td>64</td>
-                                            <td>192</td>
-                                            <td class="text-center">
-                                                <i class="fas fa-trash-alt text-danger"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>80</td>
-                                            <td>80</td>
-                                            <td>80</td>
-                                            <td>240</td>
-                                            <td class="text-center">
-                                                <i class="fas fa-trash-alt text-danger"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>32</td>
-                                            <td>32</td>
-                                            <td>32</td>
-                                            <td>96</td>
-                                            <td class="text-center">
-                                                <i class="fas fa-trash-alt text-danger"></i>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </form>
-                    </div>
-                </section>
-            </div>
-
-            <!-- Segunda columna -->
-            <div class="col-md-7">
-                <section class="welcome">
-                    <div class="card m-2" style="background-color: #f5f5f5;">
-                        <div class="card-header">
-                            <h2>Configuraciones <button type="button" id="refresh" class="btn btn-outline-primary"
-                                    style="font-size: 10px;">
-                                    <i class="fa-solid fa-arrows-rotate"></i>
-                                </button> </h2>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend col-12">
-                                <div id="resultTable" class="table table-container" style="font-size: 12px;">
-
-                                    <!-- Contenido de la tabla -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <!-- Tercera Columna-->
-            <div class="col-md-12">
-                <section class="welcome">
-                    <div class="card m-2" style="background-color: #f5f5f5;">
-                        <div class="card-header">
-                            <h2>Ver Detalle Configuracion <i class="fa-solid fa-circle-info"></i></h2>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend col-12">
-
-                                <table id="tablaDatos" class="table table-hover table-bordered"
-                                    style="font-size: 12px;">
-                                    <thead style="background-color: #cacaca; text-align: center; color: #3d3d3dc9;">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Nombre</th>
-                                            <th>Número Máximo de Créditos</th>
-                                            <th>Número Máximo de Períodos</th>
-                                            <th>Tipo</th>
-                                            <th>Semanas</th>
-                                            <th>Modalidad</th>
-                                            <th>Relación</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <footer class="container-fluid text-white py-4  float-right" style="background-color: #153d64;">
-        <div class="d-flex">
-            <div class="col-8 d-flex flex-column">
-                <span>Tecnologia Informática - Departamento de Desarrollo de Aplicaciones
-                </span>
-                <span>Improve-IT
-                </span>
-                <span>Av. Amazonas y Unión de Periodistas
-                </span>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-
-    </script>
-    <script>
+       </section>
 
 
-    </script>
-    <script>
-        let refresh = document.getElementById('refresh');
-        refresh.addEventListener('click', _ => {
-            location.reload();
-        })
-    </script>
 
-    <script src="../jsAcademics/configuration/guardarconfig.js"></script>
-    <script src="../jsAcademics/configuration/listarconfig.js"></script>
-    <script src="../Styles/script.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/main2.js"></script>
+       <div class="container text-center">
+              <div class="row">
+                     <!-- Primera columna -->
+                     <div class="col-md-4">
+                            <section class="welcome">
+                                   <div class="card m-2" style="background-color: #f5f5f5;">
+                                          <div class="card-header">
+                                                 <h2>Configuración <i class="fa-solid fa-gears"></i></h2>
+                                          </div>
+                                          <form action="">
+                                                 <!-- Botones de acción -->
+                                                 <div class="d-flex justify-content-between p-4">
+                                                        <button type="button" class="btn btn-outline-info"
+                                                               onclick="enviarDatos()">
+                                                               Guardar
+                                                        </button>
+                                                        <a href="parametro.html" id="nextButton"
+                                                               class="btn btn-outline-success">
+                                                               Siguiente
+                                                        </a>
+                                                 </div>
+                                                 <div class="p-3">
+                                                        <div class="row">
+                                                               <div class="col-md-6">
+                                                                      <div class="input-group mb-3">
+                                                                             <div class="input-group-prepend col-4">
+                                                                                    <span
+                                                                                           class="span-title">Nombre</span>
+                                                                             </div>
+                                                                             <input type="text" id="txtname" name="name"
+                                                                                    value="" class="form-control">
+                                                                      </div>
+                                                               </div>
+                                                               <div class="col-md-6">
+                                                                      <div class="input-group mb-3">
+                                                                             <div class="input-group-prepend col-4">
+                                                                                    <span class="span-title">Número de
+                                                                                           Semanas</span>
+                                                                             </div>
+                                                                             <input type="number" id="txtsemanas"
+                                                                                    name="semanas" class="form-control">
+                                                                      </div>
+                                                               </div>
+                                                               <div class="col-md-6">
+                                                                      <div class="input-group mb-3">
+                                                                             <div class="input-group-prepend col-4">
+                                                                                    <span
+                                                                                           class="span-title">Modalidad</span>
+                                                                             </div>
+                                                                             <select id="drpModalidad"
+                                                                                    class="form-control">
+                                                                                    <option value="Presencial">
+                                                                                           Presencial</option>
+                                                                             </select>
+                                                                      </div>
+                                                               </div>
+                                                               <div class="col-md-6">
+                                                                      <div class="input-group mb-3">
+                                                                             <div class="input-group-prepend col-4">
+                                                                                    <span
+                                                                                           class="span-title">Relación</span>
+                                                                             </div>
+                                                                             <input type="text" id="txtrelacion"
+                                                                                    name="relacion" value=""
+                                                                                    class="form-control">
+                                                                      </div>
+                                                               </div>
+                                                               <div class="col-md-6">
+                                                                      <div class="input-group mb-3">
+                                                                             <div class="input-group-prepend col-4">
+                                                                                    <span class="span-title">Número
+                                                                                           Máximo de Créditos</span>
+                                                                             </div>
+                                                                             <input type="number"
+                                                                                    id="txtnum_max_credits"
+                                                                                    name="num_max_credits" value=""
+                                                                                    class="form-control">
+                                                                      </div>
+                                                               </div>
+                                                               <div class="col-md-6">
+                                                                      <div class="input-group mb-3">
+                                                                             <div class="input-group-prepend col-4">
+                                                                                    <span class="span-title">Número
+                                                                                           Máximo de Periodos</span>
+                                                                             </div>
+                                                                             <input type="number"
+                                                                                    id="txtnum_max_periods"
+                                                                                    name="num_max_periods" value=""
+                                                                                    class="form-control">
+                                                                      </div>
+                                                               </div>
+                                                               <div class="col-md-6">
+                                                                      <div class="input-group mb-3">
+                                                                             <div class="input-group-prepend col-4">
+                                                                                    <span class="span-title">Tipo</span>
+                                                                             </div>
+                                                                             <select id="drpTipoConf"
+                                                                                    class="form-control">
+                                                                                    <option value="Grado">Grado</option>
+                                                                                    <option value="Posgrado">Posgrado
+                                                                                    </option>
+                                                                             </select>
+                                                                      </div>
+                                                               </div>
+                                                        </div>
+                                                        <hr>
+                                                        <table class="table table-bordered"
+                                                               style="font-size: 12px; display: none;">
+                                                               <thead class="thead-light">
+                                                                      <tr>
+                                                                             <th>Créditos</th>
+                                                                             <th>Docente</th>
+                                                                             <th>Autonomo</th>
+                                                                             <th>Aplicación</th>
+                                                                             <th>Total</th>
+                                                                             <th></th>
+                                                                      </tr>
+                                                               </thead>
+                                                               <tbody>
+                                                                      <tr>
+                                                                             <td>3</td>
+                                                                             <td>48</td>
+                                                                             <td>48</td>
+                                                                             <td>48</td>
+                                                                             <td>144</td>
+                                                                             <td class="text-center">
+                                                                                    <i
+                                                                                           class="fas fa-trash-alt text-danger"></i>
+                                                                             </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                             <td>4</td>
+                                                                             <td>64</td>
+                                                                             <td>64</td>
+                                                                             <td>64</td>
+                                                                             <td>192</td>
+                                                                             <td class="text-center">
+                                                                                    <i
+                                                                                           class="fas fa-trash-alt text-danger"></i>
+                                                                             </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                             <td>5</td>
+                                                                             <td>80</td>
+                                                                             <td>80</td>
+                                                                             <td>80</td>
+                                                                             <td>240</td>
+                                                                             <td class="text-center">
+                                                                                    <i
+                                                                                           class="fas fa-trash-alt text-danger"></i>
+                                                                             </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                             <td>2</td>
+                                                                             <td>32</td>
+                                                                             <td>32</td>
+                                                                             <td>32</td>
+                                                                             <td>96</td>
+                                                                             <td class="text-center">
+                                                                                    <i
+                                                                                           class="fas fa-trash-alt text-danger"></i>
+                                                                             </td>
+                                                                      </tr>
+                                                               </tbody>
+                                                        </table>
+                                                 </div>
+                                          </form>
+                                   </div>
+                            </section>
+                     </div>
+
+                     <!-- Segunda columna -->
+                     <div class="col-md-7">
+                            <section class="welcome">
+                                   <div class="card m-2" style="background-color: #f5f5f5;">
+                                          <div class="card-header">
+                                                 <h2>Configuraciones <button type="button" id="refresh"
+                                                               class="btn btn-outline-primary" style="font-size: 10px;">
+                                                               <i class="fa-solid fa-arrows-rotate"></i>
+                                                        </button> </h2>
+                                          </div>
+                                          <div class="input-group">
+                                                 <div class="input-group-prepend col-12">
+                                                        <div id="resultTable" class="table table-container"
+                                                               style="font-size: 12px;">
+
+                                                               <!-- Contenido de la tabla -->
+                                                        </div>
+                                                 </div>
+                                          </div>
+                                   </div>
+                            </section>
+                     </div>
+                     <!-- Tercera Columna-->
+                     <div class="col-md-12">
+                            <section class="welcome">
+                                   <div class="card m-2" style="background-color: #f5f5f5;">
+                                          <div class="card-header">
+                                                 <h2>Ver Detalle Configuracion <i class="fa-solid fa-circle-info"></i>
+                                                 </h2>
+                                          </div>
+                                          <div class="input-group">
+                                                 <div class="input-group-prepend col-12">
+
+                                                        <table id="tablaDatos" class="table table-hover table-bordered"
+                                                               style="font-size: 12px;">
+                                                               <thead
+                                                                      style="background-color: #cacaca; text-align: center; color: #3d3d3dc9;">
+                                                                      <tr>
+                                                                             <th>ID</th>
+                                                                             <th>Nombre</th>
+                                                                             <th>Número Máximo de Créditos</th>
+                                                                             <th>Número Máximo de Períodos</th>
+                                                                             <th>Tipo</th>
+                                                                             <th>Semanas</th>
+                                                                             <th>Modalidad</th>
+                                                                             <th>Relación</th>
+                                                                      </tr>
+                                                               </thead>
+                                                               <tbody>
+                                                               </tbody>
+                                                        </table>
+                                                 </div>
+                                          </div>
+                                   </div>
+                            </section>
+                     </div>
+              </div>
+       </div>
+       <br>
+       <br>
+       <footer class="container-fluid text-white py-4  float-right" style="background-color: #153d64;">
+              <div class="d-flex">
+                     <div class="col-8 d-flex flex-column">
+                            <span>Tecnologia Informática - Departamento de Desarrollo de Aplicaciones
+                            </span>
+                            <span>Improve-IT
+                            </span>
+                            <span>Av. Amazonas y Unión de Periodistas
+                            </span>
+                     </div>
+              </div>
+       </footer>
+
+       <script>
+
+       </script>
+       <script>
+
+
+       </script>
+       <script>
+              let refresh = document.getElementById('refresh');
+              refresh.addEventListener('click', _ => {
+                     location.reload();
+              })
+       </script>
+
+       <script src="../jsAcademics/configuration/guardarconfig.js"></script>
+       <script src="../jsAcademics/configuration/listarconfig.js"></script>
+       <script src="../Styles/script.js"></script>
+       <script src="../js/main.js"></script>
+       <script src="../js/main2.js"></script>
 </body>
 
 </html>
