@@ -64,7 +64,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
             </ul>
         </div>
     </section>
-    <div style="display: none;">
+    <div>
         <input type="text" id="txtNombreConfig">
         <input type="text" id="txtNumeroSemConfig">
         <input type="text" id="txtModalidadConfig">
@@ -72,6 +72,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
         <input type="text" id="txtNumMaxCrediConfig">
         <input type="text" id="txtNumMaxPerioConfig">
         <input type="text" id="txtTipoConfig">
+
     </div>
     <section class="welcome">
         <div class="card m-2" style="background-color: #f5f5f5;">
@@ -171,12 +172,14 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                     <div class="input-group">
                         <div class="input-group-prepend col-2">
                             <span class="span-title"
-                                style="top: 0; right: 0;left: 0; display: flex; justify-content: center; align-items: center;">
-                                Resultados de A. Ins</span>
+                                style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
+                                Resultados de A. Ins
+                            </span>
                         </div>
                         <div class="input-group-prepend col-9">
                             <div class="table-responsive">
-                                <table class="table table-hover table-bordered" style="font-size: 12px;">
+                                <table class="table table-hover table-bordered" id="dynamicTable"
+                                    style="font-size: 12px;">
                                     <thead style="background-color: #cacaca; align-items: center; color: #3d3d3dc9;">
                                         <tr>
                                             <th scope="col" style="text-align: center;">Number</th>
@@ -184,102 +187,106 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="">
-                                            <td scope="row" style="cursor: pointer;">Asignar Items <i
-                                                    class="fa fa-plus-square" aria-hidden="true"
-                                                    style="color: darkgreen;"></i> </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="" style="height: 60px; width: 1000px;">
-                                            <td></td>
-                                            <td></td>
+                                        <!-- Primera fila con Number inicializado en 1 -->
+                                        <tr>
+                                            <td>1</td>
+                                            <td contenteditable="true"></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-                    </div>
 
-                    <hr>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title"
-                                style="top: 0; right: 0;left: 0; display: flex; justify-content: center; align-items: center;">
-                                Resultados de Aprendizajes</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <textarea id="textareaContent" cols="110" rows="10" style="overflow: hidden"
-                                readonly></textarea>
-                            <div id="loadingOverlay" class="loading-overlay" style="display: none;">
-                                <div class="spinner">
-                                    <div class="double-bounce1"></div>
-                                    <div class="double-bounce2"></div>
-                                </div>
-                            </div>
                         </div>
                         <div class="input-group-prepend col-1">
-                            <button onclick="handleButtonClick()" id="generar" type="button" class="btn btn-info"
-                                style="font-size: 12px; border-radius: 50px; height: 40px;">
-                                Generar
-                            </button>
+
+                            <button type="button" id="addRowBtn" class="btn btn-info"
+                                style="font-size: 12px; border-radius: 50px; height: 50px;">Agregar Fila <i
+                                    class="fa-solid fa-circle-plus"></i></button>
                         </div>
                     </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title"
-                                style="top: 0; right: 0;left: 0; display: flex; justify-content: center; align-items: center;">
 
-                                Perfil de Egreso</span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <textarea id="textareaContentPerfil" cols="110" rows="10" style="overflow: hidden"
-                                readonly></textarea>
-                            <div id="loadingOverlayPerfil" class="loading-overlay" style="display: none;">
-                                <div class="spinner">
-                                    <div class="double-bounce1"></div>
-                                    <div class="double-bounce2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group-prepend col-1">
-                            <button onclick="handleButtonClickPerfil()" id="generarPerfil" type="button"
-                                class="btn btn-info" style="font-size: 12px; border-radius: 50px; height: 40px;">
-                                Generar
-                            </button>
-                        </div>
-                    </div>
-                    <div class="input-group">
-
-                        <div class="input-group-prepend col-2">
-                            <span class="span-title"
-                                style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
-                                Diseño Curricular
-                            </span>
-                        </div>
-                        <div class="input-group-prepend col-9">
-                            <div id="tableContainer" class="table-responsive table-striped">
-                            </div>
-
-
-                            <div id="loadingOverlayDiseño" class="loading-overlay" style="display: none;">
-                                <div class="spinner">
-                                    <div class="double-bounce1"></div>
-                                    <div class="double-bounce2"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="input-group-prepend col-1">
-                            <button onclick="handleButtonClickDiseño()" type="button" class="btn btn-info"
-                                style="font-size: 12px; border-radius: 50px; height: 40px;">
-                                Generar
-                            </button>
-                        </div>
-                        <!-- <div id="inputsContainer"></div>-->
-                    </div>
-                    <hr>
-                    <br>
                 </div>
+
+                <hr>
+                <div class="input-group">
+                    <div class="input-group-prepend col-2">
+                        <span class="span-title"
+                            style="top: 0; right: 0;left: 0; display: flex; justify-content: center; align-items: center;">
+                            Resultados de Aprendizajes</span>
+                    </div>
+                    <div class="input-group-prepend col-9">
+                        <textarea id="textareaContent" cols="110" rows="10" style="overflow: hidden"
+                            readonly></textarea>
+                        <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+                            <div class="spinner">
+                                <div class="double-bounce1"></div>
+                                <div class="double-bounce2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group-prepend col-1">
+                        <button onclick="handleButtonClick()" id="generar" type="button" class="btn btn-info"
+                            style="font-size: 12px; border-radius: 50px; height: 40px;">
+                            Generar
+                        </button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend col-2">
+                        <span class="span-title"
+                            style="top: 0; right: 0;left: 0; display: flex; justify-content: center; align-items: center;">
+
+                            Perfil de Egreso</span>
+                    </div>
+                    <div class="input-group-prepend col-9">
+                        <textarea id="textareaContentPerfil" cols="110" rows="10" style="overflow: hidden"
+                            readonly></textarea>
+                        <div id="loadingOverlayPerfil" class="loading-overlay" style="display: none;">
+                            <div class="spinner">
+                                <div class="double-bounce1"></div>
+                                <div class="double-bounce2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group-prepend col-1">
+                        <button onclick="handleButtonClickPerfil()" id="generarPerfil" type="button"
+                            class="btn btn-info" style="font-size: 12px; border-radius: 50px; height: 40px;">
+                            Generar
+                        </button>
+                    </div>
+                </div>
+                <div class="input-group">
+
+                    <div class="input-group-prepend col-2">
+                        <span class="span-title"
+                            style="top: 0; right: 0; left: 0; display: flex; justify-content: center; align-items: center;">
+                            Diseño Curricular
+                        </span>
+                    </div>
+                    <div class="input-group-prepend col-9">
+                        <div id="tableContainer" class="table-responsive table-striped">
+                        </div>
+
+
+                        <div id="loadingOverlayDiseño" class="loading-overlay" style="display: none;">
+                            <div class="spinner">
+                                <div class="double-bounce1"></div>
+                                <div class="double-bounce2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group-prepend col-1">
+                        <button onclick="handleButtonClickDiseño()" type="button" class="btn btn-info"
+                            style="font-size: 12px; border-radius: 50px; height: 40px;">
+                            Generar
+                        </button>
+                    </div>
+                    <!-- <div id="inputsContainer"></div>-->
+                </div>
+                <hr>
+                <br>
+        </div>
         </div>
         </form>
     </section>
@@ -297,6 +304,40 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
             </div>
         </div>
     </footer>
+    <script>
+        document.getElementById('addRowBtn').addEventListener('click', function () {
+            // Obtén el tbody de la tabla
+            var tableBody = document.getElementById('dynamicTable').getElementsByTagName('tbody')[0];
+            // Encuentra el último número en la columna "Number"
+            var lastNumber = 0;
+            var rows = tableBody.getElementsByTagName('tr');
+
+            // Recorre todas las filas para encontrar el último número
+            for (var i = 0; i < rows.length; i++) {
+                var cell = rows[i].cells[0];
+                if (cell && cell.textContent.trim() !== "") {
+                    var num = parseInt(cell.textContent, 10);
+                    if (!isNaN(num)) {
+                        lastNumber = Math.max(lastNumber, num);
+                    }
+                }
+            }
+            // Crea una nueva fila y celdas
+            var newRow = tableBody.insertRow();
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+
+            // Asigna el valor autoincremental a la primera celda
+            cell1.textContent = lastNumber + 1;
+
+            // Haz que la segunda celda sea editable
+            cell2.contentEditable = "true";
+            sessionStorage.setItem('tableData', table.innerHTML);
+        });
+        window.onload = function () {
+            renderTable(); // Renderizar la tabla al cargar la página
+        };
+    </script>
     <script src="../jsAcademics/defparametro/rda.js"></script>
     <script src="../jsAcademics/defparametro/perfil.js"></script>
     <script src="../jsAcademics/defparametro/diseno.js"></script>

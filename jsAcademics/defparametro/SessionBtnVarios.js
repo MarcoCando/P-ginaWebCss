@@ -1,6 +1,11 @@
 //SESSION STORAGES Y BOTONES DE GUARDADO Y LIMPIAR PÁGINA CON EL BOTON DE PERTINENCIA
 document.addEventListener('DOMContentLoaded', function () {
-    // Recuperar datos del sessionStorage al cargar la página
+    // Recuperar datos de la tabla desde el sessionStorage
+    if (sessionStorage.getItem('tableData')) {
+        document.getElementById('dynamicTable').getElementsByTagName('tbody')[0].innerHTML = sessionStorage.getItem('tableData');
+    }
+
+    // Recuperar otros datos del sessionStorage al cargar la página
     document.getElementById('txtEnfoque').value = sessionStorage.getItem('txtEnfoque') || '';
     document.getElementById('txtPrograma').value = sessionStorage.getItem('txtPrograma') || '';
     document.getElementById('txtNumber').value = sessionStorage.getItem('txtNumber') || '';
@@ -16,10 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('txtTipoConfig').value = sessionStorage.getItem('txtTipoConfig') || '';
     document.getElementById('drpConfiguraciones').value = sessionStorage.getItem('drpConfiguraciones') || '';
 
-    //document.getElementById('tableContainer').innerHTML = sessionStorage.getItem('tableContainer') || '';
-    // document.getElementById('inputsContainer').innerHTML = sessionStorage.getItem('inputsContainer') || '';
-
-    // Guardar datos en sessionStorage al cambiar el valor de los campos
     document.getElementById('txtEnfoque').addEventListener('input', function () {
         sessionStorage.setItem('txtEnfoque', this.value);
     });
@@ -35,10 +36,26 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('textareaContentPerfil').addEventListener('input', function () {
         sessionStorage.setItem('textareaContentPerfil', this.value);
     });
+
+    // Escuchar cambios en la tabla para guardar en sessionStorage
+    document.getElementById('dynamicTable').addEventListener('input', function () {
+        sessionStorage.setItem('tableData', document.getElementById('dynamicTable').getElementsByTagName('tbody')[0].innerHTML);
+    });
 });
 
-function saveForm1Data() {
+/*document.getElementById('addRowBtn').addEventListener('click', function () {
+    var table = document.getElementById('dynamicTable').getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow();
+    var cell1 = newRow.insertCell(0);
+    var cell2 = newRow.insertCell(1);
+    cell1.contentEditable = "true";
+    cell2.contentEditable = "true";
 
+    // Guardar la tabla actualizada en sessionStorage
+    sessionStorage.setItem('tableData', table.innerHTML);
+});*/
+
+function saveForm1Data() {
     sessionStorage.setItem('txtEnfoque', document.getElementById('txtEnfoque').value);
     sessionStorage.setItem('txtPrograma', document.getElementById('txtPrograma').value);
     sessionStorage.setItem('txtNumber', document.getElementById('txtNumber').value);
@@ -53,10 +70,8 @@ function saveForm1Data() {
     sessionStorage.setItem('txtNumMaxPerioConfig', document.getElementById('txtNumMaxPerioConfig').value);
     sessionStorage.setItem('txtTipoConfig', document.getElementById('txtTipoConfig').value);
     sessionStorage.setItem('drpConfiguraciones', document.getElementById('drpConfiguraciones').value);
-    // sessionStorage.setItem('tableContainer', document.getElementById('tableContainer').innerHTML);
-    //sessionStorage.setItem('inputsContainer', document.getElementById('inputsContainer').innerHTML);
-
 }
+
 
 const guardarBtn = document.getElementById('btnGuardar');
 
@@ -99,3 +114,4 @@ document.getElementById('btnEnviarPertinencia').addEventListener('click', functi
     var url = 'http://172.191.10.174/download-pertincencia?name=' + encodeURIComponent(programa);
     window.open(url, '_blank');
 });
+

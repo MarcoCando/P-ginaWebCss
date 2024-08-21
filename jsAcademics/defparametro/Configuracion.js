@@ -74,6 +74,8 @@ fetch("http://40.112.56.227:8080/config/list/", requestOptions)
                         document.getElementById("txtNumMaxPerioConfig").value = config.num_max_periods;
                         document.getElementById("txtTipoConfig").value = config.tipo;
 
+
+
                     } else {
                         console.error("Failed to retrieve configuration:", result);
                     }
