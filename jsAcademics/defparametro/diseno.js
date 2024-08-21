@@ -4,7 +4,7 @@ let loadingDiseño = false;
 
 async function fetchData() {
     try {
-        const url = "http://192.168.100.143:8003/api/diseno/programa";
+        const url = "http://172.191.10.174//api/diseno/programa";
         const rdasContent = document.getElementById('textareaContent').value;
 
         const body = {
