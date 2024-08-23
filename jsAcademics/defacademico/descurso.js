@@ -3,7 +3,7 @@ async function fetchDataAndFormatDesCurso() {
     const sesiones = document.getElementById('txtCreditosDef').value;
     const semanas = document.getElementById('txtNumSemanas').value;
     const subject = document.getElementById('txtAsignatura').value;
-    const tipo = document.getElementById('drpTipo').value; // Obtener el valor seleccionado del dropdown
+    const tipo = document.getElementById('txtTipoNew').value; // Obtener el valor seleccionado del dropdown
     const definicion = document.getElementById('textareaContentDefCurso').value;
     const modalidad = document.getElementById('txtnewmodalidad').value;
 

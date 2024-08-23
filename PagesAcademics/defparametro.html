@@ -153,10 +153,7 @@
                                 Tipo</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <select id="drpTipo" class="Dropdowns">
-                                <option value="Modular">Modular</option>
-                                <option value="Periodo Academico">Periodo Académico</option>
-                            </select>
+                            <input type="text" id="txtTipoNew" class="input100" readonly>
 
                         </div>
                     </div>
@@ -212,8 +209,8 @@
                                 Definición del Curso</span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <textarea id="textareaContentDefCurso" cols="110" rows="10" style="overflow: hidden"
-                                readonly></textarea>
+                            <textarea id="textareaContentDefCurso" cols="110" rows="10"
+                                style="overflow: hidden"></textarea>
                             <div id="loadingOverlayDefCurso" class="loading-overlay" style="display: none;">
                                 <div class="spinner">
                                     <div class="double-bounce1"></div>
@@ -237,8 +234,8 @@
                             </span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <textarea id="textareaContentResultado" cols="110" rows="10" style="overflow: hidden"
-                                readonly></textarea>
+                            <textarea id="textareaContentResultado" cols="110" rows="10"
+                                style="overflow: hidden"></textarea>
                             <div id="loadingOverlayResultado" class="loading-overlay" style="display: none;">
                                 <div class="spinner">
                                     <div class="double-bounce1"></div>
@@ -261,8 +258,8 @@
                             </span>
                         </div>
                         <div class="input-group-prepend col-9">
-                            <textarea id="textareaContentDesCurso" cols="110" rows="10" style="overflow: hidden"
-                                readonly></textarea>
+                            <textarea id="textareaContentDesCurso" cols="110" rows="10"
+                                style="overflow: hidden"></textarea>
                             <div id="loadingOverlayDesCurso" class="loading-overlay" style="display: none;">
                                 <div class="spinner">
                                     <div class="double-bounce1"></div>
@@ -313,7 +310,7 @@
         const creditos = sessionStorage.getItem('txtNumber');
         const semanas = sessionStorage.getItem('txtNumeroSemConfig');
         const modalidades = sessionStorage.getItem('txtModalidadConfig');
-
+        const tiponew = sessionStorage.getItem('txtTipoConfig');
 
         if (textareaContent) {
             document.getElementById('newTextareaContent').value = textareaContent;
@@ -335,6 +332,11 @@
             document.getElementById('txtnewmodalidad').value = modalidades;
             //document.getElementById('hiddenTextareaContent').value = textareaContent;
         }
+        if (tiponew) {
+            document.getElementById('txtTipoNew').value = tiponew;
+            //document.getElementById('hiddenTextareaContent').value = textareaContent;
+        }
+
 
 
 

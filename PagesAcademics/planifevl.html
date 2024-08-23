@@ -87,7 +87,7 @@
       <br />
       <div class="p-4">
         <div class="tabs-container">
-          <div class="tab" onclick="toggleContenido(1)">Planificación</div>
+          <div class="tab" onclick="toggleContenido(1)" style="display: none;">Planificación</div>
           <div class="tab" onclick="toggleContenido(2)">Metodología</div>
         </div>
 
@@ -128,8 +128,7 @@
               </span>
             </div>
             <div class="input-group-prepend col-9">
-              <textarea id="textareaContentMetodologia" cols="110" rows="10" style="overflow: hidden"
-                readonly></textarea>
+              <textarea id="textareaContentMetodologia" cols="110" rows="10" style="overflow: hidden"></textarea>
               <input type="text" id="txtMetodologiaEvl" style="display: none;">
               <div id="loadingOverlayMetodologia" class="loading-overlay" style="display: none">
                 <div class="spinner">
@@ -184,7 +183,7 @@
               </span>
             </div>
             <div class="input-group-prepend col-9">
-              <textarea id="textareaContentTemas" cols="110" rows="10" style="overflow: hidden" readonly></textarea>
+              <textarea id="textareaContentTemas" cols="110" rows="10" style="overflow: hidden"></textarea>
               <input type="text" name="" id="txtTemasEvl" style="display: none;">
               <div id="loadingOverlayTemas" class="loading-overlay" style="display: none">
                 <div class="spinner">
@@ -216,8 +215,7 @@
               </span>
             </div>
             <div class="input-group-prepend col-9">
-              <textarea id="textareaContentPlanificacion" cols="110" rows="10" style="overflow: hidden"
-                readonly></textarea>
+              <textarea id="textareaContentPlanificacion" cols="110" rows="10" style="overflow: hidden"></textarea>
               <input type="text" id="txtPlanificacionEvl" style="display: none;">
               <div id="loadingOverlayPlanificacion" class="loading-overlay" style="display: none">
                 <div class="spinner">
@@ -276,8 +274,7 @@
               </span>
             </div>
             <div class="input-group-prepend col-9">
-              <textarea id="textareaContentEstrAprend" cols="110" rows="10" style="overflow: hidden"
-                readonly></textarea>
+              <textarea id="textareaContentEstrAprend" cols="110" rows="10" style="overflow: hidden"></textarea>
               <input type="text" id="txtEstrAprendEvl" style="display: none;">
               <div id="loadingOverlayEstrAprend" class="loading-overlay" style="display: none">
                 <div class="spinner">
@@ -310,7 +307,7 @@
             </div>
             <div class="input-group-prepend col-9">
               <textarea id="textareaContentActividades" cols="110" rows="10"
-                style="overflow: hidden;text-align:left;align-content: left;" readonly></textarea>
+                style="overflow: hidden;text-align:left;align-content: left;"></textarea>
               <input type="text" id="txtActividadesEvl" style="display: none;">
               <div id="loadingOverlayActividades" class="loading-overlay" style="display: none">
                 <div class="spinner">
@@ -366,7 +363,8 @@
             </div>
 
             <div class="input-group-prepend col-9">
-              <input type="text" id="txtPorcentaje" class="input100">
+              <input type="text" id="txtPorcentaje" class="input100" oninput="validarPorcentaje()">
+              <small id="error-msg" style="color: red; display: none;"> El porcentaje no debe ser mayor de 100%.</small>
             </div>
 
 
@@ -765,6 +763,24 @@
       sessionStorage.setItem('txtActividades4', document.getElementById('txtActividades4').value);
       sessionStorage.setItem('tableContentEvaluacion', document.getElementById('tableContentEvaluacion').innerHTML);
       sessionStorage.setItem('tableContentRubricas', document.getElementById('tableContentRubricas').innerHTML);
+    }
+
+  </script>
+  <script>
+    function validarPorcentaje() {
+      const input = document.getElementById('txtPorcentaje');
+      const errorMsg = document.getElementById('error-msg');
+      const valores = input.value.split(';').map(Number);
+
+      const suma = valores.reduce((acc, curr) => acc + curr, 0);
+
+      if (suma > 100) {
+        errorMsg.style.display = 'inline';
+        input.style.borderColor = 'red';
+      } else {
+        errorMsg.style.display = 'none';
+        input.style.borderColor = '';
+      }
     }
   </script>
   <!--DESARROLLO-->

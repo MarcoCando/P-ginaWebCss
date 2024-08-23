@@ -3,7 +3,7 @@ async function fetchDataAndFormatResultado() {
     const numeros = document.getElementById('txtCreditosDef').value;
     const semana = document.getElementById('txtNumSemanas').value;
     const subject = document.getElementById('txtAsignatura').value;
-    const tipo = document.getElementById('drpTipo').value; // Obtener el valor seleccionado del dropdown
+    const tipo = document.getElementById('txtTipoNew').value; // Obtener el valor seleccionado del dropdown
     const modalidad = document.getElementById('txtnewmodalidad').value;
 
 
