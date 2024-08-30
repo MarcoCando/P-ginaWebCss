@@ -1,4 +1,4 @@
-/* DISEÑO CURRICULAR */
+/* DISEÑO CURRICULAR d*/
 let programData = null;
 let loadingDiseño = false;
 
